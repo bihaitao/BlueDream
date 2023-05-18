@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;CS8600;CS8601;CS8602;CS8603;CS8604;CS8605;CS8618;CS8625;IDE0057;IDE0071;IDE0090</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;CS8600;CS8601;CS8602;CS8603;CS8604;CS8605;CS8618;CS8625;IDE0057;IDE0071;IDE0090</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlueDream.Common\BlueDream.Common.csproj" />
+    <ProjectReference Include="..\BlueDream.Dal\BlueDream.Dal.csproj" />
+    <ProjectReference Include="..\BlueDream.Enum\BlueDream.Enum.csproj" />
+    <ProjectReference Include="..\BlueDream.Model\BlueDream.Model.csproj" />
+  </ItemGroup>
+
+</Project>

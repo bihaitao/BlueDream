@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueDream.WebApi", "BlueDream.WebApi\BlueDream.WebApi.csproj", "{B17594C9-C87E-4F71-ADB4-4A112E77E526}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueDream.Dal", "BlueDream.Dal\BlueDream.Dal.csproj", "{EA89B9D6-E3D5-484C-BEA3-41C6962D0705}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueDream.Bll", "BlueDream.Bll\BlueDream.Bll.csproj", "{1D4BA67C-8929-4E5C-84B0-65D7D26B4D8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueDream.Common", "BlueDream.Common\BlueDream.Common.csproj", "{D7FECF52-54DA-4C33-A24F-9FC344C156F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueDream.Enum", "BlueDream.Enum\BlueDream.Enum.csproj", "{E9EF6EF1-6468-4FD6-8BA6-9DFFD309523D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueDream.Model", "BlueDream.Model\BlueDream.Model.csproj", "{84B0B97A-392D-4E52-94E6-C853AD489726}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevTool", "DevTool\DevTool.csproj", "{845A483B-34DD-4634-BE5B-EFED08621A84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2FE045DB-BD49-4033-9FD2-9B3B2703E477}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B17594C9-C87E-4F71-ADB4-4A112E77E526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17594C9-C87E-4F71-ADB4-4A112E77E526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17594C9-C87E-4F71-ADB4-4A112E77E526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17594C9-C87E-4F71-ADB4-4A112E77E526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA89B9D6-E3D5-484C-BEA3-41C6962D0705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA89B9D6-E3D5-484C-BEA3-41C6962D0705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA89B9D6-E3D5-484C-BEA3-41C6962D0705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA89B9D6-E3D5-484C-BEA3-41C6962D0705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4BA67C-8929-4E5C-84B0-65D7D26B4D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4BA67C-8929-4E5C-84B0-65D7D26B4D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4BA67C-8929-4E5C-84B0-65D7D26B4D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4BA67C-8929-4E5C-84B0-65D7D26B4D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7FECF52-54DA-4C33-A24F-9FC344C156F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7FECF52-54DA-4C33-A24F-9FC344C156F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7FECF52-54DA-4C33-A24F-9FC344C156F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7FECF52-54DA-4C33-A24F-9FC344C156F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9EF6EF1-6468-4FD6-8BA6-9DFFD309523D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9EF6EF1-6468-4FD6-8BA6-9DFFD309523D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9EF6EF1-6468-4FD6-8BA6-9DFFD309523D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9EF6EF1-6468-4FD6-8BA6-9DFFD309523D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B0B97A-392D-4E52-94E6-C853AD489726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B0B97A-392D-4E52-94E6-C853AD489726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B0B97A-392D-4E52-94E6-C853AD489726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B0B97A-392D-4E52-94E6-C853AD489726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845A483B-34DD-4634-BE5B-EFED08621A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845A483B-34DD-4634-BE5B-EFED08621A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845A483B-34DD-4634-BE5B-EFED08621A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845A483B-34DD-4634-BE5B-EFED08621A84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {293D75C1-DB58-4989-815C-96538F306270}
+	EndGlobalSection
+EndGlobal

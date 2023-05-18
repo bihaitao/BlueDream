@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;CS8600;CS8601;CS8602;CS8603;CS8604;CS8605;CS8618;CS8625;IDE0057;IDE0071;IDE0090</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;CS8600;CS8601;CS8602;CS8603;CS8604;CS8605;CS8618;CS8625;IDE0057;IDE0071;IDE0090</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlueDream.Bll\BlueDream.Bll.csproj" />
+    <ProjectReference Include="..\BlueDream.Common\BlueDream.Common.csproj" />
+    <ProjectReference Include="..\BlueDream.Enum\BlueDream.Enum.csproj" />
+    <ProjectReference Include="..\BlueDream.Model\BlueDream.Model.csproj" />
+  </ItemGroup>
+
+</Project>
