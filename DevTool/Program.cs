@@ -6,6 +6,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        GenCode();
         //string m_LongID = StringTools.GetNewGuidLongString();
         //Tuple<string, string> m_Tuple = RsaHelper.GenerateRsaKeys();
         //MIGdMA0GCSqGSIb3DQEBAQUAA4GLADCBhwKBgQkJqzd+hjx7Mn6f2qSS15ZcJqrgU06etEm7tUd6ou2OnS3sGu3Zy5eAmh4jJZboPHgUvY9GhhFNahhyWdGSoOVGaxYdN4xwqjxwoR4TlvFXNkxo6SQfZqbalbbJWxGIFEcpeptI2yiJzmBcevtyTVcQs3VGMo3CnQiPyjWScUtPVQIBAw==

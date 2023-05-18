@@ -4,7 +4,7 @@ using BlueDream.Common;
 using BlueDream.Enum;
 
 
-namespace BuleDream.Bll
+namespace BlueDream.Bll
 {
     /// <summary>
     /// 秘钥信息操作类

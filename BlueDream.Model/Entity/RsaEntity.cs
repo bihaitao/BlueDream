@@ -4,15 +4,15 @@ using SqlSugar;
 namespace BlueDream.Model
 {
     /// <summary>
-    /// 
+    /// 密钥表
     /// </summary>
     [SugarTable("t_rsa")]
     public class RsaEntity:BaseEntity
     {
         /// <summary>
-        /// 
+        /// 密钥ID
         /// </summary>
-        [SugarColumn(ColumnName = "rsa_id",IsPrimaryKey = true)]
+        [SugarColumn(ColumnName = "rsa_id", IsPrimaryKey = true)]
         public Int64 RsaID { get; set; }
         /// <summary>
         /// 公钥

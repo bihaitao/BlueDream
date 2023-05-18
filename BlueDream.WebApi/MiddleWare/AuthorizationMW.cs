@@ -16,8 +16,6 @@ namespace BlueDream.WebApi
     {
         private readonly RequestDelegate m_RequestDelegate;
 
-       
-
         /// <summary>
         /// 
         /// </summary>
@@ -82,7 +80,6 @@ namespace BlueDream.WebApi
         private readonly string[] m_WhiteListUrl = {
              
             "/swagger/index.html".ToLower(),//swagger,
-
             "/System/Login".ToLower(),//登录
             "/System/EnumJsFile".ToLower()//枚举
         };

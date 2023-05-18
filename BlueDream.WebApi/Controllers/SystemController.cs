@@ -1,6 +1,6 @@
-﻿using BlueDream.Common;
-using BlueDream.Model;
-using BuleDream.Bll;
+﻿using BlueDream.Bll;
+using BlueDream.Common;
+using BlueDream.Model; 
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
@@ -43,7 +43,7 @@ namespace BlueDream.WebApi
 
             SysExTools.TryExec(m_CommonResult, () =>
             {
-                m_CommonResult.ResultObj = RsaKeyBll.GetByID(12);
+                m_CommonResult.ResultObj = UserBll.LoginReturnRsaKey(p_UserName, p_Password);
             });
 
             return m_CommonResult;

@@ -1,4 +1,5 @@
-﻿using BlueDream.Model;
+﻿using BlueDream.Bll;
+using BlueDream.Model;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
@@ -34,7 +35,7 @@ namespace BlueDream.WebApi
                 Schema = new OpenApiSchema
                 {
                     Type = "string",
-                    Default = new OpenApiString(LoginHelper.GenEnCodeString(p_LoginUserModel))
+                    Default = new OpenApiString(UserBll.GenEnCodeString(p_LoginUserModel))
                 }
             });
         }
