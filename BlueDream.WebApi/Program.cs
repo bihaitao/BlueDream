@@ -24,6 +24,14 @@ internal class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
 
+
+        builder.Services.AddDistributedMemoryCache();
+        builder.Services.AddSession(options => {
+            options.IdleTimeout = TimeSpan.FromSeconds(60);
+            options.Cookie.HttpOnly = true;
+        });
+       
+         
         //添加Swagger
         builder.Services.AddSwaggerGen();
         //添加Header参数
@@ -32,7 +40,21 @@ internal class Program
             c.OperationFilter<AddHeaderFilter>(); 
         });
 
+        //跨域设置
+        builder.Services.AddCors(policy =>
+        {
+            policy.AddPolicy("CorsPolicy", opt => opt
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .WithExposedHeaders("X-Pagination"));
+        });
+
+     
         var app = builder.Build();
+
+        //跨域设置
+        app.UseCors("CorsPolicy");
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -40,6 +62,8 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseSession();
 
         app.UseHttpsRedirection(); 
         

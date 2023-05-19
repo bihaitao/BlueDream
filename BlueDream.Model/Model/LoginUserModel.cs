@@ -25,8 +25,7 @@ namespace BlueDream.Model
         /// <param name="p_ModelInfo"></param>
         public LoginUserModel(string p_ModelInfo)
         {
-            string[] m_StrList = p_ModelInfo.Split(',');
-
+            string[] m_StrList = p_ModelInfo.Split(','); 
             UserID = Convert.ToInt64(m_StrList[0]);
             UserNickName = m_StrList[1];
             LoginOutTime = Convert.ToDateTime(m_StrList[2]);

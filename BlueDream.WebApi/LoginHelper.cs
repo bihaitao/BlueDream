@@ -36,6 +36,7 @@ namespace BlueDream.WebApi
             {
                 SysExTools.Throw_LoginEx("请求认证Key不存在!", "HttpContext.Request.Headers[LoginKey] 为空!");
             }
+
             //校验权限
             LoginUserModel m_LoginUserModel = UserBll.GetLoginUserByEnCodeString(p_EnCodeString);
 

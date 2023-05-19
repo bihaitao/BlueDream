@@ -13,7 +13,7 @@ namespace BlueDream.WebApi
     /// 中间件类
     /// </summary>
     public class AuthorizationMW
-    {
+    { 
         private readonly RequestDelegate m_RequestDelegate;
 
         /// <summary>
@@ -81,7 +81,9 @@ namespace BlueDream.WebApi
              
             "/swagger/index.html".ToLower(),//swagger,
             "/System/Login".ToLower(),//登录
+            "/System/GetVerifyCode".ToLower(),//登录验证码
             "/System/EnumJsFile".ToLower()//枚举
+            
         };
 
         /// <summary>
