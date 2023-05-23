@@ -20,10 +20,12 @@ namespace BlueDream.WebApi
                 operation.Parameters = new List<OpenApiParameter>();
             }
 
-            LoginUserModel p_LoginUserModel = new LoginUserModel();
-            p_LoginUserModel.UserID = 999;
-            p_LoginUserModel.UserNickName = "Debug";
-            p_LoginUserModel.LoginOutTime = DateTime.Now.AddDays(1);
+            LoginUserModel p_LoginUserModel = new LoginUserModel
+            {
+                UserID = 999,
+                UserNickName = "Debug",
+                LoginOutTime = DateTime.Now.AddDays(1)
+            };
 
             //添加默认登录验证参数
             operation.Parameters.Add(new OpenApiParameter

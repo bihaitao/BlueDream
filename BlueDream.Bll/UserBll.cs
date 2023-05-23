@@ -26,10 +26,12 @@ namespace BlueDream.Bll
                 SysExTools.Throw_LoginEx("用户名密码或错误！", "Password 不正确");
             }
 
-            LoginUserModel p_LoginUserModel = new LoginUserModel();
-            p_LoginUserModel.UserID = m_UserEntity.UserID;
-            p_LoginUserModel.UserNickName = m_UserEntity.NickName;
-            p_LoginUserModel.LoginOutTime = DateTime.Now.AddDays(1);
+            LoginUserModel p_LoginUserModel = new LoginUserModel
+            {
+                UserID = m_UserEntity.UserID,
+                UserNickName = m_UserEntity.NickName,
+                LoginOutTime = DateTime.Now.AddDays(1)
+            };
             string m_RsaKey =  GenEnCodeString(p_LoginUserModel);
             return m_RsaKey;
         }

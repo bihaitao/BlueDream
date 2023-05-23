@@ -12,10 +12,10 @@ namespace BlueDream.Common
     /// </summary>
     public class SysExTools
     {
-        public static string SysExKey = "SysEx";
-        public static string SysExPx = "CodeCenterEx";
-        public static string SysExCode = "CodeCenterEx000000";
-        public static string SysLogCode = "CodeCenterEx060000";
+        //private static readonly string SysExKey = "SysEx";
+        private static readonly string SysExPx = "CodeCenterEx";
+        private static readonly string SysExCode = "CodeCenterEx000000";
+        //private static readonly string SysLogCode = "CodeCenterEx060000";
 
 
         /// <summary>
@@ -274,11 +274,11 @@ namespace BlueDream.Common
                         continue;
                     }
                     m_StringBuilder.AppendLine($"FileName:{t_FileName}");
-#pragma warning disable CS8602 // 解引用可能出现空引用。
+
                     m_StringBuilder.AppendLine($"DeclaringType.Module.FullyQualifiedName:{t_StackFrame.GetMethod().DeclaringType.Module.FullyQualifiedName}");
                     m_StringBuilder.AppendLine($"DeclaringType.FullName:{t_StackFrame.GetMethod().DeclaringType.FullName}");
                     m_StringBuilder.AppendLine($"Method:{t_StackFrame.GetMethod().Name}");
-#pragma warning restore CS8602 // 解引用可能出现空引用。
+
 
                     m_StringBuilder.AppendLine($"Line:{t_StackFrame.GetFileLineNumber()},Column:{t_StackFrame.GetFileColumnNumber()}");
                 }
