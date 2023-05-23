@@ -61,15 +61,15 @@ namespace BlueDream.WebApi
             {
                 string m_VerifCode = HttpContext.Session.GetString("VerifyCode");
 
-                if(string.IsNullOrWhiteSpace(m_VerifCode))
-                {
-                    SysExTools.Throw_LoginEx("验证码不正确", "验证码不正确");
-                }
+                //if(string.IsNullOrWhiteSpace(m_VerifCode))
+                //{
+                //    SysExTools.Throw_LoginEx("验证码不正确", "验证码不正确");
+                //}
                  
-                if (m_VerifCode.ToUpper() != p_Param_Login_VM.VerifyCode.ToUpper())
-                {
-                    SysExTools.Throw_LoginEx("验证码不正确", "验证码不正确");
-                }
+                //if (m_VerifCode.ToUpper() != p_Param_Login_VM.VerifyCode.ToUpper())
+                //{
+                //    SysExTools.Throw_LoginEx("验证码不正确", "验证码不正确");
+                //}
 
                 m_CommonResult.ResultObj = UserBll.LoginReturnRsaKey(p_Param_Login_VM.UserName, p_Param_Login_VM.Password);
             });
@@ -96,8 +96,7 @@ namespace BlueDream.WebApi
             HttpContext.Session.SetString("VerifyCode", m_VerifyCode.Code.ToUpper());
 
             return await Task.Factory.StartNew(() =>
-            {
-               
+            { 
                 return File(m_VerifyCode.Image, @"image/jpeg"); ;
             });
              
