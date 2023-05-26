@@ -1,4 +1,19 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true
+  transpileDependencies: true,
+  //
+  publicPath: process.env.NODE_ENV === 'production'? './': '/',
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'https://localhost:7201/',//目标地址 请求的后台接口 
+        ws: true,
+        changeOrigin: true,
+        pathRewrite:{//路径重写  
+          "^/api":''
+        }
+      },
+    
+    }
+  }
 })

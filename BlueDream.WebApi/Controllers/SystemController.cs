@@ -59,7 +59,7 @@ namespace BlueDream.WebApi
 
             SysExTools.TryExec(m_CommonResult, () =>
             {
-                string m_VerifCode = HttpContext.Session.GetString("VerifyCode");
+                //string m_VerifCode = HttpContext.Session.GetString("VerifyCode");
 
                 //if(string.IsNullOrWhiteSpace(m_VerifCode))
                 //{

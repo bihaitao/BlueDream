@@ -12,10 +12,10 @@ namespace BlueDream.Common
     /// </summary>
     public class SysExTools
     {
-        //private static readonly string SysExKey = "SysEx";
+        public static readonly string SysExKey = "SysEx";
         private static readonly string SysExPx = "CodeCenterEx";
-        private static readonly string SysExCode = "CodeCenterEx000000";
-        //private static readonly string SysLogCode = "CodeCenterEx060000";
+        public static readonly string SysExCode = "CodeCenterEx000000";
+        public static readonly string SysLogCode = "CodeCenterEx060000";
 
 
         /// <summary>
