@@ -43,6 +43,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BlueDream.WebUI", "BlueDrea
 		SlnRelativePath = "BlueDream.WebUI\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueDream.WinForm", "BlueDream.WinForm\BlueDream.WinForm.csproj", "{FE77DF41-75F3-46E9-900C-0CF288BA190F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{13E74D97-1ED7-4549-BBE8-1DF6D5050223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13E74D97-1ED7-4549-BBE8-1DF6D5050223}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{13E74D97-1ED7-4549-BBE8-1DF6D5050223}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FE77DF41-75F3-46E9-900C-0CF288BA190F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE77DF41-75F3-46E9-900C-0CF288BA190F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE77DF41-75F3-46E9-900C-0CF288BA190F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE77DF41-75F3-46E9-900C-0CF288BA190F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

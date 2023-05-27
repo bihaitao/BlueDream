@@ -16,6 +16,8 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
 router.beforeEach((to, from, next) => {
+	
+	debugger
     //每次切换页面时，调用进度条
     NProgress.start();
     console.log("路由守卫--------", to); //{matched:[]}
@@ -32,6 +34,7 @@ router.beforeEach((to, from, next) => {
             } else {
                 //没有导航
                 //获取导航
+                debugger
                 store.dispatch("menu/getMenuList").then((mybaseRoutes) => {
                     console.log("没有导航----获取导航", mybaseRoutes);
                     resetRouter(); //添加路由之前 清空路由实例内容
