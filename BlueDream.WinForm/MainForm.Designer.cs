@@ -3,14 +3,14 @@
     partial class MainForm
     {
         /// <summary>
-        /// Required designer variable.
+        /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,58 +20,500 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows 窗体设计器生成的代码
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            menuStrip = new MenuStrip();
+            fileMenu = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            saveAsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            printToolStripMenuItem = new ToolStripMenuItem();
+            printPreviewToolStripMenuItem = new ToolStripMenuItem();
+            printSetupToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            editMenu = new ToolStripMenuItem();
+            undoToolStripMenuItem = new ToolStripMenuItem();
+            redoToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator6 = new ToolStripSeparator();
+            cutToolStripMenuItem = new ToolStripMenuItem();
+            copyToolStripMenuItem = new ToolStripMenuItem();
+            pasteToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator7 = new ToolStripSeparator();
+            selectAllToolStripMenuItem = new ToolStripMenuItem();
+            viewMenu = new ToolStripMenuItem();
+            toolBarToolStripMenuItem = new ToolStripMenuItem();
+            statusBarToolStripMenuItem = new ToolStripMenuItem();
+            toolsMenu = new ToolStripMenuItem();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            windowsMenu = new ToolStripMenuItem();
+            newWindowToolStripMenuItem = new ToolStripMenuItem();
+            cascadeToolStripMenuItem = new ToolStripMenuItem();
+            tileVerticalToolStripMenuItem = new ToolStripMenuItem();
+            tileHorizontalToolStripMenuItem = new ToolStripMenuItem();
+            closeAllToolStripMenuItem = new ToolStripMenuItem();
+            arrangeIconsToolStripMenuItem = new ToolStripMenuItem();
+            helpMenu = new ToolStripMenuItem();
+            contentsToolStripMenuItem = new ToolStripMenuItem();
+            indexToolStripMenuItem = new ToolStripMenuItem();
+            searchToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator8 = new ToolStripSeparator();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            toolStrip = new ToolStrip();
+            newToolStripButton = new ToolStripButton();
+            openToolStripButton = new ToolStripButton();
+            saveToolStripButton = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            printToolStripButton = new ToolStripButton();
+            printPreviewToolStripButton = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            helpToolStripButton = new ToolStripButton();
+            statusStrip = new StatusStrip();
+            toolStripStatusLabel = new ToolStripStatusLabel();
+            toolTip = new ToolTip(components);
+            ctl_Main_Panel = new Panel();
+            ctl_Main_Tab = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
-            menuStrip1 = new MenuStrip();
-            系统ToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem2 = new ToolStripMenuItem();
-            toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem4 = new ToolStripMenuItem();
-            关于ToolStripMenuItem = new ToolStripMenuItem();
-            注册ToolStripMenuItem = new ToolStripMenuItem();
-            treeView1 = new TreeView();
-            panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            panel2 = new Panel();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            tabControl1.SuspendLayout();
-            menuStrip1.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            ctl_menu_treeView = new TreeView();
+            menuStrip.SuspendLayout();
+            toolStrip.SuspendLayout();
+            statusStrip.SuspendLayout();
+            ctl_Main_Panel.SuspendLayout();
+            ctl_Main_Tab.SuspendLayout();
             SuspendLayout();
             // 
-            // tabControl1
+            // menuStrip
             // 
-            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(127, 90);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(881, 605);
-            tabControl1.TabIndex = 0;
+            menuStrip.Items.AddRange(new ToolStripItem[] { fileMenu, editMenu, viewMenu, toolsMenu, windowsMenu, helpMenu });
+            menuStrip.Location = new Point(0, 0);
+            menuStrip.MdiWindowListItem = windowsMenu;
+            menuStrip.Name = "menuStrip";
+            menuStrip.Padding = new Padding(7, 3, 0, 3);
+            menuStrip.Size = new Size(1008, 27);
+            menuStrip.TabIndex = 0;
+            menuStrip.Text = "MenuStrip";
+            // 
+            // fileMenu
+            // 
+            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, toolStripSeparator3, saveToolStripMenuItem, saveAsToolStripMenuItem, toolStripSeparator4, printToolStripMenuItem, printPreviewToolStripMenuItem, printSetupToolStripMenuItem, toolStripSeparator5, exitToolStripMenuItem });
+            fileMenu.ImageTransparentColor = SystemColors.ActiveBorder;
+            fileMenu.Name = "fileMenu";
+            fileMenu.Size = new Size(58, 21);
+            fileMenu.Text = "文件(&F)";
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Image = (Image)resources.GetObject("newToolStripMenuItem.Image");
+            newToolStripMenuItem.ImageTransparentColor = Color.Black;
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
+            newToolStripMenuItem.Size = new Size(165, 22);
+            newToolStripMenuItem.Text = "新建(&N)";
+            newToolStripMenuItem.Click += ShowNewForm;
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Image = (Image)resources.GetObject("openToolStripMenuItem.Image");
+            openToolStripMenuItem.ImageTransparentColor = Color.Black;
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            openToolStripMenuItem.Size = new Size(165, 22);
+            openToolStripMenuItem.Text = "打开(&O)";
+            openToolStripMenuItem.Click += OpenFile;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(162, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Image = (Image)resources.GetObject("saveToolStripMenuItem.Image");
+            saveToolStripMenuItem.ImageTransparentColor = Color.Black;
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+            saveToolStripMenuItem.Size = new Size(165, 22);
+            saveToolStripMenuItem.Text = "保存(&S)";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            saveAsToolStripMenuItem.Size = new Size(165, 22);
+            saveAsToolStripMenuItem.Text = "另存为(&A)";
+            saveAsToolStripMenuItem.Click += SaveAsToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(162, 6);
+            // 
+            // printToolStripMenuItem
+            // 
+            printToolStripMenuItem.Image = (Image)resources.GetObject("printToolStripMenuItem.Image");
+            printToolStripMenuItem.ImageTransparentColor = Color.Black;
+            printToolStripMenuItem.Name = "printToolStripMenuItem";
+            printToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
+            printToolStripMenuItem.Size = new Size(165, 22);
+            printToolStripMenuItem.Text = "打印(&P)";
+            // 
+            // printPreviewToolStripMenuItem
+            // 
+            printPreviewToolStripMenuItem.Image = (Image)resources.GetObject("printPreviewToolStripMenuItem.Image");
+            printPreviewToolStripMenuItem.ImageTransparentColor = Color.Black;
+            printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
+            printPreviewToolStripMenuItem.Size = new Size(165, 22);
+            printPreviewToolStripMenuItem.Text = "打印预览(&V)";
+            // 
+            // printSetupToolStripMenuItem
+            // 
+            printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
+            printSetupToolStripMenuItem.Size = new Size(165, 22);
+            printSetupToolStripMenuItem.Text = "打印设置";
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(162, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(165, 22);
+            exitToolStripMenuItem.Text = "退出(&X)";
+            exitToolStripMenuItem.Click += ExitToolsStripMenuItem_Click;
+            // 
+            // editMenu
+            // 
+            editMenu.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem, redoToolStripMenuItem, toolStripSeparator6, cutToolStripMenuItem, copyToolStripMenuItem, pasteToolStripMenuItem, toolStripSeparator7, selectAllToolStripMenuItem });
+            editMenu.Name = "editMenu";
+            editMenu.Size = new Size(59, 21);
+            editMenu.Text = "编辑(&E)";
+            // 
+            // undoToolStripMenuItem
+            // 
+            undoToolStripMenuItem.Image = (Image)resources.GetObject("undoToolStripMenuItem.Image");
+            undoToolStripMenuItem.ImageTransparentColor = Color.Black;
+            undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            undoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Z;
+            undoToolStripMenuItem.Size = new Size(161, 22);
+            undoToolStripMenuItem.Text = "撤消(&U)";
+            // 
+            // redoToolStripMenuItem
+            // 
+            redoToolStripMenuItem.Image = (Image)resources.GetObject("redoToolStripMenuItem.Image");
+            redoToolStripMenuItem.ImageTransparentColor = Color.Black;
+            redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            redoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
+            redoToolStripMenuItem.Size = new Size(161, 22);
+            redoToolStripMenuItem.Text = "重复(&R)";
+            // 
+            // toolStripSeparator6
+            // 
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(158, 6);
+            // 
+            // cutToolStripMenuItem
+            // 
+            cutToolStripMenuItem.Image = (Image)resources.GetObject("cutToolStripMenuItem.Image");
+            cutToolStripMenuItem.ImageTransparentColor = Color.Black;
+            cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            cutToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
+            cutToolStripMenuItem.Size = new Size(161, 22);
+            cutToolStripMenuItem.Text = "剪切(&T)";
+            cutToolStripMenuItem.Click += CutToolStripMenuItem_Click;
+            // 
+            // copyToolStripMenuItem
+            // 
+            copyToolStripMenuItem.Image = (Image)resources.GetObject("copyToolStripMenuItem.Image");
+            copyToolStripMenuItem.ImageTransparentColor = Color.Black;
+            copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            copyToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.C;
+            copyToolStripMenuItem.Size = new Size(161, 22);
+            copyToolStripMenuItem.Text = "复制(&C)";
+            copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
+            // 
+            // pasteToolStripMenuItem
+            // 
+            pasteToolStripMenuItem.Image = (Image)resources.GetObject("pasteToolStripMenuItem.Image");
+            pasteToolStripMenuItem.ImageTransparentColor = Color.Black;
+            pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            pasteToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.V;
+            pasteToolStripMenuItem.Size = new Size(161, 22);
+            pasteToolStripMenuItem.Text = "粘贴(&P)";
+            pasteToolStripMenuItem.Click += PasteToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator7
+            // 
+            toolStripSeparator7.Name = "toolStripSeparator7";
+            toolStripSeparator7.Size = new Size(158, 6);
+            // 
+            // selectAllToolStripMenuItem
+            // 
+            selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            selectAllToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
+            selectAllToolStripMenuItem.Size = new Size(161, 22);
+            selectAllToolStripMenuItem.Text = "全选(&A)";
+            // 
+            // viewMenu
+            // 
+            viewMenu.DropDownItems.AddRange(new ToolStripItem[] { toolBarToolStripMenuItem, statusBarToolStripMenuItem });
+            viewMenu.Name = "viewMenu";
+            viewMenu.Size = new Size(60, 21);
+            viewMenu.Text = "视图(&V)";
+            // 
+            // toolBarToolStripMenuItem
+            // 
+            toolBarToolStripMenuItem.Checked = true;
+            toolBarToolStripMenuItem.CheckOnClick = true;
+            toolBarToolStripMenuItem.CheckState = CheckState.Checked;
+            toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
+            toolBarToolStripMenuItem.Size = new Size(127, 22);
+            toolBarToolStripMenuItem.Text = "工具栏(&T)";
+            toolBarToolStripMenuItem.Click += ToolBarToolStripMenuItem_Click;
+            // 
+            // statusBarToolStripMenuItem
+            // 
+            statusBarToolStripMenuItem.Checked = true;
+            statusBarToolStripMenuItem.CheckOnClick = true;
+            statusBarToolStripMenuItem.CheckState = CheckState.Checked;
+            statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
+            statusBarToolStripMenuItem.Size = new Size(127, 22);
+            statusBarToolStripMenuItem.Text = "状态栏(&S)";
+            statusBarToolStripMenuItem.Click += StatusBarToolStripMenuItem_Click;
+            // 
+            // toolsMenu
+            // 
+            toolsMenu.DropDownItems.AddRange(new ToolStripItem[] { optionsToolStripMenuItem });
+            toolsMenu.Name = "toolsMenu";
+            toolsMenu.Size = new Size(59, 21);
+            toolsMenu.Text = "工具(&T)";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(118, 22);
+            optionsToolStripMenuItem.Text = "选项(&O)";
+            // 
+            // windowsMenu
+            // 
+            windowsMenu.DropDownItems.AddRange(new ToolStripItem[] { newWindowToolStripMenuItem, cascadeToolStripMenuItem, tileVerticalToolStripMenuItem, tileHorizontalToolStripMenuItem, closeAllToolStripMenuItem, arrangeIconsToolStripMenuItem });
+            windowsMenu.Name = "windowsMenu";
+            windowsMenu.Size = new Size(64, 21);
+            windowsMenu.Text = "窗口(&W)";
+            // 
+            // newWindowToolStripMenuItem
+            // 
+            newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
+            newWindowToolStripMenuItem.Size = new Size(142, 22);
+            newWindowToolStripMenuItem.Text = "新建窗口(&N)";
+            newWindowToolStripMenuItem.Click += ShowNewForm;
+            // 
+            // cascadeToolStripMenuItem
+            // 
+            cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
+            cascadeToolStripMenuItem.Size = new Size(142, 22);
+            cascadeToolStripMenuItem.Text = "层叠(&C)";
+            cascadeToolStripMenuItem.Click += CascadeToolStripMenuItem_Click;
+            // 
+            // tileVerticalToolStripMenuItem
+            // 
+            tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
+            tileVerticalToolStripMenuItem.Size = new Size(142, 22);
+            tileVerticalToolStripMenuItem.Text = "垂直平铺(&V)";
+            tileVerticalToolStripMenuItem.Click += TileVerticalToolStripMenuItem_Click;
+            // 
+            // tileHorizontalToolStripMenuItem
+            // 
+            tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
+            tileHorizontalToolStripMenuItem.Size = new Size(142, 22);
+            tileHorizontalToolStripMenuItem.Text = "水平平铺(&H)";
+            tileHorizontalToolStripMenuItem.Click += TileHorizontalToolStripMenuItem_Click;
+            // 
+            // closeAllToolStripMenuItem
+            // 
+            closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
+            closeAllToolStripMenuItem.Size = new Size(142, 22);
+            closeAllToolStripMenuItem.Text = "全部关闭(&L)";
+            closeAllToolStripMenuItem.Click += CloseAllToolStripMenuItem_Click;
+            // 
+            // arrangeIconsToolStripMenuItem
+            // 
+            arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
+            arrangeIconsToolStripMenuItem.Size = new Size(142, 22);
+            arrangeIconsToolStripMenuItem.Text = "排列图标(&A)";
+            arrangeIconsToolStripMenuItem.Click += ArrangeIconsToolStripMenuItem_Click;
+            // 
+            // helpMenu
+            // 
+            helpMenu.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, indexToolStripMenuItem, searchToolStripMenuItem, toolStripSeparator8, aboutToolStripMenuItem });
+            helpMenu.Name = "helpMenu";
+            helpMenu.Size = new Size(61, 21);
+            helpMenu.Text = "帮助(&H)";
+            // 
+            // contentsToolStripMenuItem
+            // 
+            contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
+            contentsToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.F1;
+            contentsToolStripMenuItem.Size = new Size(166, 22);
+            contentsToolStripMenuItem.Text = "目录(&C)";
+            // 
+            // indexToolStripMenuItem
+            // 
+            indexToolStripMenuItem.Image = (Image)resources.GetObject("indexToolStripMenuItem.Image");
+            indexToolStripMenuItem.ImageTransparentColor = Color.Black;
+            indexToolStripMenuItem.Name = "indexToolStripMenuItem";
+            indexToolStripMenuItem.Size = new Size(166, 22);
+            indexToolStripMenuItem.Text = "索引(&I)";
+            // 
+            // searchToolStripMenuItem
+            // 
+            searchToolStripMenuItem.Image = (Image)resources.GetObject("searchToolStripMenuItem.Image");
+            searchToolStripMenuItem.ImageTransparentColor = Color.Black;
+            searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            searchToolStripMenuItem.Size = new Size(166, 22);
+            searchToolStripMenuItem.Text = "搜索(&S)";
+            // 
+            // toolStripSeparator8
+            // 
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            toolStripSeparator8.Size = new Size(163, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(166, 22);
+            aboutToolStripMenuItem.Text = "关于(&A) ... ...";
+            // 
+            // toolStrip
+            // 
+            toolStrip.Items.AddRange(new ToolStripItem[] { newToolStripButton, openToolStripButton, saveToolStripButton, toolStripSeparator1, printToolStripButton, printPreviewToolStripButton, toolStripSeparator2, helpToolStripButton });
+            toolStrip.Location = new Point(0, 27);
+            toolStrip.Name = "toolStrip";
+            toolStrip.Size = new Size(1008, 25);
+            toolStrip.TabIndex = 1;
+            toolStrip.Text = "ToolStrip";
+            // 
+            // newToolStripButton
+            // 
+            newToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            newToolStripButton.Image = (Image)resources.GetObject("newToolStripButton.Image");
+            newToolStripButton.ImageTransparentColor = Color.Black;
+            newToolStripButton.Name = "newToolStripButton";
+            newToolStripButton.Size = new Size(23, 22);
+            newToolStripButton.Text = "新建";
+            newToolStripButton.Click += ShowNewForm;
+            // 
+            // openToolStripButton
+            // 
+            openToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            openToolStripButton.Image = (Image)resources.GetObject("openToolStripButton.Image");
+            openToolStripButton.ImageTransparentColor = Color.Black;
+            openToolStripButton.Name = "openToolStripButton";
+            openToolStripButton.Size = new Size(23, 22);
+            openToolStripButton.Text = "打开";
+            openToolStripButton.Click += OpenFile;
+            // 
+            // saveToolStripButton
+            // 
+            saveToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            saveToolStripButton.Image = (Image)resources.GetObject("saveToolStripButton.Image");
+            saveToolStripButton.ImageTransparentColor = Color.Black;
+            saveToolStripButton.Name = "saveToolStripButton";
+            saveToolStripButton.Size = new Size(23, 22);
+            saveToolStripButton.Text = "保存";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
+            // printToolStripButton
+            // 
+            printToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            printToolStripButton.Image = (Image)resources.GetObject("printToolStripButton.Image");
+            printToolStripButton.ImageTransparentColor = Color.Black;
+            printToolStripButton.Name = "printToolStripButton";
+            printToolStripButton.Size = new Size(23, 22);
+            printToolStripButton.Text = "打印";
+            // 
+            // printPreviewToolStripButton
+            // 
+            printPreviewToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            printPreviewToolStripButton.Image = (Image)resources.GetObject("printPreviewToolStripButton.Image");
+            printPreviewToolStripButton.ImageTransparentColor = Color.Black;
+            printPreviewToolStripButton.Name = "printPreviewToolStripButton";
+            printPreviewToolStripButton.Size = new Size(23, 22);
+            printPreviewToolStripButton.Text = "打印预览";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 25);
+            // 
+            // helpToolStripButton
+            // 
+            helpToolStripButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            helpToolStripButton.Image = (Image)resources.GetObject("helpToolStripButton.Image");
+            helpToolStripButton.ImageTransparentColor = Color.Black;
+            helpToolStripButton.Name = "helpToolStripButton";
+            helpToolStripButton.Size = new Size(23, 22);
+            helpToolStripButton.Text = "帮助";
+            // 
+            // statusStrip
+            // 
+            statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
+            statusStrip.Location = new Point(0, 707);
+            statusStrip.Name = "statusStrip";
+            statusStrip.Padding = new Padding(1, 0, 16, 0);
+            statusStrip.Size = new Size(1008, 22);
+            statusStrip.TabIndex = 2;
+            statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            toolStripStatusLabel.Name = "toolStripStatusLabel";
+            toolStripStatusLabel.Size = new Size(32, 17);
+            toolStripStatusLabel.Text = "状态";
+            // 
+            // ctl_Main_Panel
+            // 
+            ctl_Main_Panel.Controls.Add(ctl_Main_Tab);
+            ctl_Main_Panel.Controls.Add(ctl_menu_treeView);
+            ctl_Main_Panel.Dock = DockStyle.Fill;
+            ctl_Main_Panel.Location = new Point(0, 52);
+            ctl_Main_Panel.Name = "ctl_Main_Panel";
+            ctl_Main_Panel.Size = new Size(1008, 655);
+            ctl_Main_Panel.TabIndex = 4;
+            // 
+            // ctl_Main_Tab
+            // 
+            ctl_Main_Tab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ctl_Main_Tab.Controls.Add(tabPage1);
+            ctl_Main_Tab.Controls.Add(tabPage2);
+            ctl_Main_Tab.Location = new Point(130, 3);
+            ctl_Main_Tab.Name = "ctl_Main_Tab";
+            ctl_Main_Tab.SelectedIndex = 0;
+            ctl_Main_Tab.Size = new Size(875, 649);
+            ctl_Main_Tab.TabIndex = 1;
             // 
             // tabPage1
             // 
             tabPage1.Location = new Point(4, 26);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(873, 575);
+            tabPage1.Size = new Size(867, 619);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
@@ -81,210 +523,107 @@
             tabPage2.Location = new Point(4, 26);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(873, 669);
+            tabPage2.Size = new Size(596, 482);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // ctl_menu_treeView
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { 系统ToolStripMenuItem, 关于ToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1008, 25);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // 系统ToolStripMenuItem
-            // 
-            系统ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4 });
-            系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
-            系统ToolStripMenuItem.Size = new Size(44, 21);
-            系统ToolStripMenuItem.Text = "系统";
-            // 
-            // toolStripMenuItem2
-            // 
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(180, 22);
-            toolStripMenuItem2.Text = "11";
-            // 
-            // toolStripMenuItem3
-            // 
-            toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(180, 22);
-            toolStripMenuItem3.Text = "22";
-            // 
-            // toolStripMenuItem4
-            // 
-            toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(180, 22);
-            toolStripMenuItem4.Text = "33";
-            // 
-            // 关于ToolStripMenuItem
-            // 
-            关于ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 注册ToolStripMenuItem });
-            关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            关于ToolStripMenuItem.Size = new Size(44, 21);
-            关于ToolStripMenuItem.Text = "关于";
-            // 
-            // 注册ToolStripMenuItem
-            // 
-            注册ToolStripMenuItem.Name = "注册ToolStripMenuItem";
-            注册ToolStripMenuItem.Size = new Size(180, 22);
-            注册ToolStripMenuItem.Text = "注册";
-            // 
-            // treeView1
-            // 
-            treeView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            treeView1.Location = new Point(0, 90);
-            treeView1.Name = "treeView1";
-            treeView1.Size = new Size(121, 605);
-            treeView1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(0, 697);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1008, 33);
-            panel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(0, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(43, 17);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(500, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(43, 17);
-            label2.TabIndex = 1;
-            label2.Text = "label2";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(613, 6);
-            label3.Name = "label3";
-            label3.Size = new Size(43, 17);
-            label3.TabIndex = 2;
-            label3.Text = "label3";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(953, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 17);
-            label4.TabIndex = 3;
-            label4.Text = "label4";
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label8);
-            panel2.Location = new Point(0, 28);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1008, 56);
-            panel2.TabIndex = 4;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(953, 11);
-            label5.Name = "label5";
-            label5.Size = new Size(43, 17);
-            label5.TabIndex = 3;
-            label5.Text = "label5";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(613, 6);
-            label6.Name = "label6";
-            label6.Size = new Size(43, 17);
-            label6.TabIndex = 2;
-            label6.Text = "label6";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(500, 11);
-            label7.Name = "label7";
-            label7.Size = new Size(43, 17);
-            label7.TabIndex = 1;
-            label7.Text = "label7";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(0, 11);
-            label8.Name = "label8";
-            label8.Size = new Size(43, 17);
-            label8.TabIndex = 0;
-            label8.Text = "label8";
+            ctl_menu_treeView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            ctl_menu_treeView.Location = new Point(3, 3);
+            ctl_menu_treeView.Name = "ctl_menu_treeView";
+            ctl_menu_treeView.Size = new Size(121, 645);
+            ctl_menu_treeView.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 729);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(treeView1);
-            Controls.Add(tabControl1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            Controls.Add(ctl_Main_Panel);
+            Controls.Add(statusStrip);
+            Controls.Add(toolStrip);
+            Controls.Add(menuStrip);
+            IsMdiContainer = true;
+            MainMenuStrip = menuStrip;
+            Margin = new Padding(4);
             MinimumSize = new Size(1024, 768);
             Name = "MainForm";
-            Text = "MainForm";
-            Load += MainForm_Load;
-            tabControl1.ResumeLayout(false);
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            Text = "联纺ERP";
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
+            toolStrip.ResumeLayout(false);
+            toolStrip.PerformLayout();
+            statusStrip.ResumeLayout(false);
+            statusStrip.PerformLayout();
+            ctl_Main_Panel.ResumeLayout(false);
+            ctl_Main_Tab.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
-
         #endregion
 
-        private TabControl tabControl1;
+
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem printSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileHorizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileMenu;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printPreviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editMenu;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem windowsMenu;
+        private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cascadeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileVerticalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpMenu;
+        private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripButton openToolStripButton;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.ToolStripButton printToolStripButton;
+        private System.Windows.Forms.ToolStripButton printPreviewToolStripButton;
+        private System.Windows.Forms.ToolStripButton helpToolStripButton;
+        private System.Windows.Forms.ToolTip toolTip;
+        private Panel ctl_Main_Panel;
+        private TabControl ctl_Main_Tab;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem 系统ToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem2;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
-        private ToolStripMenuItem 关于ToolStripMenuItem;
-        private ToolStripMenuItem 注册ToolStripMenuItem;
-        private TreeView treeView1;
-        private Panel panel1;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private Panel panel2;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
+        private TreeView ctl_menu_treeView;
     }
 }
+
+
+
