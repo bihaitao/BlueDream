@@ -42,19 +42,22 @@
 				debugger;
 				if (res.status == 200) {
 					if (res.data.success) {
-						//存储登录信息--vuex 
-						this.setUser({username:this.username,token:res.data.resultObj})
+						//存储登录信息--vuex
+						this.setUser({
+							username: this.username,
+							token: res.data.resultObj
+						})
 						//登录成功了---进入首页
 						this.$router.push('/')
 					}
 				}
 				/*
 				  if(res.data.status===200){
-					   
-					//存储登录信息--vuex 
-					this.setUser({username:this.username,token:res.data.token})
-					//登录成功了---进入首页
-					this.$router.push('/')
+
+				    //存储登录信息--vuex
+				    this.setUser({username:this.username,token:res.data.token})
+				    //登录成功了---进入首页
+				    this.$router.push('/')
 				  }
 				*/
 			}
@@ -83,7 +86,6 @@
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-
 			>div {
 				padding: 10px 0;
 				border-bottom: 1px solid #ddd;
@@ -116,6 +118,7 @@
 					&::-webkit-input-placeholder {
 						color: #aaa;
 					}
+
 				}
 			}
 
@@ -133,6 +136,7 @@
 						// border-radius: 6px;
 						// cursor: pointer;
 					}
+
 				}
 
 				a {
@@ -141,6 +145,7 @@
 					padding: 0 15px;
 					font-size: 14px;
 				}
+
 			}
 		}
 	}

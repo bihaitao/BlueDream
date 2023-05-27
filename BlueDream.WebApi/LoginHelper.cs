@@ -30,11 +30,11 @@ namespace BlueDream.WebApi
         public static void IsLogin(HttpContext p_HttpContext)
         {
             //获取请求的认证信息
-            string p_EnCodeString = p_HttpContext.Request.Headers["LoginKey"];
+            string p_EnCodeString = p_HttpContext.Request.Headers["Authorization"];
 
             if (string.IsNullOrWhiteSpace(p_EnCodeString))
             {
-                SysExTools.Throw_LoginEx("请求认证Key不存在!", "HttpContext.Request.Headers[LoginKey] 为空!");
+                SysExTools.Throw_LoginEx("请求认证Key不存在!", "HttpContext.Request.Headers[Authorization] 为空!");
             }
 
             //校验权限
