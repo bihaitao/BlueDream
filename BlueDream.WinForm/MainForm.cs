@@ -26,7 +26,7 @@ namespace BlueDream.WinForm
         {
             LoginForm m_LoginForm = new LoginForm();
             DialogResult m_DialogResult = m_LoginForm.ShowDialog();
-
+            //如果用户取消登录则退出
             if (m_DialogResult == DialogResult.Cancel)
             {
                 this.Close();
@@ -161,6 +161,9 @@ namespace BlueDream.WinForm
 
         private void InitMenuTree()
         {
+            HttpRequest m_HttpRequest = new HttpRequest();
+            m_HttpRequest.GetRigth();
+
             Dictionary<string, string> m_MenuDic = MenuModel.GetMenuDic();
 
 

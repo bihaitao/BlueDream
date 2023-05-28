@@ -35,6 +35,9 @@ namespace BlueDream.WinForm
 
             if (m_CommonResult.Success)
             {
+                //保存验证信息
+                HttpHelper.Authorization = StringTools.GetNotNullString(m_CommonResult.ResultObj);
+
                 DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -15,7 +15,7 @@ namespace BlueDream.WebApi
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public CommonResult GetMenu()
+        public CommonResult GetRight()
         {
             CommonResult m_CommonResult = new CommonResult();
 

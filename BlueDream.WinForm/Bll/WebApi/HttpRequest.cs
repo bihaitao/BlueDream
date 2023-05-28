@@ -19,6 +19,11 @@ namespace BlueDream.WinForm
 
         private string GetParameterJson()
         {
+            if(Parameters is null || Parameters.Count==0)
+            {
+                return "";
+            }
+
             DynamicParameter m_DynamicParameter =  new DynamicParameter(Parameters);
             return JsonTools.GetJson(m_DynamicParameter);
         }
@@ -35,7 +40,30 @@ namespace BlueDream.WinForm
             return JsonTools.JsonToObject<CommonResult>(m_Result);
         }
 
+        public CommonResult GetRigth()
+        {
+            string m_Result = HttpHelper.Get(ApiManager.System_GetRight, GetParameterJson());
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new CommonResult();
+            }
+
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
+        }
         
+
+        public CommonResult Get()
+        {
+            string m_Result = HttpHelper.Post(ApiManager.System_Login, GetParameterJson());
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new CommonResult();
+            }
+
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
+        }
 
 
 

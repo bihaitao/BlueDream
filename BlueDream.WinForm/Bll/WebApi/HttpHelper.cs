@@ -13,6 +13,8 @@ namespace BlueDream.WinForm
 {
     public static class HttpHelper
     {
+        public static string Authorization { set; get; } = "";
+
 
         /// <summary>
         /// 向指定URL发送GET方法的请求
@@ -39,6 +41,11 @@ namespace BlueDream.WinForm
             {
                 string m_UrlNameString = p_Url + "?" + p_Param;
                 HttpWebRequest m_HttpWebRequest = (HttpWebRequest)WebRequest.Create(m_UrlNameString);
+
+                if(!string.IsNullOrWhiteSpace(Authorization))
+                {
+                    m_HttpWebRequest.Headers.Add("Authorization", Authorization);
+                }
                 m_HttpWebRequest.Method = "GET";
                 m_HttpWebRequest.ContentType = "text/html;charset=UTF-8";
                 m_HttpWebRequest.Accept = "*/*";
@@ -88,6 +95,10 @@ namespace BlueDream.WinForm
                 HttpWebRequest m_HttpWebRequest = (HttpWebRequest)WebRequest.Create(p_Url);
                 m_HttpWebRequest.Method = "POST";
                 m_HttpWebRequest.Headers.Add("x-requested-with", "XMLHttpRequest");
+                if (!string.IsNullOrWhiteSpace(Authorization))
+                {
+                    m_HttpWebRequest.Headers.Add("Authorization", Authorization);
+                }
                 m_HttpWebRequest.ServicePoint.Expect100Continue = false;
                 m_HttpWebRequest.ContentType = "application/json";
                 m_HttpWebRequest.Accept = "*/*";
