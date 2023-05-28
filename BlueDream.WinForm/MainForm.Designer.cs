@@ -84,14 +84,11 @@
             toolTip = new ToolTip(components);
             ctl_Main_Panel = new Panel();
             ctl_Main_Tab = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            ctl_menu_treeView = new TreeView();
+            ctl_Menu_TreeView = new TreeView();
             menuStrip.SuspendLayout();
             toolStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             ctl_Main_Panel.SuspendLayout();
-            ctl_Main_Tab.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -101,7 +98,7 @@
             menuStrip.MdiWindowListItem = windowsMenu;
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(7, 3, 0, 3);
-            menuStrip.Size = new Size(1008, 27);
+            menuStrip.Size = new Size(1024, 27);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "MenuStrip";
             // 
@@ -401,7 +398,7 @@
             toolStrip.Items.AddRange(new ToolStripItem[] { newToolStripButton, openToolStripButton, saveToolStripButton, toolStripSeparator1, printToolStripButton, printPreviewToolStripButton, toolStripSeparator2, helpToolStripButton });
             toolStrip.Location = new Point(0, 27);
             toolStrip.Name = "toolStrip";
-            toolStrip.Size = new Size(1008, 25);
+            toolStrip.Size = new Size(1024, 25);
             toolStrip.TabIndex = 1;
             toolStrip.Text = "ToolStrip";
             // 
@@ -474,10 +471,10 @@
             // statusStrip
             // 
             statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
-            statusStrip.Location = new Point(0, 707);
+            statusStrip.Location = new Point(0, 746);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
-            statusStrip.Size = new Size(1008, 22);
+            statusStrip.Size = new Size(1024, 22);
             statusStrip.TabIndex = 2;
             statusStrip.Text = "StatusStrip";
             // 
@@ -490,57 +487,38 @@
             // ctl_Main_Panel
             // 
             ctl_Main_Panel.Controls.Add(ctl_Main_Tab);
-            ctl_Main_Panel.Controls.Add(ctl_menu_treeView);
+            ctl_Main_Panel.Controls.Add(ctl_Menu_TreeView);
             ctl_Main_Panel.Dock = DockStyle.Fill;
             ctl_Main_Panel.Location = new Point(0, 52);
             ctl_Main_Panel.Name = "ctl_Main_Panel";
-            ctl_Main_Panel.Size = new Size(1008, 655);
+            ctl_Main_Panel.Size = new Size(1024, 694);
             ctl_Main_Panel.TabIndex = 4;
             // 
             // ctl_Main_Tab
             // 
             ctl_Main_Tab.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ctl_Main_Tab.Controls.Add(tabPage1);
-            ctl_Main_Tab.Controls.Add(tabPage2);
             ctl_Main_Tab.Location = new Point(130, 3);
             ctl_Main_Tab.Name = "ctl_Main_Tab";
             ctl_Main_Tab.SelectedIndex = 0;
-            ctl_Main_Tab.Size = new Size(875, 649);
+            ctl_Main_Tab.Size = new Size(891, 688);
             ctl_Main_Tab.TabIndex = 1;
+            ctl_Main_Tab.Tag = "";
+            ctl_Main_Tab.SelectedIndexChanged += ctl_Main_Tab_SelectedIndexChanged;
             // 
-            // tabPage1
+            // ctl_Menu_TreeView
             // 
-            tabPage1.Location = new Point(4, 26);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(867, 619);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 26);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(596, 482);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // ctl_menu_treeView
-            // 
-            ctl_menu_treeView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            ctl_menu_treeView.Location = new Point(3, 3);
-            ctl_menu_treeView.Name = "ctl_menu_treeView";
-            ctl_menu_treeView.Size = new Size(121, 645);
-            ctl_menu_treeView.TabIndex = 0;
+            ctl_Menu_TreeView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            ctl_Menu_TreeView.Location = new Point(3, 3);
+            ctl_Menu_TreeView.Name = "ctl_Menu_TreeView";
+            ctl_Menu_TreeView.Size = new Size(121, 684);
+            ctl_Menu_TreeView.TabIndex = 0;
+            ctl_Menu_TreeView.DoubleClick += ctl_Menu_TreeView_DoubleClick;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1008, 729);
+            ClientSize = new Size(1024, 768);
             Controls.Add(ctl_Main_Panel);
             Controls.Add(statusStrip);
             Controls.Add(toolStrip);
@@ -550,7 +528,9 @@
             Margin = new Padding(4);
             MinimumSize = new Size(1024, 768);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "联纺ERP";
+            Load += MainForm_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStrip.ResumeLayout(false);
@@ -558,7 +538,6 @@
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ctl_Main_Panel.ResumeLayout(false);
-            ctl_Main_Tab.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -619,9 +598,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private Panel ctl_Main_Panel;
         private TabControl ctl_Main_Tab;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private TreeView ctl_menu_treeView;
+        private TreeView ctl_Menu_TreeView;
     }
 }
 
