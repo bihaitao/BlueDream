@@ -1,16 +1,16 @@
-﻿namespace BlueDream.WinForm.Forms
+﻿namespace BlueDream.WinForm
 {
-    partial class UserControl1
+    partial class SaleForm
     {
-        /// <summary> 
-        /// 必需的设计器变量。
+        /// <summary>
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// 清理所有正在使用的资源。
+        /// <summary>
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region 组件设计器生成的代码
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -34,19 +34,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(126, 126);
+            label1.Location = new Point(182, 102);
             label1.Name = "label1";
-            label1.Size = new Size(56, 17);
-            label1.TabIndex = 0;
-            label1.Text = "用户控件";
+            label1.Size = new Size(31, 17);
+            label1.TabIndex = 1;
+            label1.Text = "sale";
             // 
-            // UserControl1
+            // SaleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Name = "UserControl1";
-            Size = new Size(856, 672);
+            Name = "SaleForm";
+            Text = "SaleForm";
             ResumeLayout(false);
             PerformLayout();
         }

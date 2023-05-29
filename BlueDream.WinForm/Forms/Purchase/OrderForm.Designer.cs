@@ -1,6 +1,6 @@
-﻿namespace BlueDream.WinForm.Forms
+﻿namespace BlueDream.WinForm
 {
-    partial class Form1
+    partial class OrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(577, 176);
+            label1.Location = new Point(339, 91);
             label1.Name = "label1";
-            label1.Size = new Size(36, 17);
+            label1.Size = new Size(41, 17);
             label1.TabIndex = 0;
-            label1.Text = "from";
+            label1.Text = "order";
             // 
-            // Form1
+            // OrderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "OrderForm";
+            Text = "OrderForm";
             ResumeLayout(false);
             PerformLayout();
         }

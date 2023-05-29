@@ -1,20 +1,39 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace BlueDream.WinForm.Model
+namespace BlueDream.WinForm
 {
     public class MenuModel
     {
-        public static  Dictionary<string,string> GetMenuDic()
+        public MenuModel()
         {
-            Dictionary<string, string> m_MenuDic = new Dictionary<string, string>();
-            m_MenuDic.Add("test1",typeof(BlueDream.WinForm.Forms.Form1).FullName);
-            m_MenuDic.Add("test2", typeof(BlueDream.WinForm.Forms.Form2).FullName);
-            return m_MenuDic;
+            SubMenus = new List<MenuModel>();
         }
+
+         
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; set; } = "";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Code { get; set; } = "";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FormFullName { set; get; } = "";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<MenuModel> SubMenus { set; get; }
     }
 }

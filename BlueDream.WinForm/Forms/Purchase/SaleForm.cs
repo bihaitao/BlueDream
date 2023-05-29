@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BlueDream.WinForm.Forms
+namespace BlueDream.WinForm
 {
-    public partial class Form2 : Form
+    public partial class SaleForm : Form
     {
-        public Form2()
+        public SaleForm()
         {
             InitializeComponent();
         }
