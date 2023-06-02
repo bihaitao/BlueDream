@@ -1,5 +1,5 @@
 ﻿using BlueDream.Common;
- 
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,23 +23,44 @@ namespace BlueDream.WinForm
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm m_LoginForm = new LoginForm();
-            DialogResult m_DialogResult = m_LoginForm.ShowDialog();
-            //如果用户取消登录则退出
-            if (m_DialogResult == DialogResult.Cancel)
+            if(true)
             {
-                this.Close();
+                HttpRequest m_HttpRequest = new HttpRequest();
+
+                m_HttpRequest.Parameters.Add("UserName", "blue");
+                m_HttpRequest.Parameters.Add("Password", "blue");
+                m_HttpRequest.Parameters.Add("VerifyCode", "");
+                
+                CommonResult m_CommonResult = m_HttpRequest.Login();
+
+                if (m_CommonResult.Success)
+                {
+                    //保存验证信息
+                    HttpHelper.Authorization = StringTools.GetNotNullString(m_CommonResult.ResultObj);
+                }
             }
+            else
+            {
+                LoginForm m_LoginForm = new LoginForm();
+                DialogResult m_DialogResult = m_LoginForm.ShowDialog();
+                //如果用户取消登录则退出
+                if (m_DialogResult == DialogResult.Cancel)
+                {
+                    this.Close();
+                }
+            }
+              
+           
 
             InitMenuTree();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "窗口 " + childFormNumber++;
-            childForm.Show();
+            Form t_ChildForm = new Form();
+            t_ChildForm.MdiParent = this;
+            t_ChildForm.Text = "窗口 " + childFormNumber++;
+            t_ChildForm.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -172,7 +193,7 @@ namespace BlueDream.WinForm
 
         }
 
-        private void InitMenu(MenuModel p_MenuModel,TreeNode? p_FTreeNode = null)
+        private void InitMenu(MenuModel p_MenuModel, TreeNode? p_FTreeNode = null)
         {
             TreeNode m_TreeNode = new TreeNode()
             {
@@ -181,7 +202,7 @@ namespace BlueDream.WinForm
                 Tag = p_MenuModel.FormFullName
             };
 
-            if (p_FTreeNode  is null)
+            if (p_FTreeNode is null)
             {
                 this.ctl_Menu_TreeView.Nodes.Add(m_TreeNode);
             }
@@ -189,7 +210,7 @@ namespace BlueDream.WinForm
             {
                 p_FTreeNode.Nodes.Add(m_TreeNode);
             }
-             
+
             foreach (MenuModel t_MenuModel in p_MenuModel.SubMenus)
             {
                 InitMenu(t_MenuModel, m_TreeNode);
@@ -202,8 +223,9 @@ namespace BlueDream.WinForm
 
         }
 
-
-
-
+        private void ctl_Main_Tab_DoubleClick(object sender, EventArgs e)
+        {
+            ctl_Main_Tab.TabPages.RemoveAt(ctl_Main_Tab.SelectedIndex);
+        }
     }
 }

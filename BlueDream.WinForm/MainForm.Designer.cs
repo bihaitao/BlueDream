@@ -504,6 +504,7 @@
             ctl_Main_Tab.TabIndex = 1;
             ctl_Main_Tab.Tag = "";
             ctl_Main_Tab.SelectedIndexChanged += ctl_Main_Tab_SelectedIndexChanged;
+            ctl_Main_Tab.DoubleClick += ctl_Main_Tab_DoubleClick;
             // 
             // ctl_Menu_TreeView
             // 
