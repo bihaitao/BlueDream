@@ -25,18 +25,18 @@ namespace BlueDream.WinForm
         {
             if(true)
             {
-                HttpRequest m_HttpRequest = new HttpRequest();
+                ApiSystem m_ApiSystem = new ApiSystem();
 
-                m_HttpRequest.Parameters.Add("UserName", "blue");
-                m_HttpRequest.Parameters.Add("Password", "blue");
-                m_HttpRequest.Parameters.Add("VerifyCode", "");
+                m_ApiSystem.Parameters.Add("UserName", "blue");
+                m_ApiSystem.Parameters.Add("Password", "blue");
+                m_ApiSystem.Parameters.Add("VerifyCode", "");
                 
-                CommonResult m_CommonResult = m_HttpRequest.Login();
+                CommonResult m_CommonResult = m_ApiSystem.Login();
 
                 if (m_CommonResult.Success)
                 {
                     //保存验证信息
-                    HttpHelper.Authorization = StringTools.GetNotNullString(m_CommonResult.ResultObj);
+                    HttpHelper.LoginKey = StringTools.GetNotNullString(m_CommonResult.ResultObj);
                 }
             }
             else
@@ -181,8 +181,8 @@ namespace BlueDream.WinForm
 
         private void InitMenuTree()
         {
-            HttpRequest m_HttpRequest = new HttpRequest();
-            m_HttpRequest.GetRigth();
+            ApiSystem m_ApiSystem = new ApiSystem();
+            m_ApiSystem.GetRigth();
 
             List<MenuModel> m_MenuList = MenuBll.GetMenu();
 

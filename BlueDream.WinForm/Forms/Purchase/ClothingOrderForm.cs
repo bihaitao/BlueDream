@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueDream.WinForm.Forms.Purchase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,14 @@ namespace BlueDream.WinForm
         private void btn_Search_Click(object sender, EventArgs e)
         {
             //检索订单
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            ClothingOrderEditForm m_Form = new ClothingOrderEditForm();
+             
+            m_Form.ShowDialog();
+
         }
     }
 }

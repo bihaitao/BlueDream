@@ -12,30 +12,30 @@ namespace BlueDream.Model
     public class BaseEntity
     {
         /// <summary>
-        /// 创建用户
-        /// </summary>
-        [SugarColumn(ColumnName = "create_user")]
-        public String CreateUser { get; set; }
-        /// <summary>
         /// 创建用户ID
         /// </summary>
         [SugarColumn(ColumnName = "create_user_id")]
-        public Int64 CreateUserID { get; set; }
+        public long CreateUserID { get; set; }
+        /// <summary>
+        /// 创建用户
+        /// </summary>
+        [SugarColumn(ColumnName = "create_user")]
+        public string CreateUser { get; set; } 
         /// <summary>
         /// 创建时间
         /// </summary>
         [SugarColumn(ColumnName = "create_time")]
         public DateTime CreateTime { get; set; }
         /// <summary>
-        /// 更新用户
-        /// </summary>
-        [SugarColumn(ColumnName = "update_user")]
-        public String UpdateUser { get; set; }
-        /// <summary>
         /// 更新用户ID
         /// </summary>
         [SugarColumn(ColumnName = "update_user_id")]
-        public Int64 UpdateUserID { get; set; }
+        public long UpdateUserID { get; set; }
+        /// <summary>
+        /// 更新用户
+        /// </summary>
+        [SugarColumn(ColumnName = "update_user")]
+        public string UpdateUser { get; set; } 
         /// <summary>
         /// 更新时间
         /// </summary>

@@ -1,11 +1,15 @@
 ﻿using BlueDream.Common;
 using DevTool.CodeTools;
 using DevTool.CodeTools.Model;
+using SqlSugar;
+using System.Reflection.Emit;
+using System.Text;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        GenID();
         GenCode();
         //string m_LongID = StringTools.GetNewGuidLongString();
         //Tuple<string, string> m_Tuple = RsaHelper.GenerateRsaKeys();
@@ -14,7 +18,7 @@ internal class Program
         Console.WriteLine("Hello, World!");
 
         Console.ReadKey();
-    }  
+    }
 
     /// <summary>
     /// 生成实体类代码
@@ -28,5 +32,17 @@ internal class Program
         CodeTools.FillCodeName(m_TableInfoList);
 
         CodeTools.GenCode(m_TableInfoList, "C:\\mydisk\\code_temp\\");
+    }
+
+    private static void GenID()
+    {
+        StringBuilder m_StringBuilder = new StringBuilder();
+
+        for (int t_Index = 0; t_Index < 1000; t_Index++)
+        {
+            m_StringBuilder.AppendLine(BitConverter.ToInt64(Guid.NewGuid().ToByteArray(), 0).ToString());
+        }
+
+        File.WriteAllText($@"c:\mydisk\id.txt", m_StringBuilder.ToString());
     }
 }

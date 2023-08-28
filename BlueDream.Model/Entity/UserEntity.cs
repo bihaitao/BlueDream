@@ -13,22 +13,22 @@ namespace BlueDream.Model
         /// 用户ID
         /// </summary>
         [SugarColumn(ColumnName = "user_id", IsPrimaryKey = true)]
-        public Int64 UserID { get; set; }
+        public long UserID { get; set; }
         /// <summary>
         /// 用户名（登录用）
         /// </summary>
         [SugarColumn(ColumnName = "user_name")]
-        public String UserName { get; set; } = "";
+        public string UserName { get; set; } = "";
         /// <summary>
         /// 显示名称
         /// </summary>
         [SugarColumn(ColumnName = "nick_name")]
-        public String NickName { get; set; } = "";
+        public string NickName { get; set; } = "";
         /// <summary>
         /// 密码
         /// </summary>
         [SugarColumn(ColumnName = "password")]
-        public String Password { get; set; } = "";
+        public string Password { get; set; } = "";
 
     }
 }

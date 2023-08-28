@@ -13,21 +13,21 @@ namespace BlueDream.Model
         /// 权限ID
         /// </summary>
         [SugarColumn(ColumnName = "rigth_id", IsPrimaryKey = true)]
-        public Int64 RigthID { get; set; }
+        public long RigthID { get; set; }
         /// <summary>
         /// 权限Key
         /// </summary>
         [SugarColumn(ColumnName = "right_key")]
-        public String RightKey { get; set; } = "";
+        public string RightKey { get; set; } = "";
         /// <summary>
         /// 权限名称
         /// </summary>
         [SugarColumn(ColumnName = "right_name")]
-        public String RightName { get; set; } = "";
+        public string RightName { get; set; } = "";
         /// <summary>
         /// 注释
         /// </summary>
         [SugarColumn(ColumnName = "info")]
-        public String Info { get; set; } = "";
+        public string Info { get; set; } = "";
     }
 }

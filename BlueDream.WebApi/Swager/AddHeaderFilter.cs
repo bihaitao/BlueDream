@@ -30,7 +30,7 @@ namespace BlueDream.WebApi
             //添加默认登录验证参数
             operation.Parameters.Add(new OpenApiParameter
             {
-                Name = "LoginKey",
+                Name = LoginHelper.LoginKey,
                 In = ParameterLocation.Header,
                 Description = "登录验证",
                 Required = true,

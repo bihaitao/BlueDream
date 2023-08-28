@@ -133,7 +133,7 @@ namespace BlueDream.Common
         /// <summary>
         /// 系统RsaID
         /// </summary>
-        public Int64 RsaID { get { return Convert.ToInt64(GetAppSetting("RsaID")); } }
+        public long RsaID { get { return Convert.ToInt64(GetAppSetting("RsaID")); } }
 
         #endregion
     }
