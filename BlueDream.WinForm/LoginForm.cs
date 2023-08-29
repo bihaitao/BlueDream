@@ -22,15 +22,13 @@ namespace BlueDream.WinForm
 
 
         private void btn_Login_Click(object sender, EventArgs e)
-        {
-
+        { 
             ApiSystem m_ApiSystem = new ApiSystem();
 
             m_ApiSystem.Parameters.Add("UserName", txt_UserName.Text);
             m_ApiSystem.Parameters.Add("Password", txt_Password.Text);
             m_ApiSystem.Parameters.Add("VerifyCode", txt_Password.Text);
             
-             
             CommonResult m_CommonResult = m_ApiSystem.Login();
 
             if (m_CommonResult.Success)

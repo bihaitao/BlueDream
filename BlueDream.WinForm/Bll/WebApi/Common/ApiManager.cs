@@ -24,5 +24,11 @@ namespace BlueDream.WinForm
         /// 获取公司列表
         /// </summary>
         public static string Organization_GetOrganization = $@"{m_BaseUrl}/Organization/GetOrganization";
+
+
+        /// <summary>
+        /// 获取订单列表(分页)
+        /// </summary>
+        public static string Order_GetListByPage = $@"{m_BaseUrl}/Order/GetListByPage";
     }
 }

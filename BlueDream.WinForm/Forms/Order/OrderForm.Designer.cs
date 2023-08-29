@@ -1,6 +1,6 @@
 ﻿namespace BlueDream.WinForm
 {
-    partial class ClothingOrderForm
+    partial class OrderForm
     {
         /// <summary>
         /// Required designer variable.

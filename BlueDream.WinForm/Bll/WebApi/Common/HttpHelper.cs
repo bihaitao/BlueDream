@@ -62,7 +62,7 @@ namespace BlueDream.WinForm
                 m_StreamReader = null;
                 m_Stream = null;
                 m_HttpWebResponse = null;
-            }
+            } 
             catch (Exception ex)
             {
 

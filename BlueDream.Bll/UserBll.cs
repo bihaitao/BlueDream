@@ -57,13 +57,14 @@ namespace BlueDream.Bll
         public static LoginUserModel GetLoginUserByEnCodeString(string p_EnCodeString)
         {
             //截取得到秘钥ID
-            long m_RsaKeyID1 = Convert.ToInt64(p_EnCodeString.Substring(0, 19));
+            long m_RsaKeyID = Convert.ToInt64(p_EnCodeString.Substring(0, 19));
+
             //根据秘钥ID获取秘钥对象信息
-            RsaEntity m_RsaEntity = RsaKeyBll.GetByID(m_RsaKeyID1);
+            RsaEntity m_RsaEntity = RsaKeyBll.GetByID(m_RsaKeyID);
 
             if (m_RsaEntity == null)
             {
-                SysExTools.Throw_CheckDateEx("鉴权失败", $"根据秘钥ID没有找到对应的秘钥信息,RsaKeyID:{m_RsaKeyID1}", $"RsaKeyID:{m_RsaKeyID1}");
+                SysExTools.Throw_CheckDateEx("鉴权失败", $"根据秘钥ID没有找到对应的秘钥信息,RsaKeyID:{m_RsaKeyID}", $"RsaKeyID:{m_RsaKeyID}");
             }
 
             //得到加密串

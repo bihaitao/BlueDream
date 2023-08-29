@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueDream.WinForm.Bll.WebApi
+namespace BlueDream.WinForm
 {
     public class ApiOrganization : HttpRequest
     {

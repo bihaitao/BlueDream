@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlueDream.Bll
 {
-    public class CompanyBll
+    public class OrganizationBll
     {
         /// <summary>
         /// 根据ReaKeyID 获取key 信息.....

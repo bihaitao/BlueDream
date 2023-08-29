@@ -21,6 +21,7 @@ namespace BlueDream.WinForm
         {
             InitializeComponent();
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             if(true)

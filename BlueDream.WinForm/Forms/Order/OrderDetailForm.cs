@@ -1,4 +1,4 @@
-﻿using BlueDream.WinForm.Forms.Purchase;
+﻿using BlueDream.WinForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BlueDream.WinForm
 {
-    public partial class ClothingOrderForm : Form
+    public partial class OrderDetailForm : Form
     {
-        public ClothingOrderForm()
+        public OrderDetailForm()
         {
             InitializeComponent();
         }
@@ -25,9 +25,7 @@ namespace BlueDream.WinForm
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            ClothingOrderEditForm m_Form = new ClothingOrderEditForm();
-             
-            m_Form.ShowDialog();
+           
 
         }
     }

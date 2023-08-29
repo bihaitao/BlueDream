@@ -25,10 +25,17 @@ namespace BlueDream.Model
         [SugarColumn(ColumnName = "customer_order_no")]
         public string CustomerOrderNo { get; set; }
         /// <summary>
-        /// 
+        /// 品牌ID
         /// </summary>
         [SugarColumn(ColumnName = "brand_id")]
         public long BrandID { get; set; }
+
+        /// <summary>
+        /// 担当人ID User_ID 
+        /// </summary>
+        [SugarColumn(ColumnName = "person_in_charge_id")]
+        public long Person_IN_Charge_ID { get; set; }
+        
         /// <summary>
         /// 采购方组织ID
         /// </summary>
