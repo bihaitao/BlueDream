@@ -10,16 +10,16 @@ namespace BlueDream.WinForm
 {
     public class ApiOrder : HttpRequest
     {
-        public ApiResult<List<OrderEntity>> GetListByPage()
+        public ApiPageResult<List<OrderModel>> GetListModelByPage()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Order_GetListByPage, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.Order_GetListModelByPage, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
-                return new ApiResult<List<OrderEntity>>();
+                return new ApiPageResult<List<OrderModel>>();
             }
 
-            return JsonTools.JsonToObject<ApiResult<List<OrderEntity>>>(m_Result);
+            return JsonTools.JsonToObject<ApiPageResult<List<OrderModel>>>(m_Result);
         }
     }
 }

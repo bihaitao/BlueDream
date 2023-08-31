@@ -1,6 +1,7 @@
 ﻿using BlueDream.Common;
 using BlueDream.Dal;
 using BlueDream.Model;
+using BlueDream.Model.Model;
 using Microsoft.IdentityModel.Logging;
 using System;
 using System.Collections.Generic;
@@ -89,6 +90,31 @@ namespace BlueDream.Bll
 
 
             return m_LoginUserModel;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_SearchKey"></param>
+        /// <returns></returns>
+        public static List<UserModel> GetTop10(string p_SearchKey)
+        {
+            int m_TotalCount = 0;
+            List<UserEntity> m_EntityList =  UserDal.GetListByPage(DBHelper.CreateReadOnlyClient(), 10, 1, p_SearchKey, ref m_TotalCount);
+            List<UserModel> m_ModelList = new List<UserModel>();
+            
+            foreach(UserEntity t_UserEntity in m_EntityList)
+            { 
+                m_ModelList.Add(new UserModel()
+                {
+                    UserID = t_UserEntity.UserID,
+                    UserName = t_UserEntity.UserName,
+                    NickName = t_UserEntity.NickName
+                });
+            }
+
+            return m_ModelList; 
         }
 
     }

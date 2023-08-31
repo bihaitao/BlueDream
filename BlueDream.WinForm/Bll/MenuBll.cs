@@ -25,8 +25,8 @@ namespace BlueDream.WinForm
             m_MenuModel_Purchase.SubMenus.Add(new MenuModel()
             {
                 Name = "采购单管理",
-                Code = "OrderForm",
-                FormFullName = typeof(BlueDream.WinForm.OrderForm).FullName,
+                Code = "OrderListForm",
+                FormFullName = typeof(BlueDream.WinForm.OrderListForm).FullName,
             });
 
             m_MenuModel_Purchase.SubMenus.Add(new MenuModel()

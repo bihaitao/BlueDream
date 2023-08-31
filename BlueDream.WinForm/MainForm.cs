@@ -24,14 +24,14 @@ namespace BlueDream.WinForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if(true)
+            if (true)
             {
                 ApiSystem m_ApiSystem = new ApiSystem();
 
                 m_ApiSystem.Parameters.Add("UserName", "blue");
                 m_ApiSystem.Parameters.Add("Password", "blue");
                 m_ApiSystem.Parameters.Add("VerifyCode", "");
-                
+
                 CommonResult m_CommonResult = m_ApiSystem.Login();
 
                 if (m_CommonResult.Success)
@@ -50,8 +50,8 @@ namespace BlueDream.WinForm
                     this.Close();
                 }
             }
-              
-           
+
+
 
             InitMenuTree();
         }

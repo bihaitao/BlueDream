@@ -1,17 +1,18 @@
-﻿using System;
+﻿using BlueDream.WinForm;
+using System;
 using System.Collections.Generic;
 
-namespace BlueDream.Common
+namespace BlueDream.WinForm
 {
     /// <summary>
     /// 分页属性设置类
     /// </summary>
-    public class PageResult : CommonResult
+    public class ApiPageResult<T> : ApiResult<T>
     {
         /// <summary>
         /// 无参的构造函数
         /// </summary>
-        public PageResult() { }
+        public ApiPageResult() { }
 
 
         /// <summary>
@@ -19,7 +20,7 @@ namespace BlueDream.Common
         /// </summary>
         /// <param name="p_PageIndex"></param>
         /// <param name="p_PageSize"></param>
-        public PageResult(int p_PageIndex, int p_PageSize)
+        public ApiPageResult(int p_PageIndex, int p_PageSize)
         {
             PageIndex = p_PageIndex;
             PageSize = p_PageSize;

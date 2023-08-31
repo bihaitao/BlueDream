@@ -34,7 +34,7 @@ namespace BlueDream.Model
         /// 担当人ID User_ID 
         /// </summary>
         [SugarColumn(ColumnName = "person_in_charge_id")]
-        public long Person_IN_Charge_ID { get; set; }
+        public long PersonInChargeID { get; set; }
         
         /// <summary>
         /// 采购方组织ID
@@ -62,9 +62,16 @@ namespace BlueDream.Model
         [SugarColumn(ColumnName = "total_num")]
         public int TotalNum { get; set; }
         /// <summary>
-        /// 
+        /// 总额
         /// </summary>
         [SugarColumn(ColumnName = "total_amount")]
         public decimal TotalAmount { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        [SugarColumn(ColumnName = "remarks_info")]
+        public string RemarksInfo { get; set; }
+
+        
     }
 }

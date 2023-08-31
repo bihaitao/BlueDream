@@ -30,27 +30,17 @@ namespace BlueDream.Model
         [SugarColumn(ColumnName = "style_no")]
         public string StyleNo { get; set; }
         /// <summary>
-        /// 总数量
-        /// </summary>
-        [SugarColumn(ColumnName = "quantity")]
-        public int Quantity { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [SugarColumn(ColumnName = "delivery_quantity")]
-        public int DeliveryQuantity { get; set; }
-        /// <summary>
-        /// 
+        /// 交期
         /// </summary>
         [SugarColumn(ColumnName = "delivery_date")]
         public DateTime DeliveryDate { get; set; }
         /// <summary>
-        /// 
+        /// 单价
         /// </summary>
         [SugarColumn(ColumnName = "unit_price")]
         public decimal UnitPrice { get; set; }
         /// <summary>
-        /// 
+        /// 面料
         /// </summary>
         [SugarColumn(ColumnName = "composition")]
         public string Composition { get; set; }

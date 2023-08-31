@@ -530,7 +530,7 @@
             MinimumSize = new Size(1024, 768);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "联纺ERP";
+            Text = "BlueErp";
             Load += MainForm_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();

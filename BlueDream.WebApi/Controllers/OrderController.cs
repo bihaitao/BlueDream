@@ -17,16 +17,18 @@ namespace BlueDream.WebApi
         /// </summary>
         /// <returns></returns>
         [HttpGet]       
-        public CommonResult GetListByPage(int p_PageSize,int p_PageIndex,string p_SearchKey)
+        public PageResult GetListModelByPage(int p_PageSize,int p_PageIndex,string p_SearchKey)
         { 
-            CommonResult m_CommonResult = new CommonResult();
+            PageResult m_PageResult = new PageResult();
             
-            SysExTools.TryExec(m_CommonResult, () =>
+            SysExTools.TryExec(m_PageResult, () =>
             {
-                m_CommonResult.ResultObj = OrderBll.GetListByPage(p_PageSize, p_PageIndex, p_SearchKey);
+                int p_TotalCount = 0;
+                m_PageResult.ResultObj = OrderBll.GetListModelByPage(p_PageSize, p_PageIndex, p_SearchKey,ref p_TotalCount);
+                m_PageResult.TotalCount = p_TotalCount;
             });
 
-            return m_CommonResult;
+            return m_PageResult;
         }
 
 
