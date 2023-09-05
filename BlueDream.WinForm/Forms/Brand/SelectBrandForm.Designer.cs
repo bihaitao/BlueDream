@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox1 = new GroupBox();
             btn_Select = new Button();
             btn_Search = new Button();
             txt_Search = new TextBox();
             label1 = new Label();
-            dgv_Main = new DataGridView(); 
+            dgv_Main = new DataGridView();
+            dgv_Main_Pager = new PagerLib.PagerControl();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Main).BeginInit();
             SuspendLayout();
@@ -98,13 +100,26 @@
             dgv_Main.RowTemplate.Height = 25;
             dgv_Main.Size = new Size(575, 326);
             dgv_Main.TabIndex = 2;
-             
+            // 
+            // dgv_Main_Pager
+            // 
+            dgv_Main_Pager.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right; 
+            dgv_Main_Pager.DataCount = 0;
+            dgv_Main_Pager.Location = new Point(3, 406);
+            dgv_Main_Pager.Margin = new Padding(4);
+            dgv_Main_Pager.Name = "dgv_Main_Pager";
+            dgv_Main_Pager.PageCount = 0;
+            dgv_Main_Pager.PageIndex = 1;
+            dgv_Main_Pager.PageSize = 5;
+            dgv_Main_Pager.Size = new Size(575, 29);
+            dgv_Main_Pager.TabIndex = 3;
             // 
             // SelectBrandForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 441); 
+            ClientSize = new Size(584, 441);
+            Controls.Add(dgv_Main_Pager);
             Controls.Add(dgv_Main);
             Controls.Add(groupBox1);
             MaximizeBox = false;
@@ -128,5 +143,6 @@
         private TextBox txt_Search;
         private Label label1;
         private DataGridView dgv_Main;
+        private PagerLib.PagerControl dgv_Main_Pager;
     }
 }

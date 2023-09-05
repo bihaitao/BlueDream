@@ -13,8 +13,8 @@ namespace BlueDream.WinForm.Forms.Brand
 {
     public partial class SelectBrandForm : Form
     {
-        int m_PageSize = 10;
-        int m_PageIndex = 1;
+
+
 
         public delegate void CallBack(string p_Key, object p_Value);//定义委托
         public event CallBack CallBack_Event;//事件变量
@@ -24,21 +24,20 @@ namespace BlueDream.WinForm.Forms.Brand
 
             InitializeComponent();
             InitPager();
-            LoadData(m_PageSize, m_PageIndex, "*", true);
+            LoadData(1, dgv_Main_Pager.PageSize, "*", true);
         }
 
         private void InitPager()
         {
-
+            dgv_Main_Pager.PageSize = 10;
+            dgv_Main_Pager.PageChange += Dgv_Main_Pager_PageChange;
         }
-
 
         private void LoadData(int p_PageSize, int p_PageIndex, string p_SearchKey, bool p_InitPage)
         {
             if (string.IsNullOrWhiteSpace(p_SearchKey))
             {
                 p_SearchKey = "*";
-
             }
 
             dgv_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -58,12 +57,15 @@ namespace BlueDream.WinForm.Forms.Brand
             InitDataGridViewColumn(dgv_Main, "BrandCn", "中文名称");
             InitDataGridViewColumn(dgv_Main, "BrandEn", "英文名称");
 
-
-
-
-           
-
+            dgv_Main_Pager.DataCount = m_ApiPageResult.TotalCount;
         }
+
+        private void Dgv_Main_Pager_PageChange()
+        {
+            LoadData(dgv_Main_Pager.PageSize, dgv_Main_Pager.PageIndex, txt_Search.Text.Trim(), true);
+        }
+
+
 
         private void InitDataGridViewColumn(DataGridView p_DataGridView, string p_ColumnName, string p_HeadTex)
         {
@@ -93,9 +95,9 @@ namespace BlueDream.WinForm.Forms.Brand
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            LoadData(m_PageSize, m_PageIndex, txt_Search.Text.Trim(), true);
+            LoadData(dgv_Main_Pager.PageSize, dgv_Main_Pager.PageIndex, txt_Search.Text.Trim(), true);
         }
 
-        
+
     }
 }

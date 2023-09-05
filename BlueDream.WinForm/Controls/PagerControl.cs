@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading;
-
-namespace PagerLib
+﻿namespace PagerLib
 {
     /// <summary>
     /// 分页控件
@@ -16,7 +6,7 @@ namespace PagerLib
     public partial class PagerControl : UserControl
     {
         #region property
-        private int lastPage;
+        private int m_LastPage;
         /// <summary>
         /// 获取与设置每页记录数 
         /// </summary>
@@ -109,9 +99,9 @@ namespace PagerLib
         public PagerControl()
         {
             InitializeComponent();
-            this.BackColorChanged += new EventHandler(PagerControl_BackColorChanged);
-            this.BackColor = Color.FromArgb(194, 217, 247);
-            this.bindingNavigator.BackColor = this.BackColor;
+            //this.BackColorChanged += new EventHandler(PagerControl_BackColorChanged);
+            //this.BackColor = Color.FromArgb(194, 217, 247);
+            //this.bindingNavigator.BackColor = this.BackColor;
         }
         #endregion
 
@@ -165,13 +155,13 @@ namespace PagerLib
             }
             //更新界面显示的属性值
             this.txtCurrentPage.Text = this.PageIndex.ToString();
-            lastPage = Convert.ToInt32(this.txtCurrentPage.Text);
+            m_LastPage = Convert.ToInt32(this.txtCurrentPage.Text);
             this.lblCountPage.Text = this.PageCount.ToString();
             this.ComboBoxRowsPerPage.Text = this.PageSize.ToString();
             this.lblCountRecord.Text = this.DataCount.ToString();
             //触发事件，通知外部注册更新当前显示页数记录等信息。
             OnPageChange();
-            OnPageChange(this);
+            //OnPageChange(this);
         }
         #endregion
 
@@ -182,7 +172,7 @@ namespace PagerLib
         private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
             this.PageIndex = 1;
-            UpdateAllValue();
+            //UpdateAllValue();
         }
         /// <summary>
         /// 上一条
@@ -190,7 +180,7 @@ namespace PagerLib
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
         {
             this.PageIndex--;
-            UpdateAllValue();
+            //UpdateAllValue();
         }
         /// <summary>
         /// 下一条
@@ -198,7 +188,7 @@ namespace PagerLib
         private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
         {
             this.PageIndex++;
-            UpdateAllValue();
+            //UpdateAllValue();
         }
         /// <summary>
         /// 最后条
@@ -206,7 +196,7 @@ namespace PagerLib
         private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
         {
             this.PageIndex = PageCount;
-            UpdateAllValue();
+            //UpdateAllValue();
         }
         /// <summary>
         /// 每页显示几条改变事件
@@ -230,7 +220,7 @@ namespace PagerLib
             int newPage;
             if (!Int32.TryParse(this.txtCurrentPage.Text, out newPage))
             {
-                this.txtCurrentPage.Text = lastPage.ToString();
+                this.txtCurrentPage.Text = m_LastPage.ToString();
                 return;
             }
             if (PageCount == 0)
@@ -239,21 +229,21 @@ namespace PagerLib
             }
             if (newPage > this.PageCount || newPage < 0)
             {
-                this.txtCurrentPage.Text = lastPage.ToString();
+                this.txtCurrentPage.Text = m_LastPage.ToString();
                 return;
             }
             this.m_PageIndex = newPage;
             UpdateAllValue();
         }
-        /// <summary>
-        /// 分页控件背景颜色随着母窗体的背景颜色变化而变化
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void PagerControl_BackColorChanged(object sender, EventArgs e)
-        {
-            this.bindingNavigator.BackColor = this.BackColor;
-        }
+        ///// <summary>
+        ///// 分页控件背景颜色随着母窗体的背景颜色变化而变化
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void PagerControl_BackColorChanged(object sender, EventArgs e)
+        //{
+        //    this.bindingNavigator.BackColor = this.BackColor;
+        //}
         #endregion
 
         #region 外部事件注册
@@ -273,22 +263,22 @@ namespace PagerLib
             }
         }
 
-        /// <summary>
-        /// 有对象事件，可以得到触发该事件的分页控件对象
-        /// </summary>
-        public event Action<object> PageChangeWithObject;
-        /// <summary>
-        /// 触发有对象事件
-        /// </summary>
-        /// <param name="sender">对象</param>
-        private void OnPageChange(PagerControl sender)
-        {
-            Action<object> temp = Interlocked.CompareExchange(ref PageChangeWithObject, null, null);
-            if (temp != null)
-            {
-                temp(sender);
-            }
-        }
+        ///// <summary>
+        ///// 有对象事件，可以得到触发该事件的分页控件对象
+        ///// </summary>
+        //public event Action<object> PageChangeWithObject;
+        ///// <summary>
+        ///// 触发有对象事件
+        ///// </summary>
+        ///// <param name="sender">对象</param>
+        //private void OnPageChange(PagerControl sender)
+        //{
+        //    Action<object> temp = Interlocked.CompareExchange(ref PageChangeWithObject, null, null);
+        //    if (temp != null)
+        //    {
+        //        temp(sender);
+        //    }
+        //}
         #endregion
     }
 }

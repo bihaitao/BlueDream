@@ -231,7 +231,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(bindingNavigator);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "PagerControl";
             Size = new Size(472, 29);
             ((System.ComponentModel.ISupportInitialize)bindingNavigator).EndInit();
