@@ -1,6 +1,6 @@
-﻿namespace BlueDream.WinForm
+﻿namespace BlueDream.WinForm.Forms.Brand
 {
-    partial class OrderListForm
+    partial class SelectBrandForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            btn_Add = new Button();
+            btn_Select = new Button();
             btn_Search = new Button();
             txt_Search = new TextBox();
             label1 = new Label();
@@ -41,26 +41,26 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(btn_Add);
+            groupBox1.Controls.Add(btn_Select);
             groupBox1.Controls.Add(btn_Search);
             groupBox1.Controls.Add(txt_Search);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(5, 12);
+            groupBox1.Location = new Point(4, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1142, 55);
-            groupBox1.TabIndex = 0;
+            groupBox1.Size = new Size(574, 55);
+            groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "信息";
             // 
-            // btn_Add
+            // btn_Select
             // 
-            btn_Add.Location = new Point(387, 16);
-            btn_Add.Name = "btn_Add";
-            btn_Add.Size = new Size(75, 23);
-            btn_Add.TabIndex = 3;
-            btn_Add.Text = "添    加";
-            btn_Add.UseVisualStyleBackColor = true;
-            btn_Add.Click += btn_Add_Click;
+            btn_Select.Location = new Point(387, 16);
+            btn_Select.Name = "btn_Select";
+            btn_Select.Size = new Size(75, 23);
+            btn_Select.TabIndex = 3;
+            btn_Select.Text = "选    择";
+            btn_Select.UseVisualStyleBackColor = true;
+            btn_Select.Click += btn_Select_Click;
             // 
             // btn_Search
             // 
@@ -92,25 +92,28 @@
             // 
             dgv_Main.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_Main.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Main.Location = new Point(5, 73);
+            dgv_Main.Location = new Point(4, 73);
             dgv_Main.Name = "dgv_Main";
             dgv_Main.ReadOnly = true;
             dgv_Main.RowTemplate.Height = 25;
-            dgv_Main.Size = new Size(1142, 613);
-            dgv_Main.TabIndex = 1;
-            dgv_Main.CellDoubleClick += dgv_Main_CellDoubleClick;
-            
+            dgv_Main.Size = new Size(575, 326);
+            dgv_Main.TabIndex = 2;
+             
             // 
-            // OrderListForm
+            // SelectBrandForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1149, 726); 
+            ClientSize = new Size(584, 441); 
             Controls.Add(dgv_Main);
             Controls.Add(groupBox1);
-            Name = "OrderListForm";
+            MaximizeBox = false;
+            MaximumSize = new Size(600, 480);
+            MinimizeBox = false;
+            MinimumSize = new Size(600, 480);
+            Name = "SelectBrandForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "PurchaseOrderForm";
+            Text = "品牌";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Main).EndInit();
@@ -119,14 +122,11 @@
 
         #endregion
 
-        private Dm.DmConnection dmConnection1;
         private GroupBox groupBox1;
+        private Button btn_Select;
         private Button btn_Search;
         private TextBox txt_Search;
         private Label label1;
-        private Button btn_Add;
-        private DataGridView dataGridView1;
-        private DataGridView dgv_Main; 
-        private DataGridViewTextBoxColumn Column1;
+        private DataGridView dgv_Main;
     }
 }

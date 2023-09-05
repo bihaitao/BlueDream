@@ -37,6 +37,7 @@ namespace BlueDream.WinForm
             InitDataGridViewColumn(dgv_Main, "OrderCurrencyCode", "货币");
             InitDataGridViewColumn(dgv_Main, "TotalNum", "总数");
             InitDataGridViewColumn(dgv_Main, "TotalAmount", "总金额");
+            InitDataGridViewColumn(dgv_Main, "CreateTime", "创建时间");
         }
 
         private void InitDataGridViewColumn(DataGridView p_DataGridView, string p_ColumnName, string p_HeadTex)

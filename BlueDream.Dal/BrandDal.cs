@@ -22,8 +22,7 @@ namespace BlueDream.Dal
         {
             return p_DBClient.Instance.Queryable<BrandEntity>()
               .Where(t => t.DataState == DataStateEnum.Valid)
-              .WhereIF((p_SearchKey != "*"), t => t.BrandCn.Contains(p_SearchKey))
-              .WhereIF((p_SearchKey != "*"), t => t.BrandEn.Contains(p_SearchKey)) 
+              .WhereIF((p_SearchKey != "*"), t => t.BrandCn.Contains(p_SearchKey) || t.BrandEn.Contains(p_SearchKey)) 
               .ToPageList(p_PageIndex, p_PageSize,ref p_TotalCount);
         }
     }

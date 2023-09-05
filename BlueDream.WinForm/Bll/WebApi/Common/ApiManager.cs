@@ -34,6 +34,10 @@ namespace BlueDream.WinForm
         /// 获取品牌
         /// </summary>
         public static string Brand_GetTop10 = $@"{m_BaseUrl}/Brand/GetTop10";
+        /// <summary>
+        /// 获取品牌
+        /// </summary>
+        public static string Brand_GetListModelByPage = $@"{m_BaseUrl}/Brand/GetListModelByPage";
 
         /// <summary>
         /// 获取用户

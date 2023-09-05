@@ -15,6 +15,11 @@ namespace BlueDream.Model
         [SugarColumn(ColumnName = "brand_id",IsPrimaryKey = true)]
         public long BrandID { get; set; }
         /// <summary>
+        /// 简称
+        /// </summary>
+        [SugarColumn(ColumnName = "brand_short_name")]
+        public string BrandShortName { get; set; }
+        /// <summary>
         /// 中文名称
         /// </summary>
         [SugarColumn(ColumnName = "brand_cn")]

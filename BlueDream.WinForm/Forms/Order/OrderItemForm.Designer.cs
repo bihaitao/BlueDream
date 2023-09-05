@@ -30,11 +30,11 @@
         {
             dmConnection1 = new Dm.DmConnection();
             groupBox1 = new GroupBox();
+            btn_Add = new Button();
             btn_Search = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            btn_Add = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -59,6 +59,16 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "信息";
+            // 
+            // btn_Add
+            // 
+            btn_Add.Location = new Point(387, 16);
+            btn_Add.Name = "btn_Add";
+            btn_Add.Size = new Size(75, 23);
+            btn_Add.TabIndex = 3;
+            btn_Add.Text = "添    加";
+            btn_Add.UseVisualStyleBackColor = true;
+            btn_Add.Click += btn_Add_Click;
             // 
             // btn_Search
             // 
@@ -96,24 +106,15 @@
             dataGridView1.Size = new Size(848, 538);
             dataGridView1.TabIndex = 1;
             // 
-            // btn_Add
-            // 
-            btn_Add.Location = new Point(387, 16);
-            btn_Add.Name = "btn_Add";
-            btn_Add.Size = new Size(75, 23);
-            btn_Add.TabIndex = 3;
-            btn_Add.Text = "添    加";
-            btn_Add.UseVisualStyleBackColor = true;
-            btn_Add.Click += btn_Add_Click;
-            // 
-            // ClothingOrderForm
+            // OrderItemForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(853, 602);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
-            Name = "ClothingOrderForm";
+            Name = "OrderItemForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "PurchaseOrderForm";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

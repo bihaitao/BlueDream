@@ -31,10 +31,10 @@
             dmConnection1 = new Dm.DmConnection();
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            txt_Brand = new TextBox();
             cb_SaleOrg = new ComboBox();
             cb_PurchaseOrg = new ComboBox();
             cb_PersonInCharge = new ComboBox();
-            cb_Brand = new ComboBox();
             btnj_Save = new Button();
             label8 = new Label();
             cb_CurrencyCode = new ComboBox();
@@ -71,10 +71,10 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(txt_Brand);
             groupBox1.Controls.Add(cb_SaleOrg);
             groupBox1.Controls.Add(cb_PurchaseOrg);
             groupBox1.Controls.Add(cb_PersonInCharge);
-            groupBox1.Controls.Add(cb_Brand);
             groupBox1.Controls.Add(btnj_Save);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(cb_CurrencyCode);
@@ -92,6 +92,17 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "信息";
+            // 
+            // txt_Brand
+            // 
+            txt_Brand.BackColor = SystemColors.Window;
+            txt_Brand.Location = new Point(238, 16);
+            txt_Brand.Name = "txt_Brand";
+            txt_Brand.ReadOnly = true;
+            txt_Brand.Size = new Size(100, 23);
+            txt_Brand.TabIndex = 19;
+            txt_Brand.Click += txt_Brand_Click;
+            txt_Brand.TextChanged += txt_Brand_TextChanged;
             // 
             // cb_SaleOrg
             // 
@@ -117,15 +128,6 @@
             cb_PersonInCharge.Size = new Size(100, 25);
             cb_PersonInCharge.TabIndex = 16;
             // 
-            // cb_Brand
-            // 
-            cb_Brand.FormattingEnabled = true;
-            cb_Brand.Location = new Point(238, 16);
-            cb_Brand.Name = "cb_Brand";
-            cb_Brand.Size = new Size(100, 25);
-            cb_Brand.TabIndex = 15;
-            cb_Brand.TextUpdate += cb_Brand_TextUpdate;
-            // 
             // btnj_Save
             // 
             btnj_Save.Location = new Point(666, 16);
@@ -134,6 +136,7 @@
             btnj_Save.TabIndex = 14;
             btnj_Save.Text = "保  存";
             btnj_Save.UseVisualStyleBackColor = true;
+            btnj_Save.Click += btnj_Save_Click;
             // 
             // label8
             // 
@@ -151,7 +154,6 @@
             cb_CurrencyCode.Name = "cb_CurrencyCode";
             cb_CurrencyCode.Size = new Size(100, 25);
             cb_CurrencyCode.TabIndex = 12;
-            cb_CurrencyCode.TextUpdate += comboBox1_TextUpdate;
             // 
             // label6
             // 
@@ -239,6 +241,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Name = "OrderEditForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "PurchaseOrderForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
@@ -270,6 +273,6 @@
         private ComboBox cb_SaleOrg;
         private ComboBox cb_PurchaseOrg;
         private ComboBox cb_PersonInCharge;
-        private ComboBox cb_Brand;
+        private TextBox txt_Brand;
     }
 }

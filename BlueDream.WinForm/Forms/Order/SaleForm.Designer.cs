@@ -121,6 +121,7 @@
             ClientSize = new Size(1006, 695);
             Controls.Add(toolStrip);
             Name = "SaleForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "SaleForm";
             toolStrip.ResumeLayout(false);
             toolStrip.PerformLayout();
