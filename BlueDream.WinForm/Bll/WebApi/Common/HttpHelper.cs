@@ -14,7 +14,19 @@ namespace BlueDream.WinForm
     public static class HttpHelper
     {
         public static string LoginKey { set; get; } = "";
-        
+
+
+        /// <summary>
+        /// 向指定URL发送GET方法的请求
+        /// </summary>
+        /// <param name="p_Url">发送请求的URL</param>
+        /// <param name="p_Param">请求参数，请求参数应该是 name1=value1</param>
+        /// <returns>所代表远程资源的响应结果</returns>
+        public static string Get(string p_Url)
+        {
+            return Get(p_Url, "");
+        }
+
 
         /// <summary>
         /// 向指定URL发送GET方法的请求

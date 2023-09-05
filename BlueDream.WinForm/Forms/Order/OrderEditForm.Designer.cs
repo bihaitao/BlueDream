@@ -31,10 +31,10 @@
             dmConnection1 = new Dm.DmConnection();
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            txt_PersonInCharge = new TextBox();
             txt_Sale_Org = new TextBox();
             txt_Purchase_Org = new TextBox();
             txt_Brand = new TextBox();
-            cb_PersonInCharge = new ComboBox();
             btnj_Save = new Button();
             label8 = new Label();
             cb_CurrencyCode = new ComboBox();
@@ -71,10 +71,10 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(txt_PersonInCharge);
             groupBox1.Controls.Add(txt_Sale_Org);
             groupBox1.Controls.Add(txt_Purchase_Org);
             groupBox1.Controls.Add(txt_Brand);
-            groupBox1.Controls.Add(cb_PersonInCharge);
             groupBox1.Controls.Add(btnj_Save);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(cb_CurrencyCode);
@@ -92,6 +92,16 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "信息";
+            // 
+            // txt_PersonInCharge
+            // 
+            txt_PersonInCharge.BackColor = SystemColors.Window;
+            txt_PersonInCharge.Location = new Point(238, 45);
+            txt_PersonInCharge.Name = "txt_PersonInCharge";
+            txt_PersonInCharge.ReadOnly = true;
+            txt_PersonInCharge.Size = new Size(100, 23);
+            txt_PersonInCharge.TabIndex = 22;
+            txt_PersonInCharge.Click += txt_PersonInCharge_Click;
             // 
             // txt_Sale_Org
             // 
@@ -123,14 +133,6 @@
             txt_Brand.TabIndex = 19;
             txt_Brand.Click += txt_Brand_Click;
             // 
-            // cb_PersonInCharge
-            // 
-            cb_PersonInCharge.FormattingEnabled = true;
-            cb_PersonInCharge.Location = new Point(238, 45);
-            cb_PersonInCharge.Name = "cb_PersonInCharge";
-            cb_PersonInCharge.Size = new Size(100, 25);
-            cb_PersonInCharge.TabIndex = 16;
-            // 
             // btnj_Save
             // 
             btnj_Save.Location = new Point(666, 16);
@@ -152,6 +154,7 @@
             // 
             // cb_CurrencyCode
             // 
+            cb_CurrencyCode.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_CurrencyCode.FormattingEnabled = true;
             cb_CurrencyCode.Location = new Point(560, 16);
             cb_CurrencyCode.Name = "cb_CurrencyCode";
@@ -273,9 +276,9 @@
         private Label label2;
         private RichTextBox richTextBox1;
         private Button btnj_Save;
-        private ComboBox cb_PersonInCharge;
         private TextBox txt_Sale_Org;
         private TextBox txt_Purchase_Org;
         private TextBox txt_Brand;
+        private TextBox txt_PersonInCharge;
     }
 }

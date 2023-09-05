@@ -145,38 +145,45 @@ namespace BlueDream.WinForm
 
         private void ctl_Menu_TreeView_DoubleClick(object sender, EventArgs e)
         {
-            //如果找到的已经打开的Tab则显示，否则创建
-            foreach (TabPage t_TabPage in ctl_Main_Tab.TabPages)
+            try
             {
-                if (t_TabPage.Name == ((TreeView)sender).SelectedNode.Name)
+                //如果找到的已经打开的Tab则显示，否则创建
+                foreach (TabPage t_TabPage in ctl_Main_Tab.TabPages)
                 {
-                    ctl_Main_Tab.SelectTab(t_TabPage);
-                    return;
+                    if (t_TabPage.Name == ((TreeView)sender).SelectedNode.Name)
+                    {
+                        ctl_Main_Tab.SelectTab(t_TabPage);
+                        return;
+                    }
                 }
+
+                //开始创建新的TabPage并加载From
+                TabPage m_TabPage = new TabPage()
+                {
+                    Name = ((TreeView)sender).SelectedNode.Name,
+                    Text = ((TreeView)sender).SelectedNode.Text,
+                };
+                ctl_Main_Tab.TabPages.Add(m_TabPage);
+
+                string m_FormFullName = StringTools.GetNotNullString(((TreeView)sender).SelectedNode.Tag);
+
+                //反射生成窗体
+                Form m_Form = (Form)Assembly.GetExecutingAssembly().CreateInstance(m_FormFullName);
+                //设置窗体没有边框，加入到选项卡中
+                m_Form.FormBorderStyle = FormBorderStyle.None;
+                m_Form.TopLevel = false;
+                m_Form.ControlBox = false;
+                m_Form.Dock = DockStyle.Fill;
+                //将窗体的父窗体设置为新添加的TabPage
+                m_Form.Parent = m_TabPage;
+                //显示当前TabPage
+                ctl_Main_Tab.SelectTab(m_TabPage);
+                m_Form.Show();
             }
-
-            //开始创建新的TabPage并加载From
-            TabPage m_TabPage = new TabPage()
+            catch (Exception ex)
             {
-                Name = ((TreeView)sender).SelectedNode.Name,
-                Text = ((TreeView)sender).SelectedNode.Text,
-            };
-            ctl_Main_Tab.TabPages.Add(m_TabPage);
-
-            string m_FormFullName = StringTools.GetNotNullString(((TreeView)sender).SelectedNode.Tag);
-
-            //反射生成窗体
-            Form m_Form = (Form)Assembly.GetExecutingAssembly().CreateInstance(m_FormFullName);
-            //设置窗体没有边框，加入到选项卡中
-            m_Form.FormBorderStyle = FormBorderStyle.None;
-            m_Form.TopLevel = false;
-            m_Form.ControlBox = false;
-            m_Form.Dock = DockStyle.Fill;
-            //将窗体的父窗体设置为新添加的TabPage
-            m_Form.Parent = m_TabPage;
-            //显示当前TabPage
-            ctl_Main_Tab.SelectTab(m_TabPage);
-            m_Form.Show();
+                MessageBox.Show(ex.Message);
+            }
 
         }
 

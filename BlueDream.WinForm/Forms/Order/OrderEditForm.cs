@@ -18,14 +18,14 @@ namespace BlueDream.WinForm
         private const string c_BrandReturnKey = "Brand";
         private const string c_PurchaseOrgReturnKey = "PurchaseOrg";
         private const string c_SaleOrgReturnKey = "SaleOrg";
+        private const string c_PersonInCharge = "PersonInCharge";
+
 
         public OrderEditForm()
         {
             InitializeComponent();
             Init();
         }
-
-
 
         private void DropDownList_CallBack(string p_Key, object p_Value)
         {
@@ -49,6 +49,12 @@ namespace BlueDream.WinForm
                     txt_Sale_Org.Tag = t_SaleOrgEntity;
                     return;
 
+                case c_PersonInCharge:
+                    UserEntity t_PersonInChargeEntity = (UserEntity)p_Value;
+                    txt_PersonInCharge.Text = t_PersonInChargeEntity.NickName;
+                    txt_PersonInCharge.Tag = t_PersonInChargeEntity;
+                    return;
+
                 default: return;
             }
         }
@@ -57,29 +63,11 @@ namespace BlueDream.WinForm
 
         public void Init()
         {
-            ////品牌
-            //ApiBrand m_ApiBrand = new ApiBrand();
-            //m_ApiBrand.Parameters.Add("p_SearchKey", "*");
-            //cb_Brand.DataSource = m_ApiBrand.GetBrandTop10().ResultObj;
-            //cb_Brand.DisplayMember = "BrandCn";
-            //cb_Brand.ValueMember = "BrandID";
+            ApiResult<List<CurrencyModel>> m_CurrencyResult = new ApiDic().GetCurrencyModels();
 
-            //ApiUser m_ApiUser = new ApiUser();
-            //m_ApiUser.Parameters.Add("p_SearchKey", "*");
-            //cb_PersonInCharge.DataSource = m_ApiUser.GetUserTop10().ResultObj;
-            //cb_PersonInCharge.DisplayMember = "NickName";
-            //cb_PersonInCharge.ValueMember = "UserID";
-
-            //ApiOrganization m_ApiOrganization = new ApiOrganization();
-            //m_ApiOrganization.Parameters.Add("p_SearchKey", "*");
-
-            //cb_PurchaseOrg.DataSource = m_ApiOrganization.GetOrganizationTop10().ResultObj;
-            //cb_PurchaseOrg.DisplayMember = "OrgShortName";
-            //cb_PurchaseOrg.ValueMember = "OrgID";
-
-            //cb_SaleOrg.DataSource = m_ApiOrganization.GetOrganizationTop10().ResultObj;
-            //cb_SaleOrg.DisplayMember = "OrgShortName";
-            //cb_SaleOrg.ValueMember = "OrgID";
+            cb_CurrencyCode.DataSource = m_CurrencyResult.ResultObj;
+            cb_CurrencyCode.DisplayMember = "CurrencyName";
+            cb_CurrencyCode.ValueMember = "CurrencyCode";
         }
 
         private void txt_Brand_Click(object sender, EventArgs e)
@@ -104,11 +92,18 @@ namespace BlueDream.WinForm
             m_SelectOrganizationForm.ShowDialog();
         }
 
+        private void txt_PersonInCharge_Click(object sender, EventArgs e)
+        {
+            SelectUserForm m_SelectUserForm = new SelectUserForm(c_PersonInCharge);
+            m_SelectUserForm.CallBack_Event += DropDownList_CallBack;
+            m_SelectUserForm.ShowDialog();
+        }
+
         private void btnj_Save_Click(object sender, EventArgs e)
         {
 
         }
 
-      
+
     }
 }

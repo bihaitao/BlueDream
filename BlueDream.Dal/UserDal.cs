@@ -32,8 +32,7 @@ namespace BlueDream.Dal
         {
             return p_DBClient.Instance.Queryable<UserEntity>()
               .Where(t => t.DataState == DataStateEnum.Valid)
-              .WhereIF((p_SearchKey != "*"), t => t.UserName.Contains(p_SearchKey))
-              .WhereIF((p_SearchKey != "*"), t => t.NickName.Contains(p_SearchKey))
+              .WhereIF((p_SearchKey != "*"), t => t.UserName.Contains(p_SearchKey)|| t.NickName.Contains(p_SearchKey))
               .ToPageList(p_PageIndex, p_PageSize, ref p_TotalCount);
         }
     }

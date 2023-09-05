@@ -34,6 +34,7 @@ namespace BlueDream.WinForm
         /// 获取品牌
         /// </summary>
         public static string Brand_GetTop10 = $@"{m_BaseUrl}/Brand/GetTop10";
+
         /// <summary>
         /// 获取品牌
         /// </summary>
@@ -45,6 +46,11 @@ namespace BlueDream.WinForm
         public static string User_GetTop10 = $@"{m_BaseUrl}/User/GetTop10";
 
         /// <summary>
+        /// 获取用户
+        /// </summary>
+        public static string User_GetListModelByPage = $@"{m_BaseUrl}/User/GetTop10";
+
+        /// <summary>
         /// 获取组织
         /// </summary>
         public static string Organization_GetTop10 = $@"{m_BaseUrl}/Organization/GetTop10";
@@ -53,5 +59,10 @@ namespace BlueDream.WinForm
         /// 获取组织
         /// </summary>
         public static string Organization_GetListModelByPage = $@"{m_BaseUrl}/Organization/GetListModelByPage";
+
+        /// <summary>
+        /// 获取货币
+        /// </summary>
+        public static string Dic_GetCurrencyModels = $@"{m_BaseUrl}/Dic/GetCurrencyModels";
     }
 }

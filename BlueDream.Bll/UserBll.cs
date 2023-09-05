@@ -117,5 +117,15 @@ namespace BlueDream.Bll
             return m_ModelList; 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_SearchKey"></param>
+        /// <returns></returns>
+        public static List<UserEntity> GetListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey, ref int p_TotalCount)
+        {
+            return UserDal.GetListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
+        }
     }
 }
