@@ -31,9 +31,9 @@
             dmConnection1 = new Dm.DmConnection();
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            txt_Sale_Org = new TextBox();
+            txt_Purchase_Org = new TextBox();
             txt_Brand = new TextBox();
-            cb_SaleOrg = new ComboBox();
-            cb_PurchaseOrg = new ComboBox();
             cb_PersonInCharge = new ComboBox();
             btnj_Save = new Button();
             label8 = new Label();
@@ -71,9 +71,9 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(txt_Sale_Org);
+            groupBox1.Controls.Add(txt_Purchase_Org);
             groupBox1.Controls.Add(txt_Brand);
-            groupBox1.Controls.Add(cb_SaleOrg);
-            groupBox1.Controls.Add(cb_PurchaseOrg);
             groupBox1.Controls.Add(cb_PersonInCharge);
             groupBox1.Controls.Add(btnj_Save);
             groupBox1.Controls.Add(label8);
@@ -93,6 +93,26 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "信息";
             // 
+            // txt_Sale_Org
+            // 
+            txt_Sale_Org.BackColor = SystemColors.Window;
+            txt_Sale_Org.Location = new Point(416, 45);
+            txt_Sale_Org.Name = "txt_Sale_Org";
+            txt_Sale_Org.ReadOnly = true;
+            txt_Sale_Org.Size = new Size(100, 23);
+            txt_Sale_Org.TabIndex = 21;
+            txt_Sale_Org.Click += txt_Sale_Org_Click;
+            // 
+            // txt_Purchase_Org
+            // 
+            txt_Purchase_Org.BackColor = SystemColors.Window;
+            txt_Purchase_Org.Location = new Point(416, 16);
+            txt_Purchase_Org.Name = "txt_Purchase_Org";
+            txt_Purchase_Org.ReadOnly = true;
+            txt_Purchase_Org.Size = new Size(100, 23);
+            txt_Purchase_Org.TabIndex = 20;
+            txt_Purchase_Org.Click += txt_Purchase_Org_Click;
+            // 
             // txt_Brand
             // 
             txt_Brand.BackColor = SystemColors.Window;
@@ -102,23 +122,6 @@
             txt_Brand.Size = new Size(100, 23);
             txt_Brand.TabIndex = 19;
             txt_Brand.Click += txt_Brand_Click;
-            txt_Brand.TextChanged += txt_Brand_TextChanged;
-            // 
-            // cb_SaleOrg
-            // 
-            cb_SaleOrg.FormattingEnabled = true;
-            cb_SaleOrg.Location = new Point(416, 45);
-            cb_SaleOrg.Name = "cb_SaleOrg";
-            cb_SaleOrg.Size = new Size(100, 25);
-            cb_SaleOrg.TabIndex = 18;
-            // 
-            // cb_PurchaseOrg
-            // 
-            cb_PurchaseOrg.FormattingEnabled = true;
-            cb_PurchaseOrg.Location = new Point(416, 16);
-            cb_PurchaseOrg.Name = "cb_PurchaseOrg";
-            cb_PurchaseOrg.Size = new Size(100, 25);
-            cb_PurchaseOrg.TabIndex = 17;
             // 
             // cb_PersonInCharge
             // 
@@ -270,9 +273,9 @@
         private Label label2;
         private RichTextBox richTextBox1;
         private Button btnj_Save;
-        private ComboBox cb_SaleOrg;
-        private ComboBox cb_PurchaseOrg;
         private ComboBox cb_PersonInCharge;
+        private TextBox txt_Sale_Org;
+        private TextBox txt_Purchase_Org;
         private TextBox txt_Brand;
     }
 }

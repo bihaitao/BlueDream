@@ -48,5 +48,10 @@ namespace BlueDream.WinForm
         /// 获取组织
         /// </summary>
         public static string Organization_GetTop10 = $@"{m_BaseUrl}/Organization/GetTop10";
+
+        /// <summary>
+        /// 获取组织
+        /// </summary>
+        public static string Organization_GetListModelByPage = $@"{m_BaseUrl}/Organization/GetListModelByPage";
     }
 }

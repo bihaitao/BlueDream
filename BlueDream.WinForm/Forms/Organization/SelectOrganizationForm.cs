@@ -11,17 +11,17 @@ using System.Windows.Forms;
 
 namespace BlueDream.WinForm
 {
-    public partial class SelectBrandForm : Form
+    public partial class SelectOrganizationForm : Form
     {
-
         private string m_ReturnKey = "";
 
         public delegate void CallBack(string p_Key, object p_Value);//定义委托
         public event CallBack CallBack_Event;//事件变量
 
-        public SelectBrandForm(string p_ReturnKey)
+        public SelectOrganizationForm(string p_ReturnKey)
         {
             m_ReturnKey = p_ReturnKey;
+
             InitializeComponent();
             InitPager();
             LoadData(1, dgv_Main_Pager.PageSize, "*", true);
@@ -43,19 +43,26 @@ namespace BlueDream.WinForm
             dgv_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             //品牌
-            ApiBrand m_ApiBrand = new ApiBrand();
-            m_ApiBrand.Parameters.Add("p_SearchKey", p_SearchKey);
-            m_ApiBrand.Parameters.Add("p_PageSize", p_PageSize);
-            m_ApiBrand.Parameters.Add("p_PageIndex", p_PageIndex);
-            ApiPageResult<List<BrandEntity>> m_ApiPageResult = m_ApiBrand.GetListModelByPage();
+            ApiOrganization m_ApiOrganization = new ApiOrganization();
+
+            m_ApiOrganization.Parameters.Add("p_SearchKey", p_SearchKey);
+            m_ApiOrganization.Parameters.Add("p_PageSize", p_PageSize);
+            m_ApiOrganization.Parameters.Add("p_PageIndex", p_PageIndex);
+            ApiPageResult<List<OrganizationEntity>> m_ApiPageResult = m_ApiOrganization.GetListModelByPage();
 
             dgv_Main.DataSource = m_ApiPageResult.ResultObj;
             dgv_Main.AutoGenerateColumns = false;
             dgv_Main.Columns.Clear();
-            InitDataGridViewColumn(dgv_Main, "BrandID", "品牌ID");
-            dgv_Main.Columns["BrandID"].Visible = false;
-            InitDataGridViewColumn(dgv_Main, "BrandCn", "中文名称");
-            InitDataGridViewColumn(dgv_Main, "BrandEn", "英文名称");
+            InitDataGridViewColumn(dgv_Main, "OrgID", "组织ID");
+            dgv_Main.Columns["OrgID"].Visible = false;
+
+            InitDataGridViewColumn(dgv_Main, "OrgCode", "组织编码");
+            InitDataGridViewColumn(dgv_Main, "OrgShortName", "简称");
+
+
+            
+            InitDataGridViewColumn(dgv_Main, "OrgCnName", "中文名称");
+            InitDataGridViewColumn(dgv_Main, "OrgEnName", "英文名称");
 
             dgv_Main_Pager.DataCount = m_ApiPageResult.TotalCount;
         }
@@ -84,11 +91,11 @@ namespace BlueDream.WinForm
                 return;
             }
 
-            List<BrandEntity> m_BrandList = (List<BrandEntity>)dgv_Main.DataSource;
+            List<OrganizationEntity> m_OrgList = (List<OrganizationEntity>)dgv_Main.DataSource;
 
-            BrandEntity m_BrandEntity = m_BrandList[dgv_Main.SelectedRows[0].Index];
+            OrganizationEntity m_OrganizationEntity = m_OrgList[dgv_Main.SelectedRows[0].Index];
 
-            CallBack_Event(m_ReturnKey, m_BrandEntity);
+            CallBack_Event(m_ReturnKey, m_OrganizationEntity);
 
             this.Close();
         }

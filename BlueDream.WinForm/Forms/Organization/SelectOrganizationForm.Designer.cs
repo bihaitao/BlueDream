@@ -1,6 +1,6 @@
 ﻿namespace BlueDream.WinForm
 {
-    partial class SelectBrandForm
+    partial class SelectOrganizationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -103,7 +103,7 @@
             // 
             // dgv_Main_Pager
             // 
-            dgv_Main_Pager.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right; 
+            dgv_Main_Pager.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_Main_Pager.DataCount = 0;
             dgv_Main_Pager.Location = new Point(3, 406);
             dgv_Main_Pager.Margin = new Padding(4);
@@ -114,7 +114,7 @@
             dgv_Main_Pager.Size = new Size(575, 29);
             dgv_Main_Pager.TabIndex = 3;
             // 
-            // SelectBrandForm
+            // SelectOrganizationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -126,9 +126,9 @@
             MaximumSize = new Size(600, 480);
             MinimizeBox = false;
             MinimumSize = new Size(600, 480);
-            Name = "SelectBrandForm";
+            Name = "SelectOrganizationForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "品牌";
+            Text = "组织";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Main).EndInit();

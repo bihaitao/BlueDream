@@ -33,5 +33,17 @@ namespace BlueDream.WinForm
 
             return JsonTools.JsonToObject<ApiPageResult<List<OrganizationEntity>>>(m_Result);
         }
+
+        public ApiPageResult<List<OrganizationEntity>> GetListModelByPage()
+        {
+            string m_Result = HttpHelper.Get(ApiManager.Organization_GetListModelByPage, GetParameterUrl());
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new ApiPageResult<List<OrganizationEntity>>();
+            }
+
+            return JsonTools.JsonToObject<ApiPageResult<List<OrganizationEntity>>>(m_Result);
+        }
     }
 }

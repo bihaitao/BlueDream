@@ -50,6 +50,26 @@ namespace BlueDream.WebApi
             return m_CommonResult;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public PageResult GetListModelByPage(int p_PageSize, int p_PageIndex, string p_SearchKey)
+        {
+            PageResult m_PageResult = new PageResult();
+
+            SysExTools.TryExec(m_PageResult, () =>
+            {
+                int p_TotalCount = 0;
+                m_PageResult.ResultObj = OrganizationBll.GetListByPage(p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
+                m_PageResult.TotalCount = p_TotalCount;
+            });
+
+            return m_PageResult;
+        }
+
     }
 }
 

@@ -18,6 +18,9 @@
     <Compile Update="Forms\Order\OrderEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Organization\SelectOrganizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

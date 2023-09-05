@@ -1,6 +1,5 @@
 ﻿using BlueDream.Model;
 using BlueDream.WinForm;
-using BlueDream.WinForm.Forms.Brand;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +15,10 @@ namespace BlueDream.WinForm
     public partial class OrderEditForm : Form
     {
 
+        private const string c_BrandReturnKey = "Brand";
+        private const string c_PurchaseOrgReturnKey = "PurchaseOrg";
+        private const string c_SaleOrgReturnKey = "SaleOrg";
+
         public OrderEditForm()
         {
             InitializeComponent();
@@ -28,11 +31,24 @@ namespace BlueDream.WinForm
         {
             switch (p_Key)
             {
-                case "Brand":
+                case c_BrandReturnKey:
                     BrandEntity t_BrandEntity = (BrandEntity)p_Value;
                     txt_Brand.Text = t_BrandEntity.BrandShortName;
                     txt_Brand.Tag = t_BrandEntity;
                     return;
+
+                case c_PurchaseOrgReturnKey:
+                    OrganizationEntity t_PurchaseOrgEntity = (OrganizationEntity)p_Value;
+                    txt_Purchase_Org.Text = t_PurchaseOrgEntity.OrgShortName;
+                    txt_Purchase_Org.Tag = t_PurchaseOrgEntity;
+                    return;
+
+                case c_SaleOrgReturnKey:
+                    OrganizationEntity t_SaleOrgEntity = (OrganizationEntity)p_Value;
+                    txt_Sale_Org.Text = t_SaleOrgEntity.OrgShortName;
+                    txt_Sale_Org.Tag = t_SaleOrgEntity;
+                    return;
+
                 default: return;
             }
         }
@@ -68,21 +84,31 @@ namespace BlueDream.WinForm
 
         private void txt_Brand_Click(object sender, EventArgs e)
         {
-            SelectBrandForm m_SelectBrandForm = new SelectBrandForm();
+            SelectBrandForm m_SelectBrandForm = new SelectBrandForm(c_BrandReturnKey);
             m_SelectBrandForm.CallBack_Event += DropDownList_CallBack;
             m_SelectBrandForm.ShowDialog();
         }
 
 
+        private void txt_Purchase_Org_Click(object sender, EventArgs e)
+        {
+            SelectOrganizationForm m_SelectOrganizationForm = new SelectOrganizationForm(c_PurchaseOrgReturnKey);
+            m_SelectOrganizationForm.CallBack_Event += DropDownList_CallBack;
+            m_SelectOrganizationForm.ShowDialog();
+        }
+
+        private void txt_Sale_Org_Click(object sender, EventArgs e)
+        {
+            SelectOrganizationForm m_SelectOrganizationForm = new SelectOrganizationForm(c_SaleOrgReturnKey);
+            m_SelectOrganizationForm.CallBack_Event += DropDownList_CallBack;
+            m_SelectOrganizationForm.ShowDialog();
+        }
 
         private void btnj_Save_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txt_Brand_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

@@ -75,7 +75,7 @@
             bindingNavigator.Name = "bindingNavigator";
             bindingNavigator.PositionItem = null;
             bindingNavigator.Size = new Size(471, 28);
-            bindingNavigator.TabIndex = 1;
+            bindingNavigator.TabIndex = 1; 
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -180,7 +180,7 @@
             ComboBoxRowsPerPage.AutoSize = false;
             ComboBoxRowsPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxRowsPerPage.DropDownWidth = 40;
-            ComboBoxRowsPerPage.Items.AddRange(new object[] { "5", "10", "15", "30", "50", "100" });
+            ComboBoxRowsPerPage.Items.AddRange(new object[] { "10", "20", "30", "50", "100" });
             ComboBoxRowsPerPage.Margin = new Padding(0, 1, 0, 2);
             ComboBoxRowsPerPage.Name = "ComboBoxRowsPerPage";
             ComboBoxRowsPerPage.Size = new Size(46, 25);
