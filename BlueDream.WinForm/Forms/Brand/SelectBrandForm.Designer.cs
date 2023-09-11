@@ -93,6 +93,7 @@
             // dgv_Main
             // 
             dgv_Main.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Main.BackgroundColor = SystemColors.Control;
             dgv_Main.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Main.Location = new Point(4, 73);
             dgv_Main.Name = "dgv_Main";
@@ -103,7 +104,7 @@
             // 
             // dgv_Main_Pager
             // 
-            dgv_Main_Pager.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right; 
+            dgv_Main_Pager.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_Main_Pager.DataCount = 0;
             dgv_Main_Pager.Location = new Point(3, 406);
             dgv_Main_Pager.Margin = new Padding(4);

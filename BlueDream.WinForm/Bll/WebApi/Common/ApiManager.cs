@@ -29,6 +29,11 @@ namespace BlueDream.WinForm
         /// 获取订单列表(分页)
         /// </summary>
         public static string Order_GetListModelByPage = $@"{m_BaseUrl}/Order/GetListModelByPage";
+         
+        /// <summary>
+        /// 获取订单 
+        /// </summary>
+        public static string Order_GetOrderModel = $@"{m_BaseUrl}/Order/GetOrderModel";
 
         /// <summary>
         /// 获取品牌

@@ -25,19 +25,19 @@ namespace BlueDream.WinForm
         private void Init()
         {
             dgv_Main.AutoGenerateColumns = false;
-            dgv_Main.Columns.Clear();
-            InitDataGridViewColumn(dgv_Main, "OrderID", "订单ID");
-            dgv_Main.Columns["OrderID"].Visible = false;
-            InitDataGridViewColumn(dgv_Main, "OrderNo", "订单编号");
-            InitDataGridViewColumn(dgv_Main, "CustomerOrderNo", "客户订单号");
-            InitDataGridViewColumn(dgv_Main, "PurchaseOrgName", "采购方");
-            InitDataGridViewColumn(dgv_Main, "SaleOrgName", "销售方");
-            InitDataGridViewColumn(dgv_Main, "BrandName", "品牌");
-            InitDataGridViewColumn(dgv_Main, "PersonInChargeUser", "担当人");
-            InitDataGridViewColumn(dgv_Main, "OrderCurrencyCode", "货币");
-            InitDataGridViewColumn(dgv_Main, "TotalNum", "总数");
-            InitDataGridViewColumn(dgv_Main, "TotalAmount", "总金额");
-            InitDataGridViewColumn(dgv_Main, "CreateTime", "创建时间");
+            //dgv_Main.Columns.Clear();
+            //InitDataGridViewColumn(dgv_Main, "OrderID", "订单ID");
+            //dgv_Main.Columns["OrderID"].Visible = false;
+            //InitDataGridViewColumn(dgv_Main, "OrderNo", "订单编号");
+            //InitDataGridViewColumn(dgv_Main, "CustomerOrderNo", "客户订单号");
+            //InitDataGridViewColumn(dgv_Main, "PurchaseOrgName", "采购方");
+            //InitDataGridViewColumn(dgv_Main, "SaleOrgName", "销售方");
+            //InitDataGridViewColumn(dgv_Main, "BrandName", "品牌");
+            //InitDataGridViewColumn(dgv_Main, "PersonInChargeUser", "担当人");
+            //InitDataGridViewColumn(dgv_Main, "OrderCurrencyCode", "货币");
+            //InitDataGridViewColumn(dgv_Main, "TotalNum", "总数");
+            //InitDataGridViewColumn(dgv_Main, "TotalAmount", "总金额");
+            //InitDataGridViewColumn(dgv_Main, "CreateTime", "创建时间");
         }
 
         private void InitDataGridViewColumn(DataGridView p_DataGridView, string p_ColumnName, string p_HeadTex)
@@ -71,7 +71,7 @@ namespace BlueDream.WinForm
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            OrderEditForm m_OrderEditForm = new OrderEditForm();
+            OrderEditForm m_OrderEditForm = new OrderEditForm(4926049349816525291);
             m_OrderEditForm.StartPosition = FormStartPosition.CenterParent;
             m_OrderEditForm.ShowDialog();
         }

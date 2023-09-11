@@ -28,70 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dmConnection1 = new Dm.DmConnection();
-            dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            btn_DelItem = new Button();
+            btn_AddItem = new Button();
             txt_PersonInCharge = new TextBox();
             txt_Sale_Org = new TextBox();
             txt_Purchase_Org = new TextBox();
             txt_Brand = new TextBox();
-            btnj_Save = new Button();
+            btn_Save = new Button();
             label8 = new Label();
             cb_CurrencyCode = new ComboBox();
             label6 = new Label();
             label7 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            txt_CustomerOrderNo = new TextBox();
+            txt_OrderNo = new TextBox();
             label3 = new Label();
             label2 = new Label();
             richTextBox1 = new RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgv_Main = new DataGridView();
+            OrderItemID = new DataGridViewTextBoxColumn();
+            OrderID = new DataGridViewTextBoxColumn();
+            StyleNo = new DataGridViewTextBoxColumn();
+            DeliveryDate = new DataGridViewTextBoxColumn();
+            UnitPrice = new DataGridViewTextBoxColumn();
+            Composition = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Main).BeginInit();
             SuspendLayout();
-            // 
-            // dmConnection1
-            // 
-            dmConnection1.ConnectionString = "schema=SYSDBA";
-            dmConnection1.ForEFCore = false;
-            dmConnection1.MppType = Dm.DmMppType.LOGIN_MPP_GLOBAL;
-            dmConnection1.Schema = "";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(2, 90);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(848, 401);
-            dataGridView1.TabIndex = 1;
             // 
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(btn_DelItem);
+            groupBox1.Controls.Add(btn_AddItem);
             groupBox1.Controls.Add(txt_PersonInCharge);
             groupBox1.Controls.Add(txt_Sale_Org);
             groupBox1.Controls.Add(txt_Purchase_Org);
             groupBox1.Controls.Add(txt_Brand);
-            groupBox1.Controls.Add(btnj_Save);
+            groupBox1.Controls.Add(btn_Save);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(cb_CurrencyCode);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txt_CustomerOrderNo);
+            groupBox1.Controls.Add(txt_OrderNo);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(848, 82);
+            groupBox1.Size = new Size(933, 82);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "信息";
+            // 
+            // btn_DelItem
+            // 
+            btn_DelItem.Location = new Point(666, 45);
+            btn_DelItem.Name = "btn_DelItem";
+            btn_DelItem.Size = new Size(100, 23);
+            btn_DelItem.TabIndex = 24;
+            btn_DelItem.Text = "删除子项";
+            btn_DelItem.UseVisualStyleBackColor = true;
+            btn_DelItem.Click += btn_DelItem_Click;
+            // 
+            // btn_AddItem
+            // 
+            btn_AddItem.Location = new Point(666, 16);
+            btn_AddItem.Name = "btn_AddItem";
+            btn_AddItem.Size = new Size(100, 23);
+            btn_AddItem.TabIndex = 23;
+            btn_AddItem.Text = "添加子项";
+            btn_AddItem.UseVisualStyleBackColor = true;
+            btn_AddItem.Click += btn_AddItem_Click;
             // 
             // txt_PersonInCharge
             // 
@@ -133,15 +145,15 @@
             txt_Brand.TabIndex = 19;
             txt_Brand.Click += txt_Brand_Click;
             // 
-            // btnj_Save
+            // btn_Save
             // 
-            btnj_Save.Location = new Point(666, 16);
-            btnj_Save.Name = "btnj_Save";
-            btnj_Save.Size = new Size(100, 23);
-            btnj_Save.TabIndex = 14;
-            btnj_Save.Text = "保  存";
-            btnj_Save.UseVisualStyleBackColor = true;
-            btnj_Save.Click += btnj_Save_Click;
+            btn_Save.Location = new Point(772, 16);
+            btn_Save.Name = "btn_Save";
+            btn_Save.Size = new Size(100, 23);
+            btn_Save.TabIndex = 14;
+            btn_Save.Text = "保  存";
+            btn_Save.UseVisualStyleBackColor = true;
+            btn_Save.Click += btn_Save_Click;
             // 
             // label8
             // 
@@ -197,19 +209,19 @@
             label5.TabIndex = 4;
             label5.Text = "品牌";
             // 
-            // textBox3
+            // txt_CustomerOrderNo
             // 
-            textBox3.Location = new Point(89, 45);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 3;
+            txt_CustomerOrderNo.Location = new Point(89, 45);
+            txt_CustomerOrderNo.Name = "txt_CustomerOrderNo";
+            txt_CustomerOrderNo.Size = new Size(100, 23);
+            txt_CustomerOrderNo.TabIndex = 3;
             // 
-            // textBox2
+            // txt_OrderNo
             // 
-            textBox2.Location = new Point(89, 16);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 2;
+            txt_OrderNo.Location = new Point(89, 16);
+            txt_OrderNo.Name = "txt_OrderNo";
+            txt_OrderNo.Size = new Size(100, 23);
+            txt_OrderNo.TabIndex = 2;
             // 
             // label3
             // 
@@ -234,51 +246,113 @@
             richTextBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richTextBox1.Location = new Point(2, 497);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(848, 96);
+            richTextBox1.Size = new Size(933, 96);
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "";
+            // 
+            // dgv_Main
+            // 
+            dgv_Main.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Main.BackgroundColor = SystemColors.Control;
+            dgv_Main.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Main.Columns.AddRange(new DataGridViewColumn[] { OrderItemID, OrderID, StyleNo, DeliveryDate, UnitPrice, Composition });
+            dgv_Main.Location = new Point(2, 90);
+            dgv_Main.Name = "dgv_Main";
+            dgv_Main.ReadOnly = true;
+            dgv_Main.RowTemplate.Height = 25;
+            dgv_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Main.Size = new Size(933, 401);
+            dgv_Main.TabIndex = 3;
+            // 
+            // OrderItemID
+            // 
+            OrderItemID.DataPropertyName = "OrderItemID";
+            OrderItemID.HeaderText = "订单明细ID";
+            OrderItemID.Name = "OrderItemID";
+            OrderItemID.ReadOnly = true;
+            OrderItemID.Visible = false;
+            // 
+            // OrderID
+            // 
+            OrderID.DataPropertyName = "OrderID";
+            OrderID.HeaderText = "订单ID";
+            OrderID.Name = "OrderID";
+            OrderID.ReadOnly = true;
+            OrderID.Visible = false;
+            // 
+            // StyleNo
+            // 
+            StyleNo.DataPropertyName = "StyleNo";
+            StyleNo.HeaderText = "样式编码";
+            StyleNo.Name = "StyleNo";
+            StyleNo.ReadOnly = true;
+            // 
+            // DeliveryDate
+            // 
+            DeliveryDate.DataPropertyName = "DeliveryDate";
+            DeliveryDate.HeaderText = "交期";
+            DeliveryDate.Name = "DeliveryDate";
+            DeliveryDate.ReadOnly = true;
+            // 
+            // UnitPrice
+            // 
+            UnitPrice.DataPropertyName = "UnitPrice";
+            UnitPrice.HeaderText = "单价";
+            UnitPrice.Name = "UnitPrice";
+            UnitPrice.ReadOnly = true;
+            // 
+            // Composition
+            // 
+            Composition.DataPropertyName = "Composition";
+            Composition.HeaderText = "材料";
+            Composition.Name = "Composition";
+            Composition.ReadOnly = true;
             // 
             // OrderEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(853, 602);
+            ClientSize = new Size(938, 602);
+            Controls.Add(dgv_Main);
             Controls.Add(richTextBox1);
-            Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Name = "OrderEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "PurchaseOrderForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Click += OrderEditForm_Click;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Main).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Dm.DmConnection dmConnection1;
         private GroupBox groupBox1;
-        private Button btn_Search;
-        private TextBox textBox1;
-        private Label label1;
-        private DataGridView dataGridView1;
-        private Button btn_Add;
+
         private Label label8;
         private ComboBox cb_CurrencyCode;
         private Label label6;
         private Label label7;
         private Label label4;
         private Label label5;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox txt_CustomerOrderNo;
+        private TextBox txt_OrderNo;
         private Label label3;
         private Label label2;
         private RichTextBox richTextBox1;
-        private Button btnj_Save;
+        private Button btn_Save;
         private TextBox txt_Sale_Org;
         private TextBox txt_Purchase_Org;
         private TextBox txt_Brand;
         private TextBox txt_PersonInCharge;
+        private Button btn_AddItem;
+        private DataGridView dgv_Main;
+        private DataGridViewTextBoxColumn OrderItemID;
+        private DataGridViewTextBoxColumn OrderID;
+        private DataGridViewTextBoxColumn StyleNo;
+        private DataGridViewTextBoxColumn DeliveryDate;
+        private DataGridViewTextBoxColumn UnitPrice;
+        private DataGridViewTextBoxColumn Composition;
+        private Button btn_DelItem;
     }
 }

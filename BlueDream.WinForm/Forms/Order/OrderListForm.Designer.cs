@@ -33,7 +33,18 @@
             btn_Search = new Button();
             txt_Search = new TextBox();
             label1 = new Label();
-            dgv_Main = new DataGridView(); 
+            dgv_Main = new DataGridView();
+            OrderID = new DataGridViewTextBoxColumn();
+            OrderNo = new DataGridViewTextBoxColumn();
+            CustomerOrderNo = new DataGridViewTextBoxColumn();
+            PurchaseOrgName = new DataGridViewTextBoxColumn();
+            SaleOrgName = new DataGridViewTextBoxColumn();
+            BrandName = new DataGridViewTextBoxColumn();
+            PersonInChargeUser = new DataGridViewTextBoxColumn();
+            OrderCurrencyCode = new DataGridViewTextBoxColumn();
+            TotalNum = new DataGridViewTextBoxColumn();
+            TotalAmount = new DataGridViewTextBoxColumn();
+            CreateTime = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Main).BeginInit();
             SuspendLayout();
@@ -90,22 +101,103 @@
             // 
             // dgv_Main
             // 
-            dgv_Main.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Main.AllowUserToAddRows = false;
+            dgv_Main.AllowUserToDeleteRows = false;
+            dgv_Main.BackgroundColor = SystemColors.Control;
             dgv_Main.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Main.Columns.AddRange(new DataGridViewColumn[] { OrderID, OrderNo, CustomerOrderNo, PurchaseOrgName, SaleOrgName, BrandName, PersonInChargeUser, OrderCurrencyCode, TotalNum, TotalAmount, CreateTime });
             dgv_Main.Location = new Point(5, 73);
             dgv_Main.Name = "dgv_Main";
             dgv_Main.ReadOnly = true;
             dgv_Main.RowTemplate.Height = 25;
+            dgv_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Main.Size = new Size(1142, 613);
             dgv_Main.TabIndex = 1;
             dgv_Main.CellDoubleClick += dgv_Main_CellDoubleClick;
-            
+            // 
+            // OrderID
+            // 
+            OrderID.DataPropertyName = "OrderID";
+            OrderID.HeaderText = "订单ID";
+            OrderID.Name = "OrderID";
+            OrderID.ReadOnly = true;
+            OrderID.Visible = false;
+            // 
+            // OrderNo
+            // 
+            OrderNo.DataPropertyName = "OrderNo";
+            OrderNo.HeaderText = "订单编号";
+            OrderNo.Name = "OrderNo";
+            OrderNo.ReadOnly = true;
+            // 
+            // CustomerOrderNo
+            // 
+            CustomerOrderNo.DataPropertyName = "CustomerOrderNo";
+            CustomerOrderNo.HeaderText = "客户订单号";
+            CustomerOrderNo.Name = "CustomerOrderNo";
+            CustomerOrderNo.ReadOnly = true;
+            // 
+            // PurchaseOrgName
+            // 
+            PurchaseOrgName.DataPropertyName = "PurchaseOrgName";
+            PurchaseOrgName.HeaderText = "采购方";
+            PurchaseOrgName.Name = "PurchaseOrgName";
+            PurchaseOrgName.ReadOnly = true;
+            // 
+            // SaleOrgName
+            // 
+            SaleOrgName.DataPropertyName = "SaleOrgName";
+            SaleOrgName.HeaderText = "销售方";
+            SaleOrgName.Name = "SaleOrgName";
+            SaleOrgName.ReadOnly = true;
+            // 
+            // BrandName
+            // 
+            BrandName.DataPropertyName = "BrandName";
+            BrandName.HeaderText = "品牌";
+            BrandName.Name = "BrandName";
+            BrandName.ReadOnly = true;
+            // 
+            // PersonInChargeUser
+            // 
+            PersonInChargeUser.DataPropertyName = "PersonInChargeUser";
+            PersonInChargeUser.HeaderText = "担当人";
+            PersonInChargeUser.Name = "PersonInChargeUser";
+            PersonInChargeUser.ReadOnly = true;
+            // 
+            // OrderCurrencyCode
+            // 
+            OrderCurrencyCode.DataPropertyName = "OrderCurrencyCode";
+            OrderCurrencyCode.HeaderText = "货币";
+            OrderCurrencyCode.Name = "OrderCurrencyCode";
+            OrderCurrencyCode.ReadOnly = true;
+            // 
+            // TotalNum
+            // 
+            TotalNum.DataPropertyName = "TotalNum";
+            TotalNum.HeaderText = "总数";
+            TotalNum.Name = "TotalNum";
+            TotalNum.ReadOnly = true;
+            // 
+            // TotalAmount
+            // 
+            TotalAmount.DataPropertyName = "TotalAmount";
+            TotalAmount.HeaderText = "总金额";
+            TotalAmount.Name = "TotalAmount";
+            TotalAmount.ReadOnly = true;
+            // 
+            // CreateTime
+            // 
+            CreateTime.DataPropertyName = "CreateTime";
+            CreateTime.HeaderText = "创建时间";
+            CreateTime.Name = "CreateTime";
+            CreateTime.ReadOnly = true;
             // 
             // OrderListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1149, 726); 
+            ClientSize = new Size(1149, 726);
             Controls.Add(dgv_Main);
             Controls.Add(groupBox1);
             Name = "OrderListForm";
@@ -126,7 +218,18 @@
         private Label label1;
         private Button btn_Add;
         private DataGridView dataGridView1;
-        private DataGridView dgv_Main; 
+        private DataGridView dgv_Main;
         private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn OrderID;
+        private DataGridViewTextBoxColumn OrderNo;
+        private DataGridViewTextBoxColumn CustomerOrderNo;
+        private DataGridViewTextBoxColumn PurchaseOrgName;
+        private DataGridViewTextBoxColumn SaleOrgName;
+        private DataGridViewTextBoxColumn BrandName;
+        private DataGridViewTextBoxColumn PersonInChargeUser;
+        private DataGridViewTextBoxColumn OrderCurrencyCode;
+        private DataGridViewTextBoxColumn TotalNum;
+        private DataGridViewTextBoxColumn TotalAmount;
+        private DataGridViewTextBoxColumn CreateTime;
     }
 }

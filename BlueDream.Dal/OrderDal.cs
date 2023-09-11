@@ -30,6 +30,52 @@ namespace BlueDream.Dal
         }
 
 
+        public static OrderModel GetModel(DBClient p_DBClient,long p_OrderID)
+        {
+            SqlTools m_SqlTools = new SqlTools();
+            m_SqlTools.Append($@"      SELECT t_order.order_id,");
+            m_SqlTools.Append($@"             t_order.order_no,");
+            m_SqlTools.Append($@"             t_order.customer_order_no,");
+            m_SqlTools.Append($@"             t_order.brand_id,");
+            m_SqlTools.Append($@"             t_brand.brand_cn as BrandName,");
+            m_SqlTools.Append($@"             t_order.person_in_charge_id,");
+            m_SqlTools.Append($@"             t_user.nick_name as PersonInChargeUser,");
+            m_SqlTools.Append($@"             t_order.purchase_org_id,");
+            m_SqlTools.Append($@"             purchase_org.org_short_name as PurchaseOrgName,");
+            m_SqlTools.Append($@"             t_order.sale_org_id,");
+            m_SqlTools.Append($@"             sale_org.org_short_name as SaleOrgName,");
+            m_SqlTools.Append($@"             t_order.order_date,");
+            m_SqlTools.Append($@"             t_order.order_currency_code,");
+            m_SqlTools.Append($@"             t_order.total_num,");
+            m_SqlTools.Append($@"             t_order.total_amount,");
+            m_SqlTools.Append($@"             t_order.remarks_info,");
+            m_SqlTools.Append($@"             t_order.create_user_id,");
+            m_SqlTools.Append($@"             t_order.create_user,");
+            m_SqlTools.Append($@"             t_order.create_time,");
+            m_SqlTools.Append($@"             t_order.update_user_id,");
+            m_SqlTools.Append($@"             t_order.update_user,");
+            m_SqlTools.Append($@"             t_order.update_time,");
+            m_SqlTools.Append($@"             t_order.data_state");
+            m_SqlTools.Append($@"        FROM t_order");
+            m_SqlTools.Append($@"   LEFT JOIN t_brand ON t_order.brand_id = t_brand.brand_id");
+            m_SqlTools.Append($@"   LEFT JOIN t_user ON t_order.person_in_charge_id = t_user.user_id");
+            m_SqlTools.Append($@"   LEFT JOIN t_organization AS purchase_org ON t_order.purchase_org_id = purchase_org.org_id");
+            m_SqlTools.Append($@"   LEFT JOIN t_organization AS sale_org ON t_order.sale_org_id = sale_org.org_id  ");
+            m_SqlTools.Append($@"       WHERE t_order.order_no = {p_OrderID}");
+
+            OrderModel m_OrderModel = p_DBClient.Instance.Queryable<OrderModel>()
+            .Where(t => t.DataState == DataStateEnum.Valid)
+            .Where(t => t.OrderID == p_OrderID)
+            .First();
+
+            m_OrderModel.OrderItemList = p_DBClient.Instance.Queryable<OrderItemEntity>()
+                .Where(t => t.DataState == DataStateEnum.Valid)
+                .Where(t => t.OrderID == p_OrderID)
+                .ToList();
+
+            return m_OrderModel;
+        }
+
         /// <summary>
         /// 
         /// </summary>

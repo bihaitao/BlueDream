@@ -32,6 +32,23 @@ namespace BlueDream.WebApi
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public CommonResult GetOrderModel(int p_OrderID)
+        {
+            CommonResult m_CommonResult = new CommonResult();
+
+            SysExTools.TryExec(m_CommonResult, () =>
+            { 
+                m_CommonResult.ResultObj = OrderBll.GetModel(p_OrderID); 
+            });
+
+            return m_CommonResult;
+        }
+
     }
 }
 

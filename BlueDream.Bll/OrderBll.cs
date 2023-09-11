@@ -21,5 +21,10 @@ namespace BlueDream.Bll
         {
             return OrderDal.GetListModelByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey,ref p_TotalCount);
         }
+
+        public static OrderModel GetModel(int p_OrderID)
+        {
+            return OrderDal.GetModel(DBHelper.CreateReadOnlyClient(), p_OrderID);
+        }
     }
 }

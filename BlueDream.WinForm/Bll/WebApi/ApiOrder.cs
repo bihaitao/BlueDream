@@ -21,5 +21,17 @@ namespace BlueDream.WinForm
 
             return JsonTools.JsonToObject<ApiPageResult<List<OrderModel>>>(m_Result);
         }
+       
+        public CommonResult Order_GetOrderModel()
+        {
+            string m_Result = HttpHelper.Get(ApiManager.Order_GetOrderModel, GetParameterUrl());
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new CommonResult();
+            }
+
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
+        }
     }
 }

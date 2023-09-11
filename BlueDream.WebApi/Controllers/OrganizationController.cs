@@ -11,10 +11,9 @@ namespace BlueDream.WebApi
     [ApiController]
     [Route("[controller]/[action]")]
     public class OrganizationController : Controller
-    {
-
+    { 
         /// <summary>
-        /// 
+        ///  
         /// </summary>
         /// <returns></returns>
         [HttpGet]
