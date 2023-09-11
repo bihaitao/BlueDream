@@ -12,38 +12,19 @@ namespace BlueDream.WebApi
     [Route("[controller]/[action]")]
     public class OrganizationController : Controller
     { 
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public CommonResult GetOrganization(int p_PageSize, int p_PageIndex, string p_SearchKey)
-        {
-            PageResult m_PageResult = new PageResult();
-
-            SysExTools.TryExec(m_PageResult, () =>
-            {
-                int p_TotalCount = 0;
-                m_PageResult.ResultObj = OrganizationBll.GetOrganization(p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
-                m_PageResult.TotalCount = p_TotalCount;
-            });
-
-            return m_PageResult;
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="p_SearchKey"></param>
         /// <returns></returns>
         [HttpGet]
-        public CommonResult GetTop10(string p_SearchKey)
+        public CommonResult GetOrganizationByID(long p_OrganizationID)
         {
-            CommonResult m_CommonResult = new CommonResult();
+            CommonResult m_CommonResult = new PageResult();
 
             SysExTools.TryExec(m_CommonResult, () =>
             {
-                m_CommonResult.ResultObj = OrganizationBll.GetTop10(p_SearchKey);
+                m_CommonResult.ResultObj = OrganizationBll.GetOrganizationByID(p_OrganizationID);
             });
 
             return m_CommonResult;
@@ -53,16 +34,19 @@ namespace BlueDream.WebApi
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="p_PageSize"></param>
+        /// <param name="p_PageIndex"></param>
+        /// <param name="p_SearchKey"></param>
         /// <returns></returns>
         [HttpGet]
-        public PageResult GetListModelByPage(int p_PageSize, int p_PageIndex, string p_SearchKey)
+        public PageResult GetOrganizationListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey)
         {
             PageResult m_PageResult = new PageResult();
 
             SysExTools.TryExec(m_PageResult, () =>
             {
                 int p_TotalCount = 0;
-                m_PageResult.ResultObj = OrganizationBll.GetListByPage(p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
+                m_PageResult.ResultObj = OrganizationBll.GetOrganizationListByPage(p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
                 m_PageResult.TotalCount = p_TotalCount;
             });
 

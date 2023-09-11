@@ -10,33 +10,23 @@ namespace BlueDream.WinForm
 {
     public class ApiOrganization : HttpRequest
     {
-        public ApiResult<List<OrganizationEntity>> GetOrganization()
+        public CommonResult GetOrganizationByID()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Organization_GetOrganization, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.Organization_GetOrganizationByID, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
-                return new ApiResult<List<OrganizationEntity>>();
+                return new CommonResult();
             }
 
-            return JsonTools.JsonToObject<ApiResult<List<OrganizationEntity>>>(m_Result);
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
         }
 
-        public ApiPageResult<List<OrganizationEntity>> GetOrganizationTop10()
+       
+
+        public ApiPageResult<List<OrganizationEntity>> GetOrganizationListByPage()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Organization_GetTop10, GetParameterUrl());
-
-            if (string.IsNullOrWhiteSpace(m_Result))
-            {
-                return new ApiPageResult<List<OrganizationEntity>>();
-            }
-
-            return JsonTools.JsonToObject<ApiPageResult<List<OrganizationEntity>>>(m_Result);
-        }
-
-        public ApiPageResult<List<OrganizationEntity>> GetListModelByPage()
-        {
-            string m_Result = HttpHelper.Get(ApiManager.Organization_GetListModelByPage, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.Organization_GetOrganizationListByPage, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
@@ -45,5 +35,7 @@ namespace BlueDream.WinForm
 
             return JsonTools.JsonToObject<ApiPageResult<List<OrganizationEntity>>>(m_Result);
         }
+
+        
     }
 }

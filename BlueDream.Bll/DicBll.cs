@@ -12,7 +12,7 @@ namespace BlueDream.Bll
     {
         public static List<CurrencyModel> GetCurrencyModels()
         {
-            return DicDal.GetCurrencyModels();
+            return DicDal.GetCurrencyList();
         }
     }
 }

@@ -14,13 +14,13 @@ namespace BlueDream.Bll
         public BrandBll() { }
 
         /// <summary>
-        /// 
+        /// 获取品牌
         /// </summary>
-        /// <param name="p_SearchKey"></param>
+        /// <param name="p_BrandID"></param>
         /// <returns></returns>
-        public static List<BrandEntity> GetTop10()
+        public static BrandEntity GetBrandByID(long p_BrandID)
         {
-            return GetTop10("*");
+            return BrandDal.GetBrandByID(DBHelper.CreateReadOnlyClient(), p_BrandID);
         }
 
         /// <summary>
@@ -28,20 +28,12 @@ namespace BlueDream.Bll
         /// </summary>
         /// <param name="p_SearchKey"></param>
         /// <returns></returns>
-        public static List<BrandEntity> GetTop10(string p_SearchKey)
-        {
-            int m_TotalCount = 0 ;
-            return BrandDal.GetListByPage(DBHelper.CreateReadOnlyClient(), 10, 1, p_SearchKey,ref m_TotalCount);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p_SearchKey"></param>
-        /// <returns></returns>
-        public static List<BrandEntity> GetListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey, ref int p_TotalCount)
+        public static List<BrandEntity> GetBrandListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey, ref int p_TotalCount)
         { 
-            return BrandDal.GetListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
+            return BrandDal.GetBrandListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
         }
+
+
+      
     }
 }

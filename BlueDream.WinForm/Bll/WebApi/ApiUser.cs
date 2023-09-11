@@ -10,9 +10,21 @@ namespace BlueDream.WinForm
 {
     public class ApiUser : HttpRequest
     {
-        public ApiPageResult<List<UserEntity>> GetUserTop10()
+        public CommonResult GetUserByID()
         {
-            string m_Result = HttpHelper.Get(ApiManager.User_GetTop10, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.User_GetUserByID, GetParameterUrl());
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new CommonResult();
+            }
+
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
+        }
+
+        public ApiPageResult<List<UserEntity>> GetUserListByPage()
+        {
+            string m_Result = HttpHelper.Get(ApiManager.User_GetUserListByPage, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
@@ -22,16 +34,6 @@ namespace BlueDream.WinForm
             return JsonTools.JsonToObject<ApiPageResult<List<UserEntity>>>(m_Result);
         }
 
-        public ApiPageResult<List<UserEntity>> GetListModelByPage()
-        {
-            string m_Result = HttpHelper.Get(ApiManager.User_GetListModelByPage, GetParameterUrl());
-
-            if (string.IsNullOrWhiteSpace(m_Result))
-            {
-                return new ApiPageResult<List<UserEntity>>();
-            }
-
-            return JsonTools.JsonToObject<ApiPageResult<List<UserEntity>>>(m_Result);
-        }
+       
     }
 }

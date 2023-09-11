@@ -15,7 +15,7 @@ namespace BlueDream.Dal
         /// </summary>
         /// <param name="p_RsaID">秘钥ID</param>
         /// <returns></returns>
-        public static RsaEntity GetByID(DBClient p_DBClient, long p_RsaID)
+        public static RsaEntity GetRsaByID(DBClient p_DBClient, long p_RsaID)
         {
             return p_DBClient.Instance.Queryable<RsaEntity>()
               .Where(t => t.DataState == DataStateEnum.Valid)

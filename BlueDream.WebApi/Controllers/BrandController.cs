@@ -12,43 +12,45 @@ namespace BlueDream.WebApi
     [Route("[controller]/[action]")]
     public class BrandController : Controller
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]       
-        public CommonResult GetTop10(string p_SearchKey)
-        { 
-            CommonResult m_CommonResult = new PageResult();
-            
-            SysExTools.TryExec(m_CommonResult, () =>
-            {
-                m_CommonResult.ResultObj = BrandBll.GetTop10(p_SearchKey); 
-            });
-
-            return m_CommonResult;
-        }
-
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public PageResult GetListModelByPage(int p_PageSize, int p_PageIndex, string p_SearchKey)
+        public CommonResult GetBrandByID(long p_BrandID)
+        {
+            CommonResult m_CommonResult = new PageResult();
+
+            SysExTools.TryExec(m_CommonResult, () =>
+            {
+                m_CommonResult.ResultObj = BrandBll.GetBrandByID(p_BrandID);
+            });
+
+            return m_CommonResult;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public PageResult GetBrandListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey)
         {
             PageResult m_PageResult = new PageResult();
 
             SysExTools.TryExec(m_PageResult, () =>
             {
                 int p_TotalCount = 0;
-                m_PageResult.ResultObj = BrandBll.GetListByPage(p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
+                m_PageResult.ResultObj = BrandBll.GetBrandListByPage(p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
                 m_PageResult.TotalCount = p_TotalCount;
             });
 
             return m_PageResult;
         }
-        
+
+
+       
     }
 }
 

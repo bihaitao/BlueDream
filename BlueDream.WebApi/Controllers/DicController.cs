@@ -1,6 +1,5 @@
 ﻿using BlueDream.Bll;
-using BlueDream.Common;
-using BlueDream.Model.Model;
+using BlueDream.Common; 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +19,7 @@ namespace BlueDream.WebApi
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public CommonResult GetCurrencyModels()
+        public CommonResult GetCurrencyList()
         {
             CommonResult m_CommonResult = new PageResult();
 

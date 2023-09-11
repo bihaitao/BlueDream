@@ -11,7 +11,7 @@ namespace BlueDream.Dal
     {
         public DicDal() { }
 
-        public static List<CurrencyModel> GetCurrencyModels() 
+        public static List<CurrencyModel> GetCurrencyList() 
         {
             List<CurrencyModel> m_CurrencyList = new List<CurrencyModel>
             {

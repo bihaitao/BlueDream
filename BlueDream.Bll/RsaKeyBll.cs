@@ -18,7 +18,7 @@ namespace BlueDream.Bll
         /// <returns></returns>
         public static RsaEntity GetByID(long p_RsaKeyID)
         { 
-            return RsaDal.GetByID(DBHelper.CreateReadOnlyClient(), p_RsaKeyID);
+            return RsaDal.GetRsaByID(DBHelper.CreateReadOnlyClient(), p_RsaKeyID);
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace BlueDream.Bll
         /// <returns></returns>
         public static RsaEntity GetSystemRsa()
         {
-            return RsaDal.GetByID(DBHelper.CreateReadOnlyClient(), CfgManager.Instance.RsaID);
+            return RsaDal.GetRsaByID(DBHelper.CreateReadOnlyClient(), CfgManager.Instance.RsaID);
         }
 
         // Tuple<string, string> m_RsaEntity = RsaHelper.GenerateRsaKeys();

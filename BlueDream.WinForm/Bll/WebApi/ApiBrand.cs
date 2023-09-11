@@ -10,9 +10,9 @@ namespace BlueDream.WinForm
 {
     public class ApiBrand : HttpRequest
     {
-        public CommonResult GetBrandTop10()
+        public CommonResult GetBrandByID()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Brand_GetTop10, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.Brand_GetBrandByID, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
@@ -22,9 +22,9 @@ namespace BlueDream.WinForm
             return JsonTools.JsonToObject<CommonResult>(m_Result);
         }
 
-        public ApiPageResult<List<BrandEntity>> GetListModelByPage()
+        public ApiPageResult<List<BrandEntity>> GetBrandListByPage()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Brand_GetListModelByPage, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.Brand_GetBrandListByPage, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
@@ -33,5 +33,7 @@ namespace BlueDream.WinForm
 
             return JsonTools.JsonToObject<ApiPageResult<List<BrandEntity>>>(m_Result);
         }
+
+    
     }
 }

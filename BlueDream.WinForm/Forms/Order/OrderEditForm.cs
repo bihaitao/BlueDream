@@ -43,16 +43,77 @@ namespace BlueDream.WinForm
 
         public OrderEditForm(long p_OrderID)
         {
-            ApiOrder m_ApiOrder = new ApiOrder(); 
-            m_ApiOrder.Parameters.Add("p_OrderID", p_OrderID);
-            CommonResult m_CommonResult = m_ApiOrder.Order_GetOrderModel();
-            m_OrderModel = (OrderModel)m_CommonResult.ResultObj;
-            txt_Brand.Text = m_OrderModel.BrandName;
-
-
-
             InitializeComponent();
             Init();
+
+            //------------------------------------------------------------------------------------------------
+            
+            ApiOrder m_ApiOrder = new ApiOrder(); 
+            m_ApiOrder.Parameters.Add("p_OrderID", p_OrderID);
+            CommonResult m_CommonResult_Order = m_ApiOrder.GetOrderByID();
+
+            if(!m_CommonResult_Order.Success)
+            {
+                MessageBox.Show(m_CommonResult_Order.ExMessage);
+                this.Close();
+                return;
+            } 
+            m_OrderModel = JsonTools.JsonToObject<OrderModel>(m_CommonResult_Order.ResultObj);
+            //================================================================================================
+
+            //------------------------------------------------------------------------------------------------
+            ApiBrand m_ApiBrand = new ApiBrand();
+            m_ApiBrand.Parameters.Add("p_BrandID", m_OrderModel.BrandID);
+            CommonResult m_CommonResult_Brand = m_ApiBrand.GetBrandByID();
+            if (!m_CommonResult_Brand.Success)
+            {
+                MessageBox.Show(m_CommonResult_Brand.ExMessage);
+            }
+            BrandEntity m_BrandEntity = JsonTools.JsonToObject<BrandEntity>(m_CommonResult_Brand.ResultObj);
+            txt_Brand.Text = m_BrandEntity.BrandShortName;
+            txt_Brand.Tag = m_BrandEntity;
+            //================================================================================================
+
+
+            //------------------------------------------------------------------------------------------------
+            ApiUser m_ApiUser = new ApiUser();
+            m_ApiUser.Parameters.Add("p_UserID", m_OrderModel.PersonInChargeID); 
+            CommonResult m_CommonResult_User = m_ApiUser.GetUserByID(); 
+            if(!m_CommonResult_User.Success)
+            {
+                MessageBox.Show(m_CommonResult_User.ExMessage);
+            }
+            UserEntity m_UserEntity = JsonTools.JsonToObject<UserEntity>(m_CommonResult_User.ResultObj);
+            txt_PersonInCharge.Text = m_UserEntity.NickName;
+            txt_PersonInCharge.Tag = m_UserEntity;
+            //================================================================================================
+
+            //------------------------------------------------------------------------------------------------
+            ApiOrganization m_ApiOrganization = new ApiOrganization();
+            m_ApiOrganization.Parameters.Add("p_OrganizationID", m_OrderModel.PurchaseOrgID);
+            CommonResult m_CommonResult_PurchaseOrg = m_ApiOrganization.GetOrganizationByID();
+            if (!m_CommonResult_PurchaseOrg.Success)
+            {
+                MessageBox.Show(m_CommonResult_PurchaseOrg.ExMessage);
+            }
+            OrganizationEntity m_PurchaseOrg = JsonTools.JsonToObject<OrganizationEntity>(m_CommonResult_PurchaseOrg.ResultObj);
+            txt_Purchase_Org.Text = m_PurchaseOrg.OrganizationShortName;
+            txt_Purchase_Org.Tag = m_PurchaseOrg;
+            //================================================================================================
+
+            //------------------------------------------------------------------------------------------------
+            m_ApiOrganization.Parameters.Clear();
+            m_ApiOrganization.Parameters.Add("p_OrganizationID", m_OrderModel.PurchaseOrgID);
+            CommonResult m_CommonResult_SaleOrg = m_ApiOrganization.GetOrganizationByID();
+            if (!m_CommonResult_SaleOrg.Success)
+            {
+                MessageBox.Show(m_CommonResult_SaleOrg.ExMessage);
+            }
+            OrganizationEntity m_SaleOrg = JsonTools.JsonToObject<OrganizationEntity>(m_CommonResult_SaleOrg.ResultObj);
+            txt_Sale_Org.Text = m_PurchaseOrg.OrganizationShortName;
+            txt_Sale_Org.Tag = m_PurchaseOrg;
+            //================================================================================================
+
         }
 
         private void DropDownList_CallBack(string p_Key, object p_Value)
@@ -67,13 +128,13 @@ namespace BlueDream.WinForm
 
                 case c_SelectPurchaseOrgReturnKey:
                     OrganizationEntity t_PurchaseOrgEntity = (OrganizationEntity)p_Value;
-                    txt_Purchase_Org.Text = t_PurchaseOrgEntity.OrgShortName;
+                    txt_Purchase_Org.Text = t_PurchaseOrgEntity.OrganizationShortName;
                     txt_Purchase_Org.Tag = t_PurchaseOrgEntity;
                     return;
 
                 case c_SelectSaleOrgReturnKey:
                     OrganizationEntity t_SaleOrgEntity = (OrganizationEntity)p_Value;
-                    txt_Sale_Org.Text = t_SaleOrgEntity.OrgShortName;
+                    txt_Sale_Org.Text = t_SaleOrgEntity.OrganizationShortName;
                     txt_Sale_Org.Tag = t_SaleOrgEntity;
                     return;
 
@@ -99,7 +160,7 @@ namespace BlueDream.WinForm
 
         public void Init()
         {
-            ApiResult<List<CurrencyModel>> m_CurrencyResult = new ApiDic().GetCurrencyModels();
+            ApiResult<List<CurrencyModel>> m_CurrencyResult = new ApiDic().GetCurrencyList();
             cb_CurrencyCode.DataSource = m_CurrencyResult.ResultObj;
             cb_CurrencyCode.DisplayMember = "CurrencyName";
             cb_CurrencyCode.ValueMember = "CurrencyCode";

@@ -47,7 +47,7 @@ namespace BlueDream.WinForm
             m_ApiUser.Parameters.Add("p_SearchKey", p_SearchKey);
             m_ApiUser.Parameters.Add("p_PageSize", p_PageSize);
             m_ApiUser.Parameters.Add("p_PageIndex", p_PageIndex);
-            ApiPageResult<List<UserEntity>> m_ApiPageResult = m_ApiUser.GetListModelByPage();
+            ApiPageResult<List<UserEntity>> m_ApiPageResult = m_ApiUser.GetUserListByPage();
 
             dgv_Main.DataSource = m_ApiPageResult.ResultObj;
             dgv_Main.AutoGenerateColumns = false;

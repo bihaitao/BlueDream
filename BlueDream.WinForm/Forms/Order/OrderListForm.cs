@@ -58,7 +58,7 @@ namespace BlueDream.WinForm
             m_ApiOrder.Parameters.Add("p_PageIndex", 1);
             m_ApiOrder.Parameters.Add("p_SearchKey", "*");
 
-            ApiPageResult<List<OrderModel>> m_CommonResult = m_ApiOrder.GetListModelByPage();
+            ApiPageResult<List<OrderModel>> m_CommonResult = m_ApiOrder.GetOrderListByPage();
 
             if (!m_CommonResult.Success)
             {

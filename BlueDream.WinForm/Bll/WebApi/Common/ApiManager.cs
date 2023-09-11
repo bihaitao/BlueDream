@@ -23,51 +23,47 @@ namespace BlueDream.WinForm
         /// <summary>
         /// 获取公司列表
         /// </summary>
-        public static string Organization_GetOrganization = $@"{m_BaseUrl}/Organization/GetOrganization";
-         
+        public static string Organization_GetOrganizationByID = $@"{m_BaseUrl}/Organization/GetOrganizationByID";
+
         /// <summary>
-        /// 获取订单列表(分页)
+        /// 获取组织
         /// </summary>
-        public static string Order_GetListModelByPage = $@"{m_BaseUrl}/Order/GetListModelByPage";
-         
+        public static string Organization_GetOrganizationListByPage = $@"{m_BaseUrl}/Organization/GetOrganizationListByPage";
+
         /// <summary>
         /// 获取订单 
         /// </summary>
-        public static string Order_GetOrderModel = $@"{m_BaseUrl}/Order/GetOrderModel";
+        public static string Order_GetOrderByID = $@"{m_BaseUrl}/Order/GetOrderByID";
+
+        /// <summary>
+        /// 获取订单列表(分页)
+        /// </summary>
+        public static string Order_GetOrderListByPage = $@"{m_BaseUrl}/Order/GetOrderListByPage";
+     
 
         /// <summary>
         /// 获取品牌
         /// </summary>
-        public static string Brand_GetTop10 = $@"{m_BaseUrl}/Brand/GetTop10";
+        public static string Brand_GetBrandByID = $@"{m_BaseUrl}/Brand/GetBrandByID";
 
         /// <summary>
         /// 获取品牌
         /// </summary>
-        public static string Brand_GetListModelByPage = $@"{m_BaseUrl}/Brand/GetListModelByPage";
+        public static string Brand_GetBrandListByPage = $@"{m_BaseUrl}/Brand/GetBrandListByPage";
 
         /// <summary>
         /// 获取用户
         /// </summary>
-        public static string User_GetTop10 = $@"{m_BaseUrl}/User/GetTop10";
+        public static string User_GetUserByID = $@"{m_BaseUrl}/User/GetUserByID";
 
         /// <summary>
         /// 获取用户
         /// </summary>
-        public static string User_GetListModelByPage = $@"{m_BaseUrl}/User/GetTop10";
-
-        /// <summary>
-        /// 获取组织
-        /// </summary>
-        public static string Organization_GetTop10 = $@"{m_BaseUrl}/Organization/GetTop10";
-
-        /// <summary>
-        /// 获取组织
-        /// </summary>
-        public static string Organization_GetListModelByPage = $@"{m_BaseUrl}/Organization/GetListModelByPage";
-
+        public static string User_GetUserListByPage = $@"{m_BaseUrl}/User/GetUserListByPage";
+ 
         /// <summary>
         /// 获取货币
         /// </summary>
-        public static string Dic_GetCurrencyModels = $@"{m_BaseUrl}/Dic/GetCurrencyModels";
+        public static string Dic_GetCurrencyList = $@"{m_BaseUrl}/Dic/GetCurrencyList";
     }
 }

@@ -12,27 +12,27 @@ namespace BlueDream.Model
         /// <summary>
         /// 组织ID
         /// </summary>
-        [SugarColumn(ColumnName = "org_id",IsPrimaryKey = true)]
-        public long OrgID { get; set; }
+        [SugarColumn(ColumnName = "organization_id", IsPrimaryKey = true)]
+        public long OrganizationID { get; set; }
         /// <summary>
         /// 组织编码
         /// </summary>
-        [SugarColumn(ColumnName = "org_code")]
-        public string OrgCode { get; set; }
+        [SugarColumn(ColumnName = "organization_code")]
+        public string OrganizationCode { get; set; }
         /// <summary>
         /// 简称
         /// </summary>
-        [SugarColumn(ColumnName = "org_short_name")]
-        public string OrgShortName { get; set; }
+        [SugarColumn(ColumnName = "organization_short_name")]
+        public string OrganizationShortName { get; set; }
         /// <summary>
         /// 中文名称
         /// </summary>
-        [SugarColumn(ColumnName = "org_cn_name")]
-        public string OrgCnName { get; set; }
+        [SugarColumn(ColumnName = "organization_cn_name")]
+        public string OrganizationCnName { get; set; }
         /// <summary>
         /// 英文名称
         /// </summary>
-        [SugarColumn(ColumnName = "org_en_name")]
-        public string OrgEnName { get; set; }
+        [SugarColumn(ColumnName = "organization_en_name")]
+        public string OrganizationEnName { get; set; }
     }
 }

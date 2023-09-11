@@ -10,9 +10,24 @@ namespace BlueDream.WinForm
 {
     public class ApiOrder : HttpRequest
     {
-        public ApiPageResult<List<OrderModel>> GetListModelByPage()
+
+        public CommonResult GetOrderByID()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Order_GetListModelByPage, GetParameterUrl());
+            string m_Result = HttpHelper.Get(ApiManager.Order_GetOrderByID, GetParameterUrl());
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new CommonResult();
+            }
+
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
+        }
+
+
+
+        public ApiPageResult<List<OrderModel>> GetOrderListByPage()
+        {
+            string m_Result = HttpHelper.Get(ApiManager.Order_GetOrderListByPage, GetParameterUrl());
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {
@@ -22,16 +37,6 @@ namespace BlueDream.WinForm
             return JsonTools.JsonToObject<ApiPageResult<List<OrderModel>>>(m_Result);
         }
        
-        public CommonResult Order_GetOrderModel()
-        {
-            string m_Result = HttpHelper.Get(ApiManager.Order_GetOrderModel, GetParameterUrl());
-
-            if (string.IsNullOrWhiteSpace(m_Result))
-            {
-                return new CommonResult();
-            }
-
-            return JsonTools.JsonToObject<CommonResult>(m_Result);
-        }
+      
     }
 }

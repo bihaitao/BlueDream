@@ -10,9 +10,9 @@ namespace BlueDream.WinForm
 {
     public class ApiDic : HttpRequest
     {
-        public ApiResult<List<CurrencyModel>> GetCurrencyModels()
+        public ApiResult<List<CurrencyModel>> GetCurrencyList()
         {
-            string m_Result = HttpHelper.Get(ApiManager.Dic_GetCurrencyModels);
+            string m_Result = HttpHelper.Get(ApiManager.Dic_GetCurrencyList);
 
             if (string.IsNullOrWhiteSpace(m_Result))
             {

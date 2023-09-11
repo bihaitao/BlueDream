@@ -94,38 +94,27 @@ namespace BlueDream.Bll
 
 
         /// <summary>
-        /// 
+        /// 获取用户
         /// </summary>
-        /// <param name="p_SearchKey"></param>
+        /// <param name="p_UserID"></param>
         /// <returns></returns>
-        public static List<UserModel> GetTop10(string p_SearchKey)
+        public static UserEntity GetUserByID(long p_UserID)
         {
-            int m_TotalCount = 0;
-            List<UserEntity> m_EntityList =  UserDal.GetListByPage(DBHelper.CreateReadOnlyClient(), 10, 1, p_SearchKey, ref m_TotalCount);
-            List<UserModel> m_ModelList = new List<UserModel>();
-            
-            foreach(UserEntity t_UserEntity in m_EntityList)
-            { 
-                m_ModelList.Add(new UserModel()
-                {
-                    UserID = t_UserEntity.UserID,
-                    UserName = t_UserEntity.UserName,
-                    NickName = t_UserEntity.NickName
-                });
-            }
-
-            return m_ModelList; 
+            return UserDal.GetUserByID(DBHelper.CreateReadOnlyClient(), p_UserID);
         }
-
 
         /// <summary>
-        /// 
+        /// 获取用户列表
         /// </summary>
+        /// <param name="p_PageSize"></param>
+        /// <param name="p_PageIndex"></param>
         /// <param name="p_SearchKey"></param>
+        /// <param name="p_TotalCount"></param>
         /// <returns></returns>
-        public static List<UserEntity> GetListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey, ref int p_TotalCount)
+        public static List<UserEntity> GetUserListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey, ref int p_TotalCount)
         {
-            return UserDal.GetListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
+            return UserDal.GetUserListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
         }
+
     }
 }

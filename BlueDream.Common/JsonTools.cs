@@ -1,4 +1,5 @@
 ﻿
+using NetTaste;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -26,14 +27,26 @@ namespace BlueDream.Common
         /// 根据字符串获取对象
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="jsonString"></param>
+        /// <param name="p_JsonString"></param>
         /// <returns></returns>
-        public static T JsonToObject<T>(string jsonString)
+        public static T JsonToObject<T>(string p_JsonString)
         {
-            return JsonConvert.DeserializeObject<T>(jsonString);
+            return JsonConvert.DeserializeObject<T>(p_JsonString);
         }
 
-        
+        /// <summary>
+        /// 根据字符串获取对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p_Object"></param>
+        /// <returns></returns>
+        public static T JsonToObject<T>(Object p_Object)
+        {
+            string m_Json = JsonConvert.SerializeObject(p_Object);
+            return JsonConvert.DeserializeObject<T>(m_Json);
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
