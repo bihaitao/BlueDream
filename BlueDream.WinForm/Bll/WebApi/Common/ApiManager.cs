@@ -30,6 +30,12 @@ namespace BlueDream.WinForm
         /// </summary>
         public static string Organization_GetOrganizationListByPage = $@"{m_BaseUrl}/Organization/GetOrganizationListByPage";
 
+        
+        /// <summary>
+        /// 保存订单 
+        /// </summary>
+        public static string Order_Save = $@"{m_BaseUrl}/Order/Save";
+
         /// <summary>
         /// 获取订单 
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿
 
+using BlueDream.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -54,7 +55,7 @@ namespace BlueDream.WinForm
                 string m_UrlNameString = p_Url + "?" + p_Param;
                 HttpWebRequest m_HttpWebRequest = (HttpWebRequest)WebRequest.Create(m_UrlNameString);
 
-                if(!string.IsNullOrWhiteSpace(LoginKey))
+                if (!string.IsNullOrWhiteSpace(LoginKey))
                 {
                     m_HttpWebRequest.Headers.Add("LoginKey", LoginKey);
                 }
@@ -74,7 +75,7 @@ namespace BlueDream.WinForm
                 m_StreamReader = null;
                 m_Stream = null;
                 m_HttpWebResponse = null;
-            } 
+            }
             catch (Exception ex)
             {
 
@@ -89,7 +90,16 @@ namespace BlueDream.WinForm
             return m_Result;
         }
 
-
+        /// <summary>
+        /// 向指定 URL 发送POST方法的请求
+        /// </summary>
+        /// <param name="p_Url">发送请求的 URL</param>
+        /// <param name="jsonData">请求参数，请求参数应该是Json格式字符串的形式。</param>
+        /// <returns>所代表远程资源的响应结果</returns>
+        public static string Post(string p_Url, object p_ObjData)
+        { 
+            return Post(p_Url,JsonTools.GetJson(p_ObjData));
+        }
 
         /// <summary>
         /// 向指定 URL 发送POST方法的请求

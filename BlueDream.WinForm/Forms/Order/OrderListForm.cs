@@ -71,17 +71,16 @@ namespace BlueDream.WinForm
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            OrderEditForm m_OrderEditForm = new OrderEditForm(4926049349816525291);
+            OrderEditForm m_OrderEditForm = new OrderEditForm();
             m_OrderEditForm.StartPosition = FormStartPosition.CenterParent;
             m_OrderEditForm.ShowDialog();
         }
 
-
-
-        private void dgv_Main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Main_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //dgv_Main.Rows[e.RowIndex].Cells["OrderID"].Value
-
+            OrderEditForm m_OrderEditForm = new OrderEditForm(Convert.ToInt64(dgv_Main.Rows[e.RowIndex].Cells["OrderID"].Value));
+            m_OrderEditForm.StartPosition = FormStartPosition.CenterParent;
+            m_OrderEditForm.ShowDialog();
         }
     }
 }

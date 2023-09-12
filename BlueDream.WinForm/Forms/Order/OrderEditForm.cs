@@ -1,5 +1,6 @@
 ﻿using BlueDream.Common;
 using BlueDream.Model;
+using BlueDream.Model.Common;
 using HZH_Controls.Controls;
 using HZH_Controls.Forms;
 using Org.BouncyCastle.Asn1.X509;
@@ -10,6 +11,7 @@ namespace BlueDream.WinForm
 {
     public partial class OrderEditForm : Form
     {
+        private bool m_IsAdd = true;
 
         private const string c_SelectBrandReturnKey = "SelectBrandReturnKey";
         private const string c_SelectPurchaseOrgReturnKey = "SelectPurchaseOrgReturnKey";
@@ -18,6 +20,7 @@ namespace BlueDream.WinForm
 
         private const string c_AddOrderItemReturnKey = "AddOrderItemReturnKey";
 
+        private const string c_UpdateOrderItemReturnKey = "UpdateOrderItemReturnKey";
         /// <summary>
         /// 订单实体
         /// </summary>
@@ -43,22 +46,27 @@ namespace BlueDream.WinForm
 
         public OrderEditForm(long p_OrderID)
         {
+            m_IsAdd = false;
+
             InitializeComponent();
             Init();
 
             //------------------------------------------------------------------------------------------------
-            
-            ApiOrder m_ApiOrder = new ApiOrder(); 
+
+            ApiOrder m_ApiOrder = new ApiOrder();
             m_ApiOrder.Parameters.Add("p_OrderID", p_OrderID);
             CommonResult m_CommonResult_Order = m_ApiOrder.GetOrderByID();
 
-            if(!m_CommonResult_Order.Success)
+            if (!m_CommonResult_Order.Success)
             {
                 MessageBox.Show(m_CommonResult_Order.ExMessage);
                 this.Close();
                 return;
-            } 
+            }
             m_OrderModel = JsonTools.JsonToObject<OrderModel>(m_CommonResult_Order.ResultObj);
+
+            txt_OrderNo.Text = m_OrderModel.OrderNo;
+            txt_CustomerOrderNo.Text = m_OrderModel.CustomerOrderNo;
             //================================================================================================
 
             //------------------------------------------------------------------------------------------------
@@ -77,9 +85,9 @@ namespace BlueDream.WinForm
 
             //------------------------------------------------------------------------------------------------
             ApiUser m_ApiUser = new ApiUser();
-            m_ApiUser.Parameters.Add("p_UserID", m_OrderModel.PersonInChargeID); 
-            CommonResult m_CommonResult_User = m_ApiUser.GetUserByID(); 
-            if(!m_CommonResult_User.Success)
+            m_ApiUser.Parameters.Add("p_UserID", m_OrderModel.PersonInChargeID);
+            CommonResult m_CommonResult_User = m_ApiUser.GetUserByID();
+            if (!m_CommonResult_User.Success)
             {
                 MessageBox.Show(m_CommonResult_User.ExMessage);
             }
@@ -114,6 +122,20 @@ namespace BlueDream.WinForm
             txt_Sale_Org.Tag = m_PurchaseOrg;
             //================================================================================================
 
+            //------------------------------------------------------------------------------------------------
+          
+            if(m_OrderModel.OrderItemList.Count==0)
+            {
+                dgv_Main.DataSource = null;
+            }
+            else
+            {
+                dgv_Main.DataSource = m_OrderModel.OrderItemList;
+            }
+            
+            dgv_Main.Refresh();
+
+            //================================================================================================
         }
 
         private void DropDownList_CallBack(string p_Key, object p_Value)
@@ -151,7 +173,11 @@ namespace BlueDream.WinForm
                     dgv_Main.DataSource = m_OrderModel.OrderItemList;
                     dgv_Main.Refresh();
                     return;
-
+                case c_UpdateOrderItemReturnKey: 
+                    dgv_Main.DataSource = null;
+                    dgv_Main.DataSource = m_OrderModel.OrderItemList;
+                    dgv_Main.Refresh();
+                    return;
                 default: return;
             }
         }
@@ -165,7 +191,6 @@ namespace BlueDream.WinForm
             cb_CurrencyCode.DisplayMember = "CurrencyName";
             cb_CurrencyCode.ValueMember = "CurrencyCode";
             dgv_Main.AutoGenerateColumns = false;
-
         }
 
         private void InitDataGridViewColumn(DataGridView p_DataGridView, string p_ColumnName, string p_HeadTex)
@@ -216,18 +241,35 @@ namespace BlueDream.WinForm
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (b)
+            ApiOrder m_ApiOrder = new ApiOrder();
+            if (m_IsAdd)
             {
-                b = false;
-                new ToolTip().Show("1111111", txt_OrderNo);
-                new ToolTip().Show("2222222", txt_CustomerOrderNo);
+                m_OrderModel.OrderID = StringTools.GetNewGuidLong();
             }
-            else
+
+            m_OrderModel.OrderNo = txt_OrderNo.Text.Trim();
+            m_OrderModel.CustomerOrderNo = txt_CustomerOrderNo.Text.Trim();
+            m_OrderModel.BrandID = ((BrandEntity)txt_Brand.Tag).BrandID;
+            m_OrderModel.BrandName = ((BrandEntity)txt_Brand.Tag).BrandShortName;
+            m_OrderModel.PersonInChargeID = ((UserEntity)txt_PersonInCharge.Tag).UserID;
+            m_OrderModel.PersonInChargeUser = ((UserEntity)txt_PersonInCharge.Tag).NickName;
+            m_OrderModel.SaleOrgID = ((OrganizationEntity)txt_Sale_Org.Tag).OrganizationID;
+            m_OrderModel.SaleOrgName = ((OrganizationEntity)txt_Sale_Org.Tag).OrganizationShortName;
+            m_OrderModel.PurchaseOrgID = ((OrganizationEntity)txt_Purchase_Org.Tag).OrganizationID;
+            m_OrderModel.PurchaseOrgName = ((OrganizationEntity)txt_Purchase_Org.Tag).OrganizationShortName;
+            m_OrderModel.OrderCurrencyCode = cb_CurrencyCode.SelectedValue.ToString();
+            m_OrderModel.RemarksInfo = txt_Remark.Text.Trim();
+
+            BaseTools.InitBase(m_OrderModel);
+
+            foreach (OrderItemEntity t_OrderItemEntity in m_OrderModel.OrderItemList)
             {
-                b = true;
-                new ToolTip().Show("aaaaa", txt_OrderNo);
-                new ToolTip().Show("bbbbbb", txt_CustomerOrderNo);
+                t_OrderItemEntity.OrderID = m_OrderModel.OrderID;
+                BaseTools.InitBase(t_OrderItemEntity);
             }
+
+            CommonResult m_CommonResult = m_ApiOrder.Save(m_OrderModel);
+            MessageBox.Show(m_CommonResult.Message);
         }
 
         private void ShowTips(IWin32Window p_IWin32Window, string p_Key, string p_Value)
@@ -266,22 +308,32 @@ namespace BlueDream.WinForm
         {
             OrderItemEditForm m_OrderItemEditForm = new OrderItemEditForm(c_AddOrderItemReturnKey);
             m_OrderItemEditForm.CallBack_Event += DropDownList_CallBack;
-            m_OrderItemEditForm.ShowDialog(); 
+            m_OrderItemEditForm.ShowDialog();
         }
 
         private void btn_DelItem_Click(object sender, EventArgs e)
-        { 
-            for (int t_Index = 0; t_Index < dgv_Main.SelectedRows.Count;t_Index++)
+        {
+            for (int t_Index = 0; t_Index < dgv_Main.SelectedRows.Count; t_Index++)
             {
                 OrderItemEntity m_OrderItemEntity = dgv_Main.SelectedRows[t_Index].DataBoundItem as OrderItemEntity;
-                
-                m_OrderModel.OrderItemList.Remove(m_OrderItemEntity); 
+
+                m_OrderModel.OrderItemList.Remove(m_OrderItemEntity);
             }
 
             dgv_Main.DataSource = null;
             dgv_Main.DataSource = m_OrderModel.OrderItemList;
             dgv_Main.Refresh();
 
+        }
+
+        private void dgv_Main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            long m_OrderItemID = Convert.ToInt64(dgv_Main.Rows[e.RowIndex].Cells["OrderItemID"].Value);
+            OrderItemEntity m_OrderItemEntity = m_OrderModel.OrderItemList.Find(t => t.OrderItemID == m_OrderItemID);
+            OrderItemEditForm m_OrderItemEditForm = new OrderItemEditForm(c_UpdateOrderItemReturnKey, m_OrderItemEntity);
+            m_OrderItemEditForm.StartPosition = FormStartPosition.CenterParent;
+            m_OrderItemEditForm.CallBack_Event += DropDownList_CallBack;
+            m_OrderItemEditForm.ShowDialog();
         }
     }
 }

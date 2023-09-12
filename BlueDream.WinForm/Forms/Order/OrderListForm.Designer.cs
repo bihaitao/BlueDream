@@ -103,6 +103,7 @@
             // 
             dgv_Main.AllowUserToAddRows = false;
             dgv_Main.AllowUserToDeleteRows = false;
+            dgv_Main.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_Main.BackgroundColor = SystemColors.Control;
             dgv_Main.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Main.Columns.AddRange(new DataGridViewColumn[] { OrderID, OrderNo, CustomerOrderNo, PurchaseOrgName, SaleOrgName, BrandName, PersonInChargeUser, OrderCurrencyCode, TotalNum, TotalAmount, CreateTime });
@@ -113,7 +114,7 @@
             dgv_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Main.Size = new Size(1142, 613);
             dgv_Main.TabIndex = 1;
-            dgv_Main.CellDoubleClick += dgv_Main_CellDoubleClick;
+            dgv_Main.CellMouseDoubleClick += dgv_Main_CellMouseDoubleClick;
             // 
             // OrderID
             // 

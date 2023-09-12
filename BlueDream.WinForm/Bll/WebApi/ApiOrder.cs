@@ -11,6 +11,18 @@ namespace BlueDream.WinForm
     public class ApiOrder : HttpRequest
     {
 
+        public CommonResult Save(OrderModel p_OrderModel)
+        {
+            string m_Result = HttpHelper.Post(ApiManager.Order_Save, p_OrderModel);
+
+            if (string.IsNullOrWhiteSpace(m_Result))
+            {
+                return new CommonResult();
+            }
+
+            return JsonTools.JsonToObject<CommonResult>(m_Result);
+        }
+
         public CommonResult GetOrderByID()
         {
             string m_Result = HttpHelper.Get(ApiManager.Order_GetOrderByID, GetParameterUrl());

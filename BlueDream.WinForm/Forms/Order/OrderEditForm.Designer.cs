@@ -46,7 +46,7 @@
             txt_OrderNo = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            richTextBox1 = new RichTextBox();
+            txt_Remark = new RichTextBox();
             dgv_Main = new DataGridView();
             OrderItemID = new DataGridViewTextBoxColumn();
             OrderID = new DataGridViewTextBoxColumn();
@@ -241,14 +241,14 @@
             label2.TabIndex = 0;
             label2.Text = "订单编号";
             // 
-            // richTextBox1
+            // txt_Remark
             // 
-            richTextBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            richTextBox1.Location = new Point(2, 497);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(933, 96);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
+            txt_Remark.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txt_Remark.Location = new Point(2, 497);
+            txt_Remark.Name = "txt_Remark";
+            txt_Remark.Size = new Size(933, 96);
+            txt_Remark.TabIndex = 2;
+            txt_Remark.Text = "";
             // 
             // dgv_Main
             // 
@@ -263,6 +263,7 @@
             dgv_Main.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Main.Size = new Size(933, 401);
             dgv_Main.TabIndex = 3;
+            dgv_Main.CellDoubleClick += dgv_Main_CellDoubleClick;
             // 
             // OrderItemID
             // 
@@ -314,7 +315,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(938, 602);
             Controls.Add(dgv_Main);
-            Controls.Add(richTextBox1);
+            Controls.Add(txt_Remark);
             Controls.Add(groupBox1);
             Name = "OrderEditForm";
             StartPosition = FormStartPosition.CenterParent;
@@ -339,7 +340,7 @@
         private TextBox txt_OrderNo;
         private Label label3;
         private Label label2;
-        private RichTextBox richTextBox1;
+        private RichTextBox txt_Remark;
         private Button btn_Save;
         private TextBox txt_Sale_Org;
         private TextBox txt_Purchase_Org;

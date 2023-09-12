@@ -1,13 +1,5 @@
 ﻿using BlueDream.Enum;
-using BlueDream.Model;
-using Org.BouncyCastle.Asn1.X509;
-using SqlSugar;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BlueDream.Model; 
 
 namespace BlueDream.Dal
 {
@@ -112,5 +104,28 @@ namespace BlueDream.Dal
 
              
         }
+
+        public static void Save(DBClient p_DBClient,OrderEntity p_OrderEntity)
+        {
+            OrderEntity t_OrderEntity = p_DBClient.Instance.Queryable<OrderEntity>()
+                .Where(t => t.OrderID == p_OrderEntity.OrderID)
+                .Where(t => t.DataState == DataStateEnum.Valid)
+                .First();
+
+            if(t_OrderEntity is null)
+            {
+                p_DBClient.Instance.Insertable(p_OrderEntity).ExecuteCommand();
+            }
+            else
+            { 
+                p_DBClient.Instance.Updateable(p_OrderEntity)
+                    .IgnoreColumns(t => new { t.CreateUserID, t.CreateUser, t.CreateTime, t.DataState })
+                    .Where(t => t.OrderID == p_OrderEntity.OrderID)
+                    .Where(t => t.DataState == DataStateEnum.Valid)
+                    .ExecuteCommand(); 
+            } 
+        }
+
+      
     }
 }

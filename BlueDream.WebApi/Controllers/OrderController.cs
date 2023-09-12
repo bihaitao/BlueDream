@@ -1,5 +1,6 @@
 ﻿using BlueDream.Bll;
 using BlueDream.Common;
+using BlueDream.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,7 +53,25 @@ namespace BlueDream.WebApi
             return m_PageResult;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_PageSize"></param>
+        /// <param name="p_PageIndex"></param>
+        /// <param name="p_SearchKey"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public CommonResult Save(OrderModel p_OrderModel)
+        {
+            CommonResult m_CommonResult = new CommonResult();
 
+            SysExTools.TryExec(m_CommonResult, () =>
+            {
+                OrderBll.Save(p_OrderModel);
+            });
+
+            return m_CommonResult;
+        }
 
     }
 }

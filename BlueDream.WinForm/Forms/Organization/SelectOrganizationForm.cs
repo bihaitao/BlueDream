@@ -53,16 +53,16 @@ namespace BlueDream.WinForm
             dgv_Main.DataSource = m_ApiPageResult.ResultObj;
             dgv_Main.AutoGenerateColumns = false;
             dgv_Main.Columns.Clear();
-            InitDataGridViewColumn(dgv_Main, "OrgID", "组织ID");
-            dgv_Main.Columns["OrgID"].Visible = false;
+            InitDataGridViewColumn(dgv_Main, "OrganizationID", "组织ID");
+            dgv_Main.Columns["OrganizationID"].Visible = false;
 
-            InitDataGridViewColumn(dgv_Main, "OrgCode", "组织编码");
-            InitDataGridViewColumn(dgv_Main, "OrgShortName", "简称");
+            InitDataGridViewColumn(dgv_Main, "OrganizationCode", "组织编码");
+            InitDataGridViewColumn(dgv_Main, "OrganizationShortName", "简称");
 
 
             
-            InitDataGridViewColumn(dgv_Main, "OrgCnName", "中文名称");
-            InitDataGridViewColumn(dgv_Main, "OrgEnName", "英文名称");
+            InitDataGridViewColumn(dgv_Main, "OrganizationCnName", "中文名称");
+            InitDataGridViewColumn(dgv_Main, "OrganizationEnName", "英文名称");
 
             dgv_Main_Pager.DataCount = m_ApiPageResult.TotalCount;
         }

@@ -1,4 +1,5 @@
-﻿using BlueDream.Dal;
+﻿using BlueDream.Common;
+using BlueDream.Dal;
 using BlueDream.Model;
 using System;
 using System.Collections.Generic;
@@ -30,9 +31,20 @@ namespace BlueDream.Bll
         /// <returns></returns>
         public static List<OrderModel> GetOrderListByPage(int p_PageSize, int p_PageIndex, string p_SearchKey, ref int p_TotalCount)
         {
-            return OrderDal.GetOrderListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey,ref p_TotalCount);
+            return OrderDal.GetOrderListByPage(DBHelper.CreateReadOnlyClient(), p_PageSize, p_PageIndex, p_SearchKey, ref p_TotalCount);
         }
 
-      
+
+        public static void Save(OrderModel p_OrderModel)
+        {
+            DBHelper.Transaction((t_DBClient) =>
+            {
+                OrderDal.Save(t_DBClient, p_OrderModel);
+
+                OrderItemDal.Save(t_DBClient, p_OrderModel.OrderItemList); 
+            }); 
+        }
+
+
     }
 }
