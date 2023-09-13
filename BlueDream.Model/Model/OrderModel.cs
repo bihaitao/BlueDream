@@ -1,4 +1,5 @@
-﻿using SqlSugar;
+﻿using BlueDream.Model;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BlueDream.Model
     {
         public OrderModel()
         {
-            OrderItemList = new List<OrderItemEntity>();
+            OrderItemList = new List<OrderItemModel>();
         }
 
         /// <summary>
@@ -35,6 +36,6 @@ namespace BlueDream.Model
         /// </summary>
         public string SaleOrgName { set; get; }
 
-        public List<OrderItemEntity> OrderItemList { set; get; }
+        public List<OrderItemModel> OrderItemList { set; get; }
     }
 }

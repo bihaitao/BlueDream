@@ -33,9 +33,7 @@ namespace BlueDream.WinForm
             foreach (string p_Color in txt_Color.Text.Split(','))
             {
                 int t_RowIndex = this.dgv_Main.Rows.Add();
-                dgv_Main.Rows[t_RowIndex].Cells[0].Value = p_Color;
-
-
+                dgv_Main.Rows[t_RowIndex].Cells[0].Value = p_Color; 
             }
         }
 

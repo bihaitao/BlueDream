@@ -1,5 +1,6 @@
 ﻿using BlueDream.Common;
 using BlueDream.Dal;
+using BlueDream.Enum;
 using BlueDream.Model;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,25 @@ namespace BlueDream.Bll
         /// <param name="p_OrderID"></param>
         /// <returns></returns>
         public static OrderModel GetOrderByID(long p_OrderID)
-        {
-            return OrderDal.GetOrderByID(DBHelper.CreateReadOnlyClient(), p_OrderID);
+        { 
+            OrderModel m_OrderModel = OrderDal.GetOrderByID(DBHelper.CreateReadOnlyClient(), p_OrderID);
+
+            if(m_OrderModel is null)
+            {
+                return m_OrderModel;
+            }
+
+            List<OrderItemEntity> m_OrderItemList = OrderItemDal.GetOrderItemList(DBHelper.CreateReadOnlyClient(), m_OrderModel.OrderID);
+            
+            foreach(OrderItemEntity t_OrderItemEntity in m_OrderItemList)
+            {
+                OrderItemModel m_OrderItemModel = JsonTools.JsonToObject<OrderItemModel>(t_OrderItemEntity);
+
+                m_OrderItemModel.OrderDetailList = OrderDetailDal.GetOrderDetailList(DBHelper.CreateReadOnlyClient(),m_OrderItemModel.OrderItemID);
+                m_OrderModel.OrderItemList.Add(m_OrderItemModel);
+            }
+             
+            return m_OrderModel; 
         }
 
         /// <summary>
@@ -41,7 +59,9 @@ namespace BlueDream.Bll
             {
                 OrderDal.Save(t_DBClient, p_OrderModel);
 
-                OrderItemDal.Save(t_DBClient, p_OrderModel.OrderItemList); 
+                OrderItemDal.Save(t_DBClient, p_OrderModel.OrderItemList);
+
+                OrderDetailDal.Save(t_DBClient, p_OrderModel.OrderItemList);
             }); 
         }
 

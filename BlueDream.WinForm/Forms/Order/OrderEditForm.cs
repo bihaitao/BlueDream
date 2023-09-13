@@ -167,8 +167,8 @@ namespace BlueDream.WinForm
                     return;
 
                 case c_AddOrderItemReturnKey:
-                    OrderItemEntity t_OrderItemEntity = (OrderItemEntity)p_Value;
-                    m_OrderModel.OrderItemList.Add(t_OrderItemEntity);
+                    OrderItemModel t_OrderItemModel = (OrderItemModel)p_Value;
+                    m_OrderModel.OrderItemList.Add(t_OrderItemModel);
                     dgv_Main.DataSource = null;
                     dgv_Main.DataSource = m_OrderModel.OrderItemList;
                     dgv_Main.Refresh();
@@ -315,9 +315,9 @@ namespace BlueDream.WinForm
         {
             for (int t_Index = 0; t_Index < dgv_Main.SelectedRows.Count; t_Index++)
             {
-                OrderItemEntity m_OrderItemEntity = dgv_Main.SelectedRows[t_Index].DataBoundItem as OrderItemEntity;
+                OrderItemModel m_OrderItemModel = dgv_Main.SelectedRows[t_Index].DataBoundItem as OrderItemModel;
 
-                m_OrderModel.OrderItemList.Remove(m_OrderItemEntity);
+                m_OrderModel.OrderItemList.Remove(m_OrderItemModel);
             }
 
             dgv_Main.DataSource = null;
@@ -329,8 +329,8 @@ namespace BlueDream.WinForm
         private void dgv_Main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         { 
             long m_OrderItemID = Convert.ToInt64(dgv_Main.Rows[e.RowIndex].Cells["OrderItemID"].Value);
-            OrderItemEntity m_OrderItemEntity = m_OrderModel.OrderItemList.Find(t => t.OrderItemID == m_OrderItemID);
-            OrderItemEditForm m_OrderItemEditForm = new OrderItemEditForm(c_UpdateOrderItemReturnKey, m_OrderItemEntity);
+            OrderItemModel m_OrderItemModel = m_OrderModel.OrderItemList.Find(t => t.OrderItemID == m_OrderItemID);
+            OrderItemEditForm m_OrderItemEditForm = new OrderItemEditForm(c_UpdateOrderItemReturnKey, m_OrderItemModel);
             m_OrderItemEditForm.StartPosition = FormStartPosition.CenterParent;
             m_OrderItemEditForm.CallBack_Event += DropDownList_CallBack;
             m_OrderItemEditForm.ShowDialog();

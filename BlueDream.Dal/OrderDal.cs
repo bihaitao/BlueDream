@@ -40,19 +40,11 @@ namespace BlueDream.Dal
             m_SqlTools.Append($@"       WHERE t_order.order_id = {p_OrderID}");
             m_SqlTools.Append($@"         AND t_order.data_state = {Convert.ToInt32(DataStateEnum.Valid)}");
 
-            OrderModel m_OrderModel = p_DBClient.Instance.SqlQueryable<OrderModel>(m_SqlTools.SqlString).First();
+            return p_DBClient.Instance.SqlQueryable<OrderModel>(m_SqlTools.SqlString).First();
 
-            if(m_OrderModel is null)
-            {
-                return m_OrderModel;
-            }
+            
 
-            m_OrderModel.OrderItemList = p_DBClient.Instance.Queryable<OrderItemEntity>()
-                .Where(t => t.DataState == DataStateEnum.Valid)
-                .Where(t => t.OrderID == p_OrderID)
-                .ToList();
-
-            return m_OrderModel;
+          
         }
 
         /// <summary>
