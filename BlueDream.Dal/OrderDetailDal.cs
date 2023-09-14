@@ -35,7 +35,7 @@ namespace BlueDream.Dal
             foreach (OrderItemModel t_OrderItemModel in p_OrderItemList)
             {
                 Delete(p_DBClient, t_OrderItemModel);
-                p_DBClient.Instance.Insertable<OrderDetailEntity>(p_OrderItemList);
+                p_DBClient.Instance.Insertable<OrderDetailEntity>(t_OrderItemModel.OrderDetailList).ExecuteCommand();
             }
         }
 

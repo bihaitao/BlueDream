@@ -1,6 +1,9 @@
 ﻿using BlueDream.Common;
 using BlueDream.Model;
+using BlueDream.Model.Common;
 using Org.BouncyCastle.Asn1.X509;
+using Sunny.UI;
+using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +49,41 @@ namespace BlueDream.WinForm
             txt_UnitPrice.Text = m_OrderItemModel.UnitPrice.ToString();
             txt_Composition.Text = m_OrderItemModel.Composition;
 
+            InitDataGridViewColumn(dgv_Main, "Color", "颜色");
+
+            var m_Groups_Size = p_OrderItemModel.OrderDetailList.GroupBy(t => t.Size);
+            foreach (var t_SizeGroupTemp in m_Groups_Size)
+            { 
+                InitDataGridViewColumn(dgv_Main, t_SizeGroupTemp.Key, t_SizeGroupTemp.Key);
+            }
+
+            var m_Groups_Color = p_OrderItemModel.OrderDetailList.GroupBy(t => t.Color);
+             
+            foreach (var t_ColorGroupTemp in m_Groups_Color)
+            {
+                int t_RowIndex = this.dgv_Main.Rows.Add();
+                dgv_Main.Rows[t_RowIndex].Cells[0].Value = t_ColorGroupTemp.Key;
+                dgv_Main.Rows[t_RowIndex].Cells[0].ReadOnly = true;
+            }
+
+            foreach(OrderDetailEntity t_OrderDetailEntity in p_OrderItemModel.OrderDetailList)
+            {
+                dgv_Main.Rows[FindRowIndex(t_OrderDetailEntity.Color)].Cells[t_OrderDetailEntity.Size].Value = t_OrderDetailEntity.Quantity;
+            }
+
+        }
+
+        private int FindRowIndex(string p_Color)
+        {
+            for(int t_RowIndex=0;t_RowIndex<dgv_Main.Rows.Count;t_RowIndex++)
+            {
+                if (dgv_Main.Rows[t_RowIndex].Cells[0].Value.ToString() == p_Color)
+                {
+                    return t_RowIndex;
+                }
+            }
+
+            return 0;
         }
 
         private void OrderItemEditForm_Load(object sender, EventArgs e)
@@ -57,7 +95,7 @@ namespace BlueDream.WinForm
         {
             if (m_IsAdd)
             {
-                OrderItemModel m_OrderItemModel = new OrderItemModel();
+                m_OrderItemModel = new OrderItemModel();
 
                 m_OrderItemModel.OrderItemID = StringTools.GetNewGuidLong();
 
@@ -77,6 +115,8 @@ namespace BlueDream.WinForm
             }
             else
             {
+                m_IsAdd = true;
+
                 m_OrderItemModel.ItemIndex = Convert.ToInt32(txt_ItemIndex.Text);
 
                 m_OrderItemModel.StyleNo = txt_StyleNo.Text;
@@ -108,13 +148,15 @@ namespace BlueDream.WinForm
 
                     m_OrderDetailEntity.Color = dgv_Main.Rows[t_RowIndex].Cells[0].Value.ToString();
 
-                    m_OrderDetailEntity.Size = dgv_Main.Columns[0].Name;
+                    m_OrderDetailEntity.Size = dgv_Main.Columns[t_ColumnIndex].Name;
 
                     m_OrderDetailEntity.OrderDetailNo = "";
 
                     m_OrderDetailEntity.Quantity = Convert.ToInt32(dgv_Main.Rows[t_RowIndex].Cells[t_ColumnIndex].Value);
 
                     m_OrderDetailEntity.DeliveryQuantity = 0;
+
+                    BaseTools.InitBase(m_OrderDetailEntity);
 
                     m_DetailList.Add(m_OrderDetailEntity);
                 }
