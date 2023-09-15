@@ -51,18 +51,19 @@ namespace BlueDream.WinForm
 
             InitDataGridViewColumn(dgv_Main, "Color", "颜色");
 
-            var m_Groups_Size = p_OrderItemModel.OrderDetailList.GroupBy(t => t.Size);
-            foreach (var t_SizeGroupTemp in m_Groups_Size)
+            txt_Size.Text = string.Join(',', m_OrderItemModel.Size);
+           
+            foreach (string t_Size in p_OrderItemModel.Size)
             { 
-                InitDataGridViewColumn(dgv_Main, t_SizeGroupTemp.Key, t_SizeGroupTemp.Key);
+                InitDataGridViewColumn(dgv_Main, t_Size, t_Size);
             }
 
-            var m_Groups_Color = p_OrderItemModel.OrderDetailList.GroupBy(t => t.Color);
-             
-            foreach (var t_ColorGroupTemp in m_Groups_Color)
+            txt_Color.Text = string.Join(',', m_OrderItemModel.Colors);
+
+            foreach (string t_Color in p_OrderItemModel.Colors)
             {
                 int t_RowIndex = this.dgv_Main.Rows.Add();
-                dgv_Main.Rows[t_RowIndex].Cells[0].Value = t_ColorGroupTemp.Key;
+                dgv_Main.Rows[t_RowIndex].Cells[0].Value = t_Color;
                 dgv_Main.Rows[t_RowIndex].Cells[0].ReadOnly = true;
             }
 
@@ -73,6 +74,9 @@ namespace BlueDream.WinForm
 
         }
 
+
+        
+
         private int FindRowIndex(string p_Color)
         {
             for(int t_RowIndex=0;t_RowIndex<dgv_Main.Rows.Count;t_RowIndex++)
@@ -81,8 +85,7 @@ namespace BlueDream.WinForm
                 {
                     return t_RowIndex;
                 }
-            }
-
+            } 
             return 0;
         }
 
@@ -135,7 +138,11 @@ namespace BlueDream.WinForm
 
         private List<OrderDetailEntity> GetDetailList()
         {
+            
             List<OrderDetailEntity> m_DetailList = new List<OrderDetailEntity>();
+
+            int OrderIndex = 1;
+
             for (int t_RowIndex = 0; t_RowIndex < dgv_Main.RowCount; t_RowIndex++)
             {
                 for (int t_ColumnIndex = 1; t_ColumnIndex < dgv_Main.ColumnCount; t_ColumnIndex++)
@@ -145,6 +152,10 @@ namespace BlueDream.WinForm
                     m_OrderDetailEntity.OrderDetailID = StringTools.GetNewGuidLong();
 
                     m_OrderDetailEntity.OrderItemID = m_OrderItemModel.OrderItemID;
+
+                    m_OrderDetailEntity.OrderIndex = OrderIndex;
+
+                    OrderIndex++;
 
                     m_OrderDetailEntity.Color = dgv_Main.Rows[t_RowIndex].Cells[0].Value.ToString();
 

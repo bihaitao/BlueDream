@@ -19,6 +19,9 @@ namespace BlueDream.Model
         /// </summary>
         [SugarColumn(ColumnName = "order_item_id")]
         public long OrderItemID { get; set; }
+
+        [SugarColumn(ColumnName = "order_index")]
+        public int OrderIndex { set; get; }
         /// <summary>
         /// 订单明细编码（sku）
         /// </summary>
