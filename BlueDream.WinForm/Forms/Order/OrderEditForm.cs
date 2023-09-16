@@ -63,7 +63,7 @@ namespace BlueDream.WinForm
                 this.Close();
                 return;
             }
-            m_OrderModel = JsonTools.JsonToObject<OrderModel>(m_CommonResult_Order.ResultObj);
+            m_OrderModel = JsonTools.ToObject<OrderModel>(m_CommonResult_Order.ResultObj);
 
             txt_OrderNo.Text = m_OrderModel.OrderNo;
             txt_CustomerOrderNo.Text = m_OrderModel.CustomerOrderNo;
@@ -77,7 +77,7 @@ namespace BlueDream.WinForm
             {
                 MessageBox.Show(m_CommonResult_Brand.ExMessage);
             }
-            BrandEntity m_BrandEntity = JsonTools.JsonToObject<BrandEntity>(m_CommonResult_Brand.ResultObj);
+            BrandEntity m_BrandEntity = JsonTools.ToObject<BrandEntity>(m_CommonResult_Brand.ResultObj);
             txt_Brand.Text = m_BrandEntity.BrandShortName;
             txt_Brand.Tag = m_BrandEntity;
             //================================================================================================
@@ -91,7 +91,7 @@ namespace BlueDream.WinForm
             {
                 MessageBox.Show(m_CommonResult_User.ExMessage);
             }
-            UserEntity m_UserEntity = JsonTools.JsonToObject<UserEntity>(m_CommonResult_User.ResultObj);
+            UserEntity m_UserEntity = JsonTools.ToObject<UserEntity>(m_CommonResult_User.ResultObj);
             txt_PersonInCharge.Text = m_UserEntity.NickName;
             txt_PersonInCharge.Tag = m_UserEntity;
             //================================================================================================
@@ -104,7 +104,7 @@ namespace BlueDream.WinForm
             {
                 MessageBox.Show(m_CommonResult_PurchaseOrg.ExMessage);
             }
-            OrganizationEntity m_PurchaseOrg = JsonTools.JsonToObject<OrganizationEntity>(m_CommonResult_PurchaseOrg.ResultObj);
+            OrganizationEntity m_PurchaseOrg = JsonTools.ToObject<OrganizationEntity>(m_CommonResult_PurchaseOrg.ResultObj);
             txt_Purchase_Org.Text = m_PurchaseOrg.OrganizationShortName;
             txt_Purchase_Org.Tag = m_PurchaseOrg;
             //================================================================================================
@@ -117,7 +117,7 @@ namespace BlueDream.WinForm
             {
                 MessageBox.Show(m_CommonResult_SaleOrg.ExMessage);
             }
-            OrganizationEntity m_SaleOrg = JsonTools.JsonToObject<OrganizationEntity>(m_CommonResult_SaleOrg.ResultObj);
+            OrganizationEntity m_SaleOrg = JsonTools.ToObject<OrganizationEntity>(m_CommonResult_SaleOrg.ResultObj);
             txt_Sale_Org.Text = m_PurchaseOrg.OrganizationShortName;
             txt_Sale_Org.Tag = m_PurchaseOrg;
             //================================================================================================

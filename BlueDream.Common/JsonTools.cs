@@ -29,7 +29,7 @@ namespace BlueDream.Common
         /// <typeparam name="T"></typeparam>
         /// <param name="p_JsonString"></param>
         /// <returns></returns>
-        public static T JsonToObject<T>(string p_JsonString)
+        public static T ToObject<T>(string p_JsonString)
         {
             return JsonConvert.DeserializeObject<T>(p_JsonString);
         }
@@ -40,7 +40,7 @@ namespace BlueDream.Common
         /// <typeparam name="T"></typeparam>
         /// <param name="p_Object"></param>
         /// <returns></returns>
-        public static T JsonToObject<T>(Object p_Object)
+        public static T ToObject<T>(Object p_Object)
         {
             string m_Json = JsonConvert.SerializeObject(p_Object);
             return JsonConvert.DeserializeObject<T>(m_Json);

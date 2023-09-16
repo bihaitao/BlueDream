@@ -30,7 +30,7 @@ namespace BlueDream.Bll
             
             foreach(OrderItemEntity t_OrderItemEntity in m_OrderItemList)
             {
-                OrderItemModel m_OrderItemModel = JsonTools.JsonToObject<OrderItemModel>(t_OrderItemEntity);
+                OrderItemModel m_OrderItemModel = JsonTools.ToObject<OrderItemModel>(t_OrderItemEntity);
 
                 m_OrderItemModel.OrderDetailList = OrderDetailDal.GetOrderDetailList(DBHelper.CreateReadOnlyClient(),m_OrderItemModel.OrderItemID);
                 m_OrderModel.OrderItemList.Add(m_OrderItemModel);
@@ -57,11 +57,28 @@ namespace BlueDream.Bll
         {
             DBHelper.Transaction((t_DBClient) =>
             {
+                //重新生成Item和DetailID
+
+                for(int t_Index_Item=0; t_Index_Item< p_OrderModel.OrderItemList.Count; t_Index_Item++)
+                {
+                    p_OrderModel.OrderItemList[t_Index_Item].OrderItemID =  StringTools.GetNewGuidLong();
+
+                    for(int t_Index_Detail=0; t_Index_Detail<p_OrderModel.OrderItemList[t_Index_Item].OrderDetailList.Count; t_Index_Detail ++)
+                    {
+                        p_OrderModel.OrderItemList[t_Index_Item].OrderDetailList[t_Index_Detail].OrderItemID = p_OrderModel.OrderItemList[t_Index_Item].OrderItemID;
+                        p_OrderModel.OrderItemList[t_Index_Item].OrderDetailList[t_Index_Detail].OrderDetailID = StringTools.GetNewGuidLong();
+                    }
+                }
+
+
                 OrderDal.Save(t_DBClient, p_OrderModel);
 
                 OrderItemDal.Save(t_DBClient, p_OrderModel.OrderItemList);
 
-                OrderDetailDal.Save(t_DBClient, p_OrderModel.OrderItemList);
+                foreach(OrderItemModel t_OrderItemModel in p_OrderModel.OrderItemList)
+                {
+                    OrderDetailDal.Save(t_DBClient, t_OrderItemModel.OrderDetailList);
+                } 
             }); 
         }
 

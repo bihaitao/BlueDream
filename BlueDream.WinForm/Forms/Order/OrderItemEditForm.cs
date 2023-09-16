@@ -23,8 +23,7 @@ namespace BlueDream.WinForm
         public delegate void CallBack(string p_Key, object p_Value);//定义委托
         public event CallBack CallBack_Event;//事件变量
 
-        public bool m_IsAdd = true;
-
+      
         OrderItemModel m_OrderItemModel = new OrderItemModel();
 
 
@@ -37,8 +36,7 @@ namespace BlueDream.WinForm
         public OrderItemEditForm(string p_ReturnKey, OrderItemModel p_OrderItemModel)
         {
             InitializeComponent();
-
-            m_IsAdd = false;
+             
             m_ReturnKey = p_ReturnKey;
             m_OrderItemModel = p_OrderItemModel;
 
@@ -96,44 +94,23 @@ namespace BlueDream.WinForm
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (m_IsAdd)
-            {
-                m_OrderItemModel = new OrderItemModel();
+            m_OrderItemModel = new OrderItemModel();
 
-                m_OrderItemModel.OrderItemID = StringTools.GetNewGuidLong();
+            m_OrderItemModel.OrderItemID = StringTools.GetNewGuidLong();
 
-                m_OrderItemModel.ItemIndex = Convert.ToInt32(txt_ItemIndex.Text);
+            m_OrderItemModel.ItemIndex = Convert.ToInt32(txt_ItemIndex.Text);
 
-                m_OrderItemModel.StyleNo = txt_StyleNo.Text;
+            m_OrderItemModel.StyleNo = txt_StyleNo.Text;
 
-                m_OrderItemModel.DeliveryDate = Convert.ToDateTime(this.dtp_DeliveryDate.Text);
+            m_OrderItemModel.DeliveryDate = Convert.ToDateTime(this.dtp_DeliveryDate.Text);
 
-                m_OrderItemModel.UnitPrice = Convert.ToDecimal(txt_UnitPrice.Text);
+            m_OrderItemModel.UnitPrice = Convert.ToDecimal(txt_UnitPrice.Text);
 
-                m_OrderItemModel.Composition = txt_Composition.Text;
+            m_OrderItemModel.Composition = txt_Composition.Text;
 
-                m_OrderItemModel.OrderDetailList = GetDetailList();
-  
-                CallBack_Event(m_ReturnKey, m_OrderItemModel);
-            }
-            else
-            {
-                m_IsAdd = true;
+            m_OrderItemModel.OrderDetailList = GetDetailList();
 
-                m_OrderItemModel.ItemIndex = Convert.ToInt32(txt_ItemIndex.Text);
-
-                m_OrderItemModel.StyleNo = txt_StyleNo.Text;
-
-                m_OrderItemModel.DeliveryDate = Convert.ToDateTime(this.dtp_DeliveryDate.Text);
-
-                m_OrderItemModel.UnitPrice = Convert.ToDecimal(txt_UnitPrice.Text);
-
-                m_OrderItemModel.Composition = txt_Composition.Text;
-
-                m_OrderItemModel.OrderDetailList = GetDetailList();
-
-                CallBack_Event(m_ReturnKey, m_OrderItemModel);
-            }
+            CallBack_Event(m_ReturnKey, m_OrderItemModel);
         }
 
         private List<OrderDetailEntity> GetDetailList()

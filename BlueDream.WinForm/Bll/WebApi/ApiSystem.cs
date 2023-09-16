@@ -18,7 +18,7 @@ namespace BlueDream.WinForm
                 return new CommonResult();
             }
 
-            return JsonTools.JsonToObject<CommonResult>(m_Result);
+            return JsonTools.ToObject<CommonResult>(m_Result);
         }
 
         public CommonResult GetRigth()
@@ -30,7 +30,7 @@ namespace BlueDream.WinForm
                 return new CommonResult();
             }
 
-            return JsonTools.JsonToObject<CommonResult>(m_Result);
+            return JsonTools.ToObject<CommonResult>(m_Result);
         }
 
     }

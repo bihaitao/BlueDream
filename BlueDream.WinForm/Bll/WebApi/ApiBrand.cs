@@ -19,7 +19,7 @@ namespace BlueDream.WinForm
                 return new CommonResult();
             }
 
-            return JsonTools.JsonToObject<CommonResult>(m_Result);
+            return JsonTools.ToObject<CommonResult>(m_Result);
         }
 
         public ApiPageResult<List<BrandEntity>> GetBrandListByPage()
@@ -31,7 +31,7 @@ namespace BlueDream.WinForm
                 return new ApiPageResult<List<BrandEntity>>();
             }
 
-            return JsonTools.JsonToObject<ApiPageResult<List<BrandEntity>>>(m_Result);
+            return JsonTools.ToObject<ApiPageResult<List<BrandEntity>>>(m_Result);
         }
 
     

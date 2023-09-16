@@ -20,7 +20,7 @@ namespace BlueDream.WinForm
                 return new CommonResult();
             }
 
-            return JsonTools.JsonToObject<CommonResult>(m_Result);
+            return JsonTools.ToObject<CommonResult>(m_Result);
         }
 
         public CommonResult GetOrderByID()
@@ -32,7 +32,7 @@ namespace BlueDream.WinForm
                 return new CommonResult();
             }
 
-            return JsonTools.JsonToObject<CommonResult>(m_Result);
+            return JsonTools.ToObject<CommonResult>(m_Result);
         }
 
 
@@ -46,7 +46,7 @@ namespace BlueDream.WinForm
                 return new ApiPageResult<List<OrderModel>>();
             }
 
-            return JsonTools.JsonToObject<ApiPageResult<List<OrderModel>>>(m_Result);
+            return JsonTools.ToObject<ApiPageResult<List<OrderModel>>>(m_Result);
         }
        
       

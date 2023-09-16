@@ -19,7 +19,7 @@ namespace BlueDream.WinForm
                 return new ApiResult<List<CurrencyModel>>();
             }
 
-            return JsonTools.JsonToObject<ApiResult<List<CurrencyModel>>>(m_Result);
+            return JsonTools.ToObject<ApiResult<List<CurrencyModel>>>(m_Result);
         }
 
         

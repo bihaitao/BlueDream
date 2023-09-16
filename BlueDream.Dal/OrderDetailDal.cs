@@ -1,4 +1,5 @@
-﻿using BlueDream.Enum;
+﻿using BlueDream.Common;
+using BlueDream.Enum;
 using BlueDream.Model;
 using System;
 using System.Collections.Generic;
@@ -30,29 +31,31 @@ namespace BlueDream.Dal
         /// </summary>
         /// <param name="p_DBClient"></param>
         /// <param name="p_OrderItemList"></param>
-        public static void Save(DBClient p_DBClient, List<OrderItemModel> p_OrderItemList)
-        { 
-            foreach (OrderItemModel t_OrderItemModel in p_OrderItemList)
-            {
-                Delete(p_DBClient, t_OrderItemModel);
-                p_DBClient.Instance.Insertable<OrderDetailEntity>(t_OrderItemModel.OrderDetailList).ExecuteCommand();
-            }
-        }
-
-        public static void Delete(DBClient p_DBClient, OrderItemEntity p_OrderItemEntity)
+        public static void Save(DBClient p_DBClient, List<OrderDetailEntity> p_OrderDetailList)
         {
-            p_DBClient.Instance.Updateable<OrderDetailEntity>()
-                   .SetColumns(t => new OrderDetailEntity()
-                   {
-                       UpdateTime = DateTime.Now,
-                       UpdateUser = "",
-                       UpdateUserID = 0,
-                       DataState = DataStateEnum.Delete
-                   })
-                   .Where(t => t.OrderItemID == p_OrderItemEntity.OrderItemID)
-                   .Where(t => t.DataState == DataStateEnum.Valid)
-                   .ExecuteCommand();
+            //查询原有订单项，并删除
+            List<OrderDetailEntity> m_OldList = GetOrderDetailList(p_DBClient, p_OrderDetailList[0].OrderItemID);
+            p_DBClient.Instance.Deleteable(m_OldList).ExecuteCommand();
 
+            //将新数据插入表 
+            p_DBClient.Instance.Insertable(p_OrderDetailList).ExecuteCommand();
+
+            //将删除的订单项转移到删除表
+            List<OrderDetailDelEntity> m_DelList = new List<OrderDetailDelEntity>();
+
+            foreach (OrderDetailEntity t_OrderDetailEntity in m_OldList)
+            {
+                OrderDetailDelEntity m_OrderDetailDelEntity = JsonTools.ToObject<OrderDetailDelEntity>(t_OrderDetailEntity); 
+                m_OrderDetailDelEntity.DataState = DataStateEnum.Delete;
+                m_OrderDetailDelEntity.UpdateTime = DateTime.Now;
+                m_OrderDetailDelEntity.UpdateUser = "";
+                m_OrderDetailDelEntity.UpdateUserID = 0;
+                m_DelList.Add(m_OrderDetailDelEntity);
+            }
+
+            p_DBClient.Instance.Insertable(m_DelList).ExecuteCommand();
         }
+
+         
     }
 }
